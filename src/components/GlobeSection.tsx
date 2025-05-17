@@ -16,27 +16,29 @@ const GlobeSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full bg-gray-900 py-20 px-4 flex flex-col md:flex-row items-center justify-center gap-12">
-      <div className="w-full md:w-1/2 flex justify-center">
-        <div style={{ width: '350px', height: '350px', pointerEvents: 'none' }}>
-          <Globe
-            ref={globeEl}
-            globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-            backgroundColor="rgba(0,0,0,0)"
-            showAtmosphere={true}
-            atmosphereColor="#3b82f6"
-            atmosphereAltitude={0.25}
-          />
+    <section className="w-full bg-gray-50 py-24 px-4">
+      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+        <div className="flex-shrink-0 flex justify-start w-full md:w-auto">
+          <div style={{ width: '140px', height: '140px', pointerEvents: 'none' }}>
+            <Globe
+              ref={globeEl}
+              globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+              backgroundColor="rgba(0,0,0,0)"
+              showAtmosphere={true}
+              atmosphereColor="#3b82f6"
+              atmosphereAltitude={0.25}
+            />
+          </div>
         </div>
-      </div>
-      <div className="w-full md:w-1/2 text-center md:text-left">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          Rock steady<br />
-          <span className="text-blue-400">and blazing fast</span>
-        </h2>
-        <p className="text-lg text-blue-100 bg-blue-800 bg-opacity-40 rounded px-4 py-3 inline-block">
-          Vantage Media puts your business within milliseconds of every customer on the planet, with the capacity to handle even the most epic product launches.
-        </p>
+        <div className="flex-1 text-center md:text-left">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Rock steady<br />
+            <span className="text-blue-500">and blazing fast</span>
+          </h2>
+          <p className="text-lg text-blue-700 bg-blue-100 bg-opacity-60 rounded px-4 py-3 inline-block">
+            Vantage Media puts your business within milliseconds of every customer on the planet, with the capacity to handle even the most epic product launches.
+          </p>
+        </div>
       </div>
     </section>
   );
