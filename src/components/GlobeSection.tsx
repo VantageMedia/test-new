@@ -16,10 +16,10 @@ const GlobeSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full bg-gray-50 py-24 px-4">
-      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-        <div className="flex-shrink-0 flex justify-start w-full md:w-auto">
-          <div style={{ width: '140px', height: '140px', pointerEvents: 'none' }}>
+    <section className="w-full bg-gray-50 py-24 px-4 min-h-[320px]">
+      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16">
+        <div className="flex-shrink-0 md:pl-0 pl-4" style={{alignSelf: 'flex-start'}}>
+          <div style={{ width: '180px', height: '180px', pointerEvents: 'none' }}>
             <Globe
               ref={globeEl}
               globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
@@ -30,12 +30,12 @@ const GlobeSection: React.FC = () => {
             />
           </div>
         </div>
-        <div className="flex-1 text-center md:text-left">
+        <div className="flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Rock steady<br />
             <span className="text-blue-500">and blazing fast</span>
           </h2>
-          <p className="text-lg text-blue-700 bg-blue-100 bg-opacity-60 rounded px-4 py-3 inline-block">
+          <p className="text-lg text-blue-700 bg-blue-100 bg-opacity-60 rounded px-4 py-3 inline-block max-w-xl">
             Vantage Media puts your business within milliseconds of every customer on the planet, with the capacity to handle even the most epic product launches.
           </p>
         </div>
