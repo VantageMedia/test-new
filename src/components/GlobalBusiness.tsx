@@ -37,7 +37,7 @@ const GlobalBusiness: React.FC = () => {
             </Button>
           </div>
           <div className="lg:w-2/5 flex justify-center items-center">
-            <div className="rounded-lg shadow-lg bg-white flex items-center justify-center" style={{ width: 320, height: 320 }}>
+            <div style={{ width: 480, height: 480, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Globe
                 ref={globeEl}
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
@@ -45,8 +45,8 @@ const GlobalBusiness: React.FC = () => {
                 showAtmosphere={true}
                 atmosphereColor="#3b82f6"
                 atmosphereAltitude={0.25}
-                width={320}
-                height={320}
+                width={480}
+                height={480}
               />
             </div>
           </div>
