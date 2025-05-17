@@ -1,8 +1,20 @@
-
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
+import Globe from 'react-globe.gl';
 
 const GlobalBusiness: React.FC = () => {
+  const globeEl = useRef<any>();
+
+  useEffect(() => {
+    if (globeEl.current) {
+      globeEl.current.controls().autoRotate = true;
+      globeEl.current.controls().autoRotateSpeed = 0.5;
+      globeEl.current.controls().enableZoom = false;
+      globeEl.current.controls().enablePan = false;
+      globeEl.current.controls().enableRotate = false;
+    }
+  }, []);
+
   return (
     <section className="py-16 px-4">
       <div className="container mx-auto max-w-7xl">
@@ -24,13 +36,19 @@ const GlobalBusiness: React.FC = () => {
               Get Started Today
             </Button>
           </div>
-          
-          <div className="lg:w-2/5">
-            <img 
-              src="https://images.unsplash.com/photo-1501854140801-50d01698950b" 
-              alt="Global Business Reach" 
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
+          <div className="lg:w-2/5 flex justify-center items-center">
+            <div className="rounded-lg shadow-lg overflow-hidden bg-white" style={{ width: '100%', maxWidth: 400, height: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: '100%', height: '100%' }}>
+                <Globe
+                  ref={globeEl}
+                  globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+                  backgroundColor="rgba(0,0,0,0)"
+                  showAtmosphere={true}
+                  atmosphereColor="#3b82f6"
+                  atmosphereAltitude={0.25}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
