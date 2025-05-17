@@ -8,13 +8,17 @@ const GlobeSection: React.FC = () => {
     if (globeEl.current) {
       globeEl.current.controls().autoRotate = true;
       globeEl.current.controls().autoRotateSpeed = 0.5;
+      // Disable user interaction
+      globeEl.current.controls().enableZoom = false;
+      globeEl.current.controls().enablePan = false;
+      globeEl.current.controls().enableRotate = false;
     }
   }, []);
 
   return (
     <section className="w-full bg-gray-900 py-20 px-4 flex flex-col md:flex-row items-center justify-center gap-12">
       <div className="w-full md:w-1/2 flex justify-center">
-        <div style={{ width: '350px', height: '350px' }}>
+        <div style={{ width: '350px', height: '350px', pointerEvents: 'none' }}>
           <Globe
             ref={globeEl}
             globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
