@@ -17,9 +17,10 @@ const GlobeSection: React.FC = () => {
 
   return (
     <section className="w-full bg-gray-50 py-24 px-4 min-h-[320px]">
-      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16">
-        <div className="flex-shrink-0 md:pl-0 pl-4" style={{alignSelf: 'flex-start'}}>
-          <div style={{ width: '180px', height: '180px', pointerEvents: 'none' }}>
+      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-16">
+        {/* Globe on the left */}
+        <div className="flex-shrink-0 md:pr-0 pr-4 md:order-1 order-1" style={{ alignSelf: 'center' }}>
+          <div style={{ width: '320px', height: '320px', pointerEvents: 'none' }}>
             <Globe
               ref={globeEl}
               globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
@@ -30,7 +31,8 @@ const GlobeSection: React.FC = () => {
             />
           </div>
         </div>
-        <div className="flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+        {/* Text on the right */}
+        <div className="flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left md:order-2 order-2">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Rock steady<br />
             <span className="text-blue-500">and blazing fast</span>
