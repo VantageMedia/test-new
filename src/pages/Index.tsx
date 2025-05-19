@@ -7,7 +7,6 @@ import GrowthPlan from '@/components/GrowthPlan';
 import GlobalBusiness from '@/components/GlobalBusiness';
 import FreeOffer from '@/components/FreeOffer';
 import Footer from '@/components/Footer';
-import GlobeSection from '@/components/GlobeSection';
 
 const Index: React.FC = () => {
   return (
@@ -33,7 +32,6 @@ const Index: React.FC = () => {
           <GrowthPlan />
           <GlobalBusiness />
           <FreeOffer />
-          <GlobeSection />
         </main>
         
         <Footer />
