@@ -6,6 +6,7 @@ import RevenueServices from '@/components/RevenueServices';
 import GrowthPlan from '@/components/GrowthPlan';
 import GlobalBusiness from '@/components/GlobalBusiness';
 import FreeOffer from '@/components/FreeOffer';
+import Partners from '@/components/Partners';
 import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
@@ -32,6 +33,7 @@ const Index: React.FC = () => {
           <GrowthPlan />
           <GlobalBusiness />
           <FreeOffer />
+          <Partners />
         </main>
         
         <Footer />
