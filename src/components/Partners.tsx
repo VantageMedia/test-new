@@ -16,11 +16,11 @@ const partners = [
   },
   {
     name: 'Qualcomm',
-    logo: '/partners/Qualcomm-Logo.png',
+    logo: '/partners/qualcomm.png',
   },
   {
     name: 'Energy Transfer',
-    logo: '/partners/energytrasnfer.png',
+    logo: '/partners/energytransfer.png',
   },
   {
     name: 'Kroger',
