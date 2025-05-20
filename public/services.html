@@ -1,0 +1,352 @@
+<!doctype html><html lang="en">
+<head><meta charset="utf-8">
+<title>Vantage Media</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1"> 
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="img/logo.png"> 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="css/animate.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.1/css/all.css'>
+<script>
+$(document).ready(function(){
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        window.location.hash = hash;
+      });
+    }
+  });
+});
+</script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-md main-nav navigation fixed-top sidebar-left">
+		<div class="container">
+			<button class="navbar-toggler" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>			
+			 <div class="collapse navbar-collapse" id="main-navbar">
+				 <ul class="nav navbar-nav">
+					 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+					 <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+					 <li class="nav-item"><a class="nav-link " href="services.html">Services</a></li>
+					 <li class="nav-item"><a class="nav-link " href="#">Case Studies</a></li>
+					 <li class="nav-item"><a class="nav-link " href="#">Contact Us</a></li>
+				 </ul>				 				 	 
+			 </div>
+		</div>
+	</nav>
+	 
+<main>
+<!-- our services start -->
+
+<section class="our-services">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="our-services-header wow slideInDown">
+					<img src="img/blob-img.png" alt="">
+					<h2 class="section-title" >OUR <span class="text-accent">SERVICES</span></h2>
+				</div>
+
+				<div class="our-services-wrapper">
+					<div class="our-services-item">
+						<h3 class="wow slideInRight">WEBSITE DEVELOPMENT</h3>
+						<img src="img/services/web-dev.png" alt="" class="wow slideInLeft">
+					</div>
+					<div class="our-services-item">
+						<h3 class="wow slideInRight">SOCIAL MEDIA</h3>
+						<img src="img/services/social.png" alt="" class="wow slideInLeft">
+					</div>
+					<div class="our-services-item">
+						<h3 class="wow slideInRight">AD CAMPAIGNS</h3>
+						<img src="img/services/AD-CAMPAIGNS.png" alt="" class="wow slideInLeft">
+					</div>
+					<div class="our-services-item">
+						<h3 class="wow slideInRight">SEO</h3>
+						<img src="img/services/seo.png" alt="" class="wow slideInLeft">
+					</div>
+					<div class="our-services-item">
+						<h3 class="wow slideInRight">EMAIL MARKETING</h3>
+						<img src="img/services/email.png" alt="" class="wow slideInLeft">
+					</div>
+					<div class="our-services-item">
+						<h3 class="wow slideInRight">SMS CAMPAIGNS</h3>
+						<img src="img/services/message.png" alt="" class="wow slideInLeft">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- our services end -->
+
+<!-- plan start -->
+ <section class="plan">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="section-title wow slideInLeft"><span class="text-accent">EXECUTE</span> A PLAN</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 mb-4 mb-lg-0 d-flex">
+				<div class="plan-item">
+					<h3 class="wow slideInRight">BREAKDOWN YOUR REVENUE</h3>
+					<img src="img/services/plan-img-1.png" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-6 d-flex">
+				<div class="plan-item">
+					<h3 class="wow slideInRight">CONTROL YOUR DEMOGRAPHIC</h3>
+					<img src="img/services/plan-img-2.png" alt="" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+ </section>
+<!-- plan end -->
+
+<section class="section faqs-dd  edge top-left book-now" id="faq">
+	<div class="container">		
+		<div class="row">		
+		<div class="col-lg-12 mx-lg-auto ">
+			 <div class="offer_box"> 
+				<div class="row">
+					<div class="col-lg-8 wow slideInDown pl-lg-5">
+						<h3>BOOK A FREE</h3>
+						<h2>CONSULTATION</h2>
+						<h5> yes...we did say free </h5>
+					</div>
+					<div class="col-lg-4 wow slideInDown align-self-center">
+						<div class="offer_claim">  
+							<button type="button" data-toggle="modal" data-target="#myModal" class="book-now-btn"> BOOK NOW </button>
+						</div>
+					</div>
+				</div>
+			 </div>
+		</div>
+		</div>
+	</div>
+</section>
+
+
+<!--  achievement start -->
+  <section class="achievements">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="wow slideInRight">SOME OF <span class="text-accent">OUR ACHIEVEMENTS</span></h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 mb-5 mb-lg-0 wow slideInRight">
+				<p class="mb-md-5 mb-4">At Vantage Media, we believe in results-driven marketing that turns vision into impact. With over 80 million people reached and more than 100,000 customers acquired for clients, our strategies are designed to help brands grow and thrive. With a track record of success and over 500+ satisfied clients, we are committed to creating meaningful connections between businesses and their audiences. Whether you’re looking to scale your reach or optimize your digital presence, our expertise ensures you get the results you need.</p>
+				<a href="#" class="btn-gradient">REACH OUT TODAY</a>
+			</div>
+			<div class="col-lg-6">
+				<div class="achievements-grid wow slideInDown">
+					<div class="achievement-item">
+						<img src="img/services/users-img.png" alt="">
+						<h3>80M+</h3>
+						<p>People reached</p>
+					</div>
+					<div class="achievement-item">
+						<img src="img/services/personalcard-img.png" alt="">
+						<h3>500+</h3>
+						<p>Satisfied Clients</p>
+					</div>
+					<div class="achievement-item">
+						<img src="img/services/revenue-img.png" alt="">
+						<h3>$16.2M+</h3>
+						<p>Revenue Generated</p>
+					</div>
+					<div class="achievement-item">
+						<img src="img/services/social-img.png" alt="">
+						<h3>5000+</h3>
+						<p>Social Media Posts</p>
+					</div>
+					<div class="achievement-item">
+						<img src="img/services/sr-sendchat.png" alt="">
+						<h3>100,000+</h3>
+						<p>Customers Acquired</p>
+					</div>
+					<div class="achievement-item">
+						<img src="img/services/sr-signal-high.png" alt="">
+						<h3>200+</h3>
+						<p>Ad campaigns</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </section>
+<!--  achievement end -->
+
+
+
+</main> 
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+			<div class="modal_head request_modal">
+					<h3>Request Website <div> Design  </div></h3>
+					<p> You will get a response within 72  hours. We will explain in details how we can help you 
+						fuel and grow your brand within the stated budget.</p>
+
+			</div>
+			<div class="modal_head success_modal">
+					<h3>  <div> SUCCESS!  </div></h3>
+					<p> Thanks for filling out the form! You should be contacted within 72 hours.</p>
+
+			</div>
+			<div class="modal-body">
+				<div class="success_section">
+						<img src="img/success.png">
+				</div>
+			 <div class="submit_section">
+				<div class="form-group">
+					<input type="text" placeholder="Name"/>	
+				</div>	 
+				<div class="form-group">
+						<input type="text" placeholder="Email Address"/>	
+					</div>
+					<div class="form-group">
+						<input type="text" placeholder="Phone Number"/>	
+					</div>
+					<div class="form-group">
+						<input type="text" placeholder="Company Name"/>	
+					</div>
+					<div class="form-group">
+							<input type="text" placeholder="Budget"/>	
+					</div>
+					<div class="form-group text-center">
+						 <button type="button" class="claim-btn"> Submit</button>
+					</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 footer-contact wow slideInLeft" style="animation-duration: 2s;">
+			  <h3> <img src="img/logo.png" class="footr_logo"/> Vantage Media </h3>
+			 <p> Copyright © 2025 Vantage Media INC. <br/> All rights reserved </p>	
+			 	<ul class="flex social_van">
+				<li><a href="terms.html" target="blank"><img src="img/insta.png"></a></li>
+				<li><a href="terms.html" target="blank"><img src="img/fb.png"></a></li>
+				<li><a href="terms.html" target="blank"><img src="img/twitter.png"></a></li>
+				<li><a href="terms.html" target="blank"><img src="img/link.png"></a></li>
+				<li><a href="terms.html" target="blank"><img src="img/youtube.png"></a></li>
+			  </ul>
+          </div>
+		  
+		<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 footer-links wow slideInLeft" style="animation-duration: 2s;">
+			<h3> Navigate</h3>
+            <ul class="footer_menu">
+              <li><a href="terms.html" target="blank">Home</a></li>
+              <li><a href="privacy.html" target="blank">Portfolio</a></li>
+              <li><a href="refund.html" target="blank">Services </a></li> 
+              <li><a href="refund.html" target="blank">Case Studies </a></li> 
+              <li><a href="consultation.html" target="blank">Free Consulation </a></li> 
+            </ul>
+          </div>
+
+		  <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 footer-links wow slideInLeft" style="animation-duration: 2s;">
+			<h3> Support</h3>
+            <ul class="footer_menu">
+              <li><a href="terms.html" target="blank">Help Center</a></li>
+              <li><a href="terms.html" target="blank">Terms of Service</a></li>
+              <li><a href="terms.html" target="blank">Legal</a></li>
+              <li><a href="terms.html" target="blank"> Privacy Policy</a></li>
+				<li><a href="terms.html" target="blank">Contact Us</a></li>
+            </ul>
+          </div>
+		  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 footer-links wow slideInLeft" style="animation-duration: 2s;">
+			<h3> Newsletter</h3>
+            <div class="form-group newsletter_box">
+				<input type="text" class="newsletter" placeholder="Your email address"/>	
+				<button class="newbtn"> <img src="img/telegram.png"></button>
+			</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="js/main.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="js/wow.js"></script>
+<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+<script src="js/script.js"></script>
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js'></script>
+<script  src="js/slick.js"></script>
+<script>
+wow = new WOW({
+	animateClass: 'animated',
+	offset:       100,
+	callback:     function(box) {
+	console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+	}
+});
+wow.init();
+document.getElementById('moar').onclick = function() {
+	var section = document.createElement('section');
+	section.className = 'section--purple wow fadeInDown';
+	this.parentNode.insertBefore(section, this);
+}; 
+</script> 
+	<script>
+  jQuery(function() {
+    var icons = {
+      header: "ui-icon-circle-arrow-e",
+      activeHeader: "ui-icon-circle-arrow-s"
+    };
+    jQuery( "#accordion" ).accordion({
+      icons: icons,
+      collapsible: true,
+      active: false,
+      heightStyle: "content"
+    });
+  });
+  
+  $(document).ready(function(){
+  $(".navbar-toggler").click(function(){
+    $("#main-navbar").toggle();
+  });
+});
+
+$(document).on("click","#cust_btn",function(){
+  $("#myModal").modal("toggle");
+})
+$('.claim-btn').on('click', function() {
+    $(this).closest('.modal-content').addClass('active');
+});
+$('.offer_claim button').on('click', function() {
+    $("#myModal .modal-content").removeClass('active');
+});
+
+</script>
+</body>
+</html>
+	
