@@ -79,12 +79,15 @@ const Partners: React.FC = () => {
               whileHover={{ scale: 1.12, filter: 'grayscale(0%)', zIndex: 2 }}
               style={{ cursor: 'pointer' }}
             >
-              <img
-                src={partner.logo}
-                alt={partner.name + ' logo'}
-                className="h-20 object-contain mb-2 transition duration-300"
-                loading="lazy"
-              />
+              <div className="flex items-center justify-center h-24 w-40 bg-transparent mb-2">
+                <img
+                  src={partner.logo}
+                  alt={partner.name + ' logo'}
+                  className="max-h-20 max-w-36 object-contain mx-auto"
+                  style={{ display: 'block' }}
+                  loading="lazy"
+                />
+              </div>
               <span className="text-gray-700 font-medium text-lg mt-2">{partner.name}</span>
             </motion.div>
           ))}
