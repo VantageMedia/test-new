@@ -3,26 +3,87 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 const services = [
-  { title: 'WEBSITE DEVELOPMENT', img: '/services/web-dev.png' },
-  { title: 'SOCIAL MEDIA', img: '/services/social.png' },
-  { title: 'AD CAMPAIGNS', img: '/services/AD-CAMPAIGNS.png' },
-  { title: 'SEO', img: '/services/seo.png' },
-  { title: 'EMAIL MARKETING', img: '/services/email.png' },
-  { title: 'SMS CAMPAIGNS', img: '/services/message.png' },
+  {
+    title: 'Website Development',
+    img: '/services/web-dev.png',
+    desc: 'Custom, conversion-focused websites built for speed and results.'
+  },
+  {
+    title: 'Social Media',
+    img: '/services/social.png',
+    desc: 'Grow your audience and engagement with expert social strategies.'
+  },
+  {
+    title: 'Ad Campaigns',
+    img: '/services/AD-CAMPAIGNS.png',
+    desc: 'ROI-driven paid ads on Google, Meta, and more.'
+  },
+  {
+    title: 'SEO',
+    img: '/services/seo.png',
+    desc: 'Rank higher and get found by your ideal customers.'
+  },
+  {
+    title: 'Email Marketing',
+    img: '/services/email.png',
+    desc: 'Automated, personalized campaigns that nurture and convert.'
+  },
+  {
+    title: 'SMS Campaigns',
+    img: '/services/message.png',
+    desc: 'Instantly reach your audience with high-converting SMS.'
+  },
 ];
 
-const planItems = [
-  { title: 'BREAKDOWN YOUR REVENUE', img: '/services/plan-img-1.png' },
-  { title: 'CONTROL YOUR DEMOGRAPHIC', img: '/services/plan-img-2.png' },
+const process = [
+  {
+    title: 'Discovery Call',
+    icon: '📞',
+    desc: 'We learn about your goals, challenges, and vision.'
+  },
+  {
+    title: 'Custom Strategy',
+    icon: '📝',
+    desc: 'We craft a tailored plan for your business growth.'
+  },
+  {
+    title: 'Execution & Results',
+    icon: '🚀',
+    desc: 'We launch, optimize, and deliver measurable results.'
+  },
 ];
 
-const achievements = [
-  { title: '80M+', desc: 'People reached', img: '/services/users-img.png' },
-  { title: '500+', desc: 'Satisfied Clients', img: '/services/personalcard-img.png' },
-  { title: '$16.2M+', desc: 'Revenue Generated', img: '/services/revenue-img.png' },
-  { title: '5000+', desc: 'Social Media Posts', img: '/services/social-img.png' },
-  { title: '100,000+', desc: 'Customers Acquired', img: '/services/sr-sendchat.png' },
-  { title: '200+', desc: 'Ad campaigns', img: '/services/sr-signal-high.png' },
+const logos = [
+  '/partners/disney.svg',
+  '/partners/mattel.png',
+  '/partners/apple.png',
+  '/partners/qualcomm.png',
+  '/partners/energytransfer.png',
+  '/partners/kroger.png',
+  '/partners/cvs.png',
+  '/partners/Home-Depot-Logo-1989.png',
+];
+
+const testimonials = [
+  {
+    name: 'Jane Smith',
+    company: 'Acme Corp',
+    quote: 'Vantage Media transformed our online presence and delivered real ROI. Highly recommended!',
+    img: 'https://randomuser.me/api/portraits/women/68.jpg',
+  },
+  {
+    name: 'John Doe',
+    company: 'Tech Innovators',
+    quote: 'Professional, responsive, and results-driven. Our leads and sales have never been better.',
+    img: 'https://randomuser.me/api/portraits/men/32.jpg',
+  },
+];
+
+const trustBullets = [
+  'Proven track record with Fortune 500 clients',
+  'Transparent reporting & communication',
+  'Dedicated account manager for every client',
+  'No long-term contracts—results keep you with us',
 ];
 
 const Services: React.FC = () => {
@@ -35,66 +96,102 @@ const Services: React.FC = () => {
       </div>
       <Navigation />
       <main className="flex-1 z-10 relative">
-        <section className="max-w-4xl mx-auto px-4 pt-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 tracking-wide">
-            OUR <span className="text-blue-400">SERVICES</span>
-          </h2>
-          <div className="bg-white rounded-2xl shadow-[0_0_32px_0_rgba(100,100,255,0.25)] border border-gray-300 p-6 md:p-10 mb-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-300">
-              {services.map((service, i) => (
-                <div key={service.title} className="flex flex-col items-center justify-center py-8 px-4">
-                  <img src={service.img} alt={service.title} className="h-12 mb-4" />
-                  <h3 className="text-base font-semibold text-center tracking-wide">{service.title}</h3>
-                </div>
-              ))}
-            </div>
+        {/* HERO SECTION */}
+        <section className="relative py-16 px-4 bg-gradient-to-br from-blue-50 via-white to-purple-50 flex flex-col items-center text-center">
+          <div className="max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+              Unlock Your Brand's <span className="text-blue-500">Full Potential</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-700 mb-8">
+              Get more leads, sales, and growth with our expert digital marketing services—trusted by industry leaders.
+            </p>
+            <a href="#cta" className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg text-lg transition">Get My Free Strategy Call</a>
+          </div>
+          {/* Placeholder for hero image/team photo */}
+          <div className="mt-10 flex justify-center">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=facearea&w=400&q=80" alt="Team" className="rounded-2xl shadow-xl w-64 h-48 object-cover object-top border-4 border-white" />
           </div>
         </section>
 
-        <section className="max-w-4xl mx-auto px-4 mb-12">
-          <h2 className="text-xl md:text-2xl font-bold text-center mb-8">
-            <span className="text-blue-400">EXECUTE</span> A PLAN
+        {/* SERVICES GRID */}
+        <section className="max-w-5xl mx-auto px-4 py-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 tracking-wide">
+            Our <span className="text-blue-500">Services</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {planItems.map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl shadow-[0_0_32px_0_rgba(100,100,255,0.18)] border border-gray-300 p-8 flex flex-col items-center">
-                <img src={item.img} alt={item.title} className="h-40 mb-4 object-contain" />
-                <h3 className="text-lg font-semibold text-center tracking-wide">{item.title}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {services.map((service) => (
+              <div key={service.title} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 flex flex-col items-center hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+                <img src={service.img} alt={service.title} className="h-14 mb-4" />
+                <h3 className="text-lg font-bold mb-2 text-center">{service.title}</h3>
+                <p className="text-gray-600 text-center text-sm">{service.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="max-w-4xl mx-auto px-4 mb-12">
-          <div className="bg-[#eaefff] rounded-2xl shadow-[0_0_32px_0_rgba(100,100,255,0.18)] border border-gray-300 p-8 flex flex-col md:flex-row items-center justify-between">
-            <div className="flex-1 mb-6 md:mb-0">
-              <h3 className="text-2xl md:text-3xl font-bold mb-2">BOOK A FREE <span className="block text-blue-400">CONSULTATION</span></h3>
-              <h5 className="text-lg text-gray-500 mb-2">yes...we did say free</h5>
-            </div>
-            <button className="bg-blue-400 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition text-lg">BOOK NOW</button>
+        {/* HOW IT WORKS */}
+        <section className="max-w-4xl mx-auto px-4 py-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 tracking-wide">
+            How <span className="text-blue-500">It Works</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {process.map((step, i) => (
+              <div key={step.title} className="bg-blue-50 rounded-2xl shadow border border-blue-100 p-8 flex flex-col items-center">
+                <div className="text-4xl mb-4">{step.icon}</div>
+                <h4 className="font-bold text-lg mb-2">{step.title}</h4>
+                <p className="text-gray-600 text-center text-sm">{step.desc}</p>
+                {i < process.length - 1 && <div className="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 text-3xl text-blue-200">→</div>}
+              </div>
+            ))}
           </div>
         </section>
 
-        <section className="max-w-6xl mx-auto px-4 mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-            SOME OF <span className="text-blue-400">OUR ACHIEVEMENTS</span>
-          </h2>
-          <div className="flex flex-col md:flex-row md:space-x-8">
-            <div className="md:w-1/2 mb-8 md:mb-0 flex flex-col justify-center">
-              <p className="mb-6 text-base md:text-lg text-gray-800">At Vantage Media, we believe in results-driven marketing that turns vision into impact. With over 80 million people reached and more than 100,000 customers acquired for clients, our strategies are designed to help brands grow and thrive. With a track record of success and over 500+ satisfied clients, we are committed to creating meaningful connections between businesses and their audiences. Whether you're looking to scale your reach or optimize your digital presence, our expertise ensures you get the results you need.</p>
-              <a href="#" className="inline-block bg-blue-400 hover:bg-blue-500 text-white px-6 py-2 rounded-full font-semibold shadow transition">REACH OUT TODAY</a>
-            </div>
-            <div className="md:w-1/2 grid grid-cols-2 gap-6">
-              {achievements.map((item) => (
-                <div key={item.title} className="flex flex-col items-center bg-gray-100 rounded-xl p-6 shadow border border-gray-200">
-                  <img src={item.img} alt={item.desc} className="h-12 mb-2" />
-                  <h3 className="text-lg font-bold">{item.title}</h3>
-                  <p className="text-xs text-gray-600 text-center">{item.desc}</p>
-                </div>
-              ))}
-            </div>
+        {/* CLIENT LOGOS */}
+        <section className="max-w-5xl mx-auto px-4 py-12">
+          <h3 className="text-center text-lg font-semibold mb-6 text-gray-700">Trusted by leading brands</h3>
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            {logos.map((logo, i) => (
+              <img key={i} src={logo} alt="Client logo" className="h-10 grayscale opacity-80 hover:opacity-100 transition" />
+            ))}
           </div>
         </section>
+
+        {/* TESTIMONIALS */}
+        <section className="max-w-4xl mx-auto px-4 py-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 tracking-wide">
+            What Our <span className="text-blue-500">Clients Say</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {testimonials.map((t) => (
+              <div key={t.name} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 flex flex-col items-center">
+                <img src={t.img} alt={t.name} className="w-16 h-16 rounded-full mb-4 object-cover border-2 border-blue-100" />
+                <p className="text-gray-700 italic mb-4 text-center">"{t.quote}"</p>
+                <div className="font-bold text-blue-500">{t.name}</div>
+                <div className="text-xs text-gray-500">{t.company}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* WHY CHOOSE US */}
+        <section className="max-w-3xl mx-auto px-4 py-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 tracking-wide">
+            Why <span className="text-blue-500">Choose Us?</span>
+          </h2>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {trustBullets.map((b, i) => (
+              <li key={i} className="flex items-start gap-3 bg-blue-50 rounded-xl p-5 border border-blue-100 shadow">
+                <span className="text-blue-500 text-2xl mt-1">✔️</span>
+                <span className="text-gray-700 font-medium">{b}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* STICKY CTA (mobile) */}
+        <div id="cta" className="fixed bottom-4 left-0 w-full flex justify-center z-50 md:hidden pointer-events-none">
+          <a href="#" className="pointer-events-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg text-lg transition">Get My Free Strategy Call</a>
+        </div>
       </main>
       <Footer />
     </div>
