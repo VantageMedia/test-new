@@ -94,8 +94,8 @@ const Partners: React.FC = () => {
                 <img
                   src={partner.logo}
                   alt={partner.name + ' logo'}
-                  className="max-h-20 max-w-36 object-contain mx-auto"
-                  style={{ display: 'block' }}
+                  className="h-20 w-36 object-contain mx-auto"
+                  style={{ display: 'block', maxHeight: '80px', maxWidth: '140px' }}
                   loading="lazy"
                 />
               </div>
@@ -106,8 +106,8 @@ const Partners: React.FC = () => {
                 <img
                   src={partner.logo}
                   alt={partner.name + ' logo'}
-                  className="max-h-20 max-w-36 object-contain mx-auto"
-                  style={{ display: 'block' }}
+                  className="h-20 w-36 object-contain mx-auto"
+                  style={{ display: 'block', maxHeight: '80px', maxWidth: '140px' }}
                   loading="lazy"
                 />
               </div>
