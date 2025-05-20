@@ -32,7 +32,7 @@ const Navigation: React.FC = () => {
   ];
   
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-blue-50 py-4'}`}>
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md py-2' : 'bg-white/60 backdrop-blur-md py-4'}`} style={{boxShadow: isScrolled ? '0 2px 24px 0 rgba(100,100,255,0.10)' : '0 2px 24px 0 rgba(100,100,255,0.08)'}}>
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
