@@ -86,20 +86,11 @@ const Partners: React.FC = () => {
         <p className="text-gray-600 mb-10 max-w-2xl mx-auto text-lg">
           We build high-converting, visually stunning websites for the world's most recognized brands—and we can do the same for you.
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-10 mb-12">
-          {partners.map((partner, i) => (
-            <motion.div
-              key={partner.name}
-              className="flex flex-col items-center"
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              variants={logoVariants}
-              whileHover={{ scale: 1.12, filter: 'grayscale(0%)', zIndex: 2 }}
-              style={{ cursor: 'pointer' }}
-            >
-              <div className="flex items-center justify-center h-24 w-40 bg-transparent mb-2">
+        {/* Animated Marquee of Logos */}
+        <div className="overflow-x-hidden w-full py-6">
+          <div className="flex items-center gap-16 animate-marquee whitespace-nowrap" style={{ animation: 'marquee 30s linear infinite' }}>
+            {partners.map((partner, i) => (
+              <div key={partner.name + i} className="flex items-center justify-center h-24 w-40 bg-transparent">
                 <img
                   src={partner.logo}
                   alt={partner.name + ' logo'}
@@ -108,9 +99,27 @@ const Partners: React.FC = () => {
                   loading="lazy"
                 />
               </div>
-            </motion.div>
-          ))}
+            ))}
+            {/* Duplicate for seamless loop */}
+            {partners.map((partner, i) => (
+              <div key={partner.name + '-dup-' + i} className="flex items-center justify-center h-24 w-40 bg-transparent">
+                <img
+                  src={partner.logo}
+                  alt={partner.name + ' logo'}
+                  className="max-h-20 max-w-36 object-contain mx-auto"
+                  style={{ display: 'block' }}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}</style>
         {/* Testimonial Carousel */}
         <div className="max-w-2xl mx-auto mb-10">
           <motion.div
