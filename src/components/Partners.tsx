@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 const partners = [
   {
     name: 'Disney',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney_wordmark.svg',
+    logo: '/partners/disney.png',
   },
   {
     name: 'Mattel',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Mattel_%282019%29.svg',
+    logo: '/partners/mattel.png',
   },
   {
     name: 'Apple',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
+    logo: '/partners/apple.png',
   },
 ];
 
@@ -82,8 +82,7 @@ const Partners: React.FC = () => {
               <img
                 src={partner.logo}
                 alt={partner.name + ' logo'}
-                className="h-16 md:h-20 w-auto mb-2 grayscale transition duration-300 bg-white rounded-lg shadow-md p-2"
-                style={{ maxWidth: 140, objectFit: 'contain', background: 'transparent' }}
+                className="h-20 w-36 object-contain mb-2 grayscale transition duration-300"
                 loading="lazy"
               />
               <span className="text-gray-700 font-medium text-lg mt-2">{partner.name}</span>
