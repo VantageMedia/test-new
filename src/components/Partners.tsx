@@ -86,10 +86,10 @@ const Partners: React.FC = () => {
         <p className="text-gray-600 mb-10 max-w-2xl mx-auto text-lg">
           We build high-converting, visually stunning websites for the world's most recognized brands—and we can do the same for you.
         </p>
-        {/* Animated Marquee of Logos */}
-        <div className="overflow-x-hidden w-full py-6">
-          <div className="flex items-center gap-16 animate-marquee whitespace-nowrap" style={{ animation: 'marquee 30s linear infinite' }}>
-            {partners.map((partner, i) => (
+        {/* Seamless Animated Marquee of Logos */}
+        <div className="overflow-x-hidden w-full py-6 relative">
+          <div className="marquee-track flex items-center gap-16 whitespace-nowrap" style={{ animation: 'marquee 30s linear infinite' }}>
+            {partners.concat(partners).map((partner, i) => (
               <div key={partner.name + i} className="flex items-center justify-center h-24 w-40 bg-transparent">
                 <img
                   src={partner.logo}
@@ -100,26 +100,17 @@ const Partners: React.FC = () => {
                 />
               </div>
             ))}
-            {/* Duplicate for seamless loop */}
-            {partners.map((partner, i) => (
-              <div key={partner.name + '-dup-' + i} className="flex items-center justify-center h-24 w-40 bg-transparent">
-                <img
-                  src={partner.logo}
-                  alt={partner.name + ' logo'}
-                  className="h-20 w-36 object-contain mx-auto"
-                  style={{ display: 'block', maxHeight: '80px', maxWidth: '140px' }}
-                  loading="lazy"
-                />
-              </div>
-            ))}
           </div>
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .marquee-track {
+              width: max-content;
+            }
+          `}</style>
         </div>
-        <style>{`
-          @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}</style>
         {/* Testimonial Carousel */}
         <div className="max-w-2xl mx-auto mb-10">
           <motion.div
