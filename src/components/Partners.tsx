@@ -14,6 +14,26 @@ const partners = [
     name: 'Apple',
     logo: '/partners/apple.png',
   },
+  {
+    name: 'Qualcomm',
+    logo: '/partners/Qualcomm-Logo.png',
+  },
+  {
+    name: 'Energy Transfer',
+    logo: '/partners/energytrasnfer.png',
+  },
+  {
+    name: 'Kroger',
+    logo: '/partners/kroger.png',
+  },
+  {
+    name: 'CVS',
+    logo: '/partners/cvs.png',
+  },
+  {
+    name: 'Home Depot',
+    logo: '/partners/Home-Depot-Logo-1989.png',
+  },
 ];
 
 const testimonials = [
