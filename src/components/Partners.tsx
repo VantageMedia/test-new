@@ -88,7 +88,6 @@ const Partners: React.FC = () => {
                   loading="lazy"
                 />
               </div>
-              <span className="text-gray-700 font-medium text-lg mt-2">{partner.name}</span>
             </motion.div>
           ))}
         </div>
