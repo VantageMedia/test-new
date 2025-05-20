@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const partners = [
   {
     name: 'Disney',
-    logo: '/partners/disney.png',
+    logo: '/partners/disney.svg',
   },
   {
     name: 'Mattel',
@@ -82,7 +82,7 @@ const Partners: React.FC = () => {
               <img
                 src={partner.logo}
                 alt={partner.name + ' logo'}
-                className="h-20 w-36 object-contain mb-2 grayscale transition duration-300"
+                className="h-20 object-contain mb-2 transition duration-300"
                 loading="lazy"
               />
               <span className="text-gray-700 font-medium text-lg mt-2">{partner.name}</span>
