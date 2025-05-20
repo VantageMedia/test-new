@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import {
@@ -27,7 +26,7 @@ const Navigation: React.FC = () => {
   const navItems = [
     { title: "HOME", href: "#" },
     { title: "PORTFOLIO", href: "#" },
-    { title: "SERVICES", href: "#" },
+    { title: "SERVICES", href: "/services.html" },
     { title: "CASE STUDIES", href: "#" },
     { title: "CONTACT US", href: "#" },
   ];
