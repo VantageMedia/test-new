@@ -103,7 +103,7 @@ const faqs = [
   },
   {
     q: 'Is my project a fit for your team?',
-    a: 'If you want a high-performing website or app that drives results, we're the right partner.'
+    a: "If you want a high-performing website or app that drives results, we're the right partner."
   },
 ];
 
