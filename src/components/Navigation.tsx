@@ -24,11 +24,11 @@ const Navigation: React.FC = () => {
   }, []);
   
   const navItems = [
-    { title: "HOME", href: "#" },
-    { title: "PORTFOLIO", href: "#" },
+    { title: "HOME", href: "/" },
+    { title: "PORTFOLIO", href: "/portfolio" },
     { title: "SERVICES", href: "/services" },
-    { title: "CASE STUDIES", href: "#" },
-    { title: "CONTACT US", href: "#" },
+    { title: "CASE STUDIES", href: "/case-studies" },
+    { title: "CONTACT US", href: "/contact" },
   ];
   
   return (
@@ -36,7 +36,7 @@ const Navigation: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="#" className="font-bold text-xl">Vantage Media</a>
+            <a href="/" className="font-bold text-xl">Vantage Media</a>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
@@ -49,8 +49,8 @@ const Navigation: React.FC = () => {
                 {item.title}
               </a>
             ))}
-            <Button className="bg-blue-500 hover:bg-blue-600 text-white">
-              FREE CONSULTATION
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white" asChild>
+              <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
             </Button>
           </nav>
           
@@ -72,8 +72,8 @@ const Navigation: React.FC = () => {
                       {item.title}
                     </a>
                   ))}
-                  <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full">
-                    FREE CONSULTATION
+                  <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full" asChild>
+                    <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
                   </Button>
                 </nav>
               </SheetContent>
