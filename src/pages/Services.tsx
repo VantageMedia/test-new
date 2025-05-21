@@ -133,9 +133,7 @@ const testimonials = [
 ];
 
 function MacbookModel({ open }: { open: boolean }) {
-  const { scene } = useGLTF('/models/macbook.glb');
-  // Animate lid open by rotating the screen group (assuming the model is structured for this)
-  // For demo, just rotate the whole model
+  const { scene } = useGLTF('/models/macbook_pro_m3_16_inch_2024.glb');
   useFrame((state) => {
     scene.rotation.x = open ? -0.5 : 1.2;
   });
@@ -143,7 +141,7 @@ function MacbookModel({ open }: { open: boolean }) {
 }
 
 function IphoneModel({ spin }: { spin: boolean }) {
-  const { scene } = useGLTF('/models/iphone.glb');
+  const { scene } = useGLTF('/models/iphone_16_pro_max.glb');
   useFrame((state) => {
     scene.rotation.y = spin ? state.clock.getElapsedTime() * 2 : 0;
     scene.position.x = spin ? 2.5 : 0;
