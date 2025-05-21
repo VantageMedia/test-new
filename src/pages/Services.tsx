@@ -111,19 +111,19 @@ const testimonials = [
   {
     name: 'Ava R.',
     company: 'Retail Startup',
-    quote: 'Our new app launched on time and doubled our user engagement in the first month. The team's process was seamless and transparent.',
+    quote: "Our new app launched on time and doubled our user engagement in the first month. The team's process was seamless and transparent.",
     img: '/services/users-img.png',
   },
   {
     name: 'Marcus T.',
     company: 'B2B SaaS',
-    quote: 'The website redesign not only looks amazing, but our conversion rate jumped by 38%. Highly recommend for any serious business.',
+    quote: "The website redesign not only looks amazing, but our conversion rate jumped by 38%. Highly recommend for any serious business.",
     img: '/services/users-img.png',
   },
   {
     name: 'Lila S.',
     company: 'E-Commerce Brand',
-    quote: 'From branding to automation, they handled everything. Our store runs smoother and our sales are up 60% year-over-year.',
+    quote: "From branding to automation, they handled everything. Our store runs smoother and our sales are up 60% year-over-year.",
     img: '/services/users-img.png',
   },
 ];
@@ -242,7 +242,7 @@ const Services: React.FC = () => {
                 <img src={t.img} alt={t.name} className="w-16 h-16 rounded-full mb-4 object-cover" />
                 <div className="font-bold text-lg mb-1">{t.name}</div>
                 <div className="text-blue-600 text-sm mb-2">{t.company}</div>
-                <div className="text-gray-700 text-base mb-2 italic">“{t.quote}”</div>
+                <div className="text-gray-700 text-base mb-2 italic">"{t.quote}"</div>
               </div>
             ))}
           </div>
