@@ -48,20 +48,20 @@ const team = [
 
 const faqs = [
   {
-    q: 'How long before I see results?',
-    a: 'Most clients see measurable improvements within 60 days, with compounding growth over time.'
+    q: "How long before I see results?",
+    a: "Most clients see measurable improvements within 60 days, with compounding growth over time."
   },
   {
-    q: 'Is there a long-term contract?',
-    a: 'No. We work month-to-month—our results are what keep clients with us.'
+    q: "Is there a long-term contract?",
+    a: "No. We work month-to-month—our results are what keep clients with us."
   },
   {
-    q: 'What makes you different?',
-    a: 'We offer full transparency, real-time reporting, and a dedicated strategist for every client.'
+    q: "What makes you different?",
+    a: "We offer full transparency, real-time reporting, and a dedicated strategist for every client."
   },
   {
-    q: 'What if I'm not satisfied?',
-    a: 'We offer a 30-day satisfaction guarantee. If you're not happy, you don't pay for the next month.'
+    q: "What if I'm not satisfied?",
+    a: "We offer a 30-day satisfaction guarantee. If you're not happy, you don't pay for the next month."
   },
 ];
 
