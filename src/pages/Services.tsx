@@ -141,62 +141,63 @@ const DeviceShowcaseSection = () => {
     }
   }, [inView, controls]);
 
+  // MacBook SVG/Div
+  const Macbook = (
+    <motion.div
+      initial={{ rotateX: 80, opacity: 0 }}
+      animate={controls}
+      variants={{
+        visible: { rotateX: 0, opacity: 1, transition: { duration: 1, ease: 'easeOut' } },
+      }}
+      style={{ transformStyle: 'preserve-3d' }}
+      className="z-20"
+    >
+      <div className="relative w-[420px] h-[260px] mx-auto flex flex-col items-center">
+        {/* MacBook Screen */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[380px] h-[180px] bg-gradient-to-br from-blue-200 via-white to-purple-200 rounded-t-2xl shadow-2xl border-4 border-gray-200 flex items-center justify-center text-2xl font-bold text-gray-700 select-none">
+          <span className="opacity-80">Website Preview</span>
+        </div>
+        {/* MacBook Base */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-[170px] w-[400px] h-[40px] bg-gray-200 rounded-b-3xl shadow-inner border-t-2 border-gray-300 flex items-center justify-center">
+          <div className="w-24 h-2 bg-gray-400 rounded-full opacity-40 mt-6" />
+        </div>
+      </div>
+    </motion.div>
+  );
+
+  // iPhone SVG/Div
+  const iPhone = (
+    <motion.div
+      initial={{ x: 0, rotateY: 0, opacity: 0 }}
+      animate={controls}
+      variants={{
+        visible: { x: 220, rotateY: 360, opacity: 1, transition: { duration: 1.2, ease: 'easeOut', delay: 0.3 } },
+      }}
+      className="z-30"
+      style={{ position: 'absolute', right: '-60px', bottom: '0px' }}
+    >
+      <div className="relative w-[90px] h-[180px] flex flex-col items-center">
+        {/* iPhone Body */}
+        <div className="absolute top-0 left-0 w-[90px] h-[180px] bg-gradient-to-br from-gray-100 via-white to-gray-300 rounded-[2.2rem] border-4 border-gray-300 shadow-xl flex flex-col items-center">
+          {/* Notch */}
+          <div className="w-16 h-2 bg-gray-400 rounded-b-xl mt-2 mb-2 mx-auto" />
+          {/* Screen */}
+          <div className="w-[74px] h-[140px] bg-gradient-to-br from-purple-200 via-white to-blue-200 rounded-xl flex items-center justify-center text-base font-semibold text-gray-700 mx-auto mt-2 select-none">
+            App Preview
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+
   return (
     <section ref={ref} className="relative w-full flex flex-col items-center justify-center py-32 bg-gradient-to-br from-blue-100 via-white to-purple-100 overflow-hidden">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
         <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-center">Websites & Apps, Seamlessly Delivered</h2>
         <p className="text-lg text-gray-700 mb-12 text-center max-w-2xl">See your vision come to life on every device. Our team crafts stunning websites and powerful apps that work together beautifully.</p>
         <div className="relative flex items-end justify-center w-full" style={{ minHeight: 400 }}>
-          {/* MacBook Animation */}
-          <motion.div
-            initial={{ rotateX: 80, opacity: 0 }}
-            animate={controls}
-            variants={{
-              visible: { rotateX: 0, opacity: 1, transition: { duration: 1, ease: 'easeOut' } },
-            }}
-            style={{ transformStyle: 'preserve-3d' }}
-            className="z-20"
-          >
-            <div className="relative w-[500px] h-[320px] mx-auto">
-              <img
-                src="/services/macbook-base.png"
-                alt="MacBook"
-                className="absolute top-0 left-0 w-full h-full object-contain"
-                style={{ zIndex: 1 }}
-              />
-              <img
-                src="/services/sample-website.png"
-                alt="Website Screenshot"
-                className="absolute top-[60px] left-[60px] w-[380px] h-[200px] object-cover rounded-xl shadow-lg"
-                style={{ zIndex: 2 }}
-              />
-            </div>
-          </motion.div>
-          {/* iPhone Animation */}
-          <motion.div
-            initial={{ x: 0, rotateY: 0, opacity: 0 }}
-            animate={controls}
-            variants={{
-              visible: { x: 220, rotateY: 360, opacity: 1, transition: { duration: 1.2, ease: 'easeOut', delay: 0.3 } },
-            }}
-            className="z-30"
-            style={{ position: 'absolute', right: '-60px', bottom: '0px' }}
-          >
-            <div className="relative w-[120px] h-[240px]">
-              <img
-                src="/services/iphone-base.png"
-                alt="iPhone"
-                className="absolute top-0 left-0 w-full h-full object-contain"
-                style={{ zIndex: 1 }}
-              />
-              <img
-                src="/services/sample-app.png"
-                alt="App Screenshot"
-                className="absolute top-[32px] left-[14px] w-[92px] h-[176px] object-cover rounded-lg shadow-md"
-                style={{ zIndex: 2 }}
-              />
-            </div>
-          </motion.div>
+          {Macbook}
+          {iPhone}
         </div>
       </div>
     </section>
