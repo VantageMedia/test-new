@@ -132,6 +132,45 @@ const faqs = [
   },
 ];
 
+const pricing = [
+  {
+    name: 'Starter Plan',
+    price: '$1399 FLAT',
+    monthly: '$45 / month',
+    features: [
+      'Up to 5 pages (Home, About, Contact, 2 subpages)',
+      '1 integration (Shopify, Klaviyo, or Zapier)',
+      'Responsive design',
+      'Cancel any time',
+    ],
+  },
+  {
+    name: 'Expansion Tier',
+    price: '$2999 FLAT',
+    monthly: '$75 / month',
+    features: [
+      'Up to 15 pages (main + subpages)',
+      'Up to 3 integrations (Shopify, Klaviyo, Zapier, Google Analytics, etc.)',
+      'Advanced SEO setup',
+      'Customer retention tools',
+      'Cancel any time',
+    ],
+  },
+  {
+    name: 'Premier Business',
+    price: '$4999 FLAT',
+    monthly: '$200 / month',
+    features: [
+      'Unlimited pages & subpages',
+      'All integrations included (Shopify, Klaviyo, Zapier, Google Analytics, Meta Ads, etc.)',
+      'Product management system',
+      'Email/SMS campaigns',
+      'Custom branding & design',
+      'Cancel any time',
+    ],
+  },
+];
+
 const Services: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -264,6 +303,26 @@ const Services: React.FC = () => {
                 <summary className="font-semibold text-gray-800 cursor-pointer mb-2 group-open:text-blue-600 transition-all">{faq.q}</summary>
                 <div className="text-gray-700 text-sm mt-2">{faq.a}</div>
               </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING & PACKAGING SECTION */}
+      <section className="w-full bg-gray-100 py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-left">Pricing & Packaging</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {pricing.map((plan) => (
+              <div key={plan.name} className="bg-green-50 rounded-2xl shadow-xl p-10 flex flex-col items-center border border-gray-300 hover:scale-105 transition-transform">
+                <h3 className="text-3xl font-bold mb-4 text-center">{plan.name}</h3>
+                <div className="text-2xl font-extrabold mb-2">{plan.price}</div>
+                <div className="text-xl font-bold mb-4">+<br />{plan.monthly}</div>
+                <ul className="mb-6 text-gray-700 text-center space-y-2">
+                  {plan.features.map((f, i) => <li key={i}>{f}</li>)}
+                </ul>
+                <a href="#roadmap" className="mt-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-full shadow text-lg transition">Get Started</a>
+              </div>
             ))}
           </div>
         </div>
