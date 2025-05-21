@@ -1,6 +1,8 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { motion, useAnimation, useInView } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 
 const services = [
   {
@@ -128,6 +130,79 @@ const testimonials = [
   },
 ];
 
+const DeviceShowcaseSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [inView, controls]);
+
+  return (
+    <section ref={ref} className="relative w-full flex flex-col items-center justify-center py-32 bg-gradient-to-br from-blue-100 via-white to-purple-100 overflow-hidden">
+      <div className="max-w-4xl mx-auto flex flex-col items-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-center">Websites & Apps, Seamlessly Delivered</h2>
+        <p className="text-lg text-gray-700 mb-12 text-center max-w-2xl">See your vision come to life on every device. Our team crafts stunning websites and powerful apps that work together beautifully.</p>
+        <div className="relative flex items-end justify-center w-full" style={{ minHeight: 400 }}>
+          {/* MacBook Animation */}
+          <motion.div
+            initial={{ rotateX: 80, opacity: 0 }}
+            animate={controls}
+            variants={{
+              visible: { rotateX: 0, opacity: 1, transition: { duration: 1, ease: 'easeOut' } },
+            }}
+            style={{ transformStyle: 'preserve-3d' }}
+            className="z-20"
+          >
+            <div className="relative w-[500px] h-[320px] mx-auto">
+              <img
+                src="/services/macbook-base.png"
+                alt="MacBook"
+                className="absolute top-0 left-0 w-full h-full object-contain"
+                style={{ zIndex: 1 }}
+              />
+              <img
+                src="/services/sample-website.png"
+                alt="Website Screenshot"
+                className="absolute top-[60px] left-[60px] w-[380px] h-[200px] object-cover rounded-xl shadow-lg"
+                style={{ zIndex: 2 }}
+              />
+            </div>
+          </motion.div>
+          {/* iPhone Animation */}
+          <motion.div
+            initial={{ x: 0, rotateY: 0, opacity: 0 }}
+            animate={controls}
+            variants={{
+              visible: { x: 220, rotateY: 360, opacity: 1, transition: { duration: 1.2, ease: 'easeOut', delay: 0.3 } },
+            }}
+            className="z-30"
+            style={{ position: 'absolute', right: '-60px', bottom: '0px' }}
+          >
+            <div className="relative w-[120px] h-[240px]">
+              <img
+                src="/services/iphone-base.png"
+                alt="iPhone"
+                className="absolute top-0 left-0 w-full h-full object-contain"
+                style={{ zIndex: 1 }}
+              />
+              <img
+                src="/services/sample-app.png"
+                alt="App Screenshot"
+                className="absolute top-[32px] left-[14px] w-[92px] h-[176px] object-cover rounded-lg shadow-md"
+                style={{ zIndex: 2 }}
+              />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Services: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -155,6 +230,9 @@ const Services: React.FC = () => {
           ))}
         </div>
       </section>
+
+      {/* Device Showcase Section */}
+      <DeviceShowcaseSection />
 
       {/* 3. App Development Feature Section */}
       <section className="w-full bg-gradient-to-r from-blue-50 to-purple-50 py-20 px-6">
