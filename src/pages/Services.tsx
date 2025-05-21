@@ -2,174 +2,198 @@ import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
-const packages = [
+const features = [
   {
-    name: 'Growth Accelerator',
-    desc: 'For ambitious brands ready to scale fast. Includes multi-channel campaigns, advanced analytics, and weekly strategy calls.',
-    features: ['Multi-channel marketing', 'Weekly strategy calls', 'Advanced analytics dashboard', 'Dedicated growth manager'],
-    price: 'Custom',
+    title: 'Omnichannel Marketing',
+    desc: 'Reach your customers wherever they are—web, social, email, and more.',
+    icon: '📣',
   },
   {
-    name: 'Brand Builder',
-    desc: 'Perfect for businesses looking to establish a strong digital presence. Includes website, branding, and social media setup.',
-    features: ['Custom website', 'Brand identity kit', 'Social media setup', 'SEO foundation'],
-    price: 'From $2,500/mo',
+    title: 'Conversion Optimization',
+    desc: 'Turn more visitors into customers with data-driven design and testing.',
+    icon: '📈',
   },
   {
-    name: 'Lead Machine',
-    desc: 'For local businesses and service providers. Focused on lead generation, local SEO, and conversion optimization.',
-    features: ['Local SEO', 'Landing pages', 'Lead magnets', 'Conversion tracking'],
-    price: 'From $1,200/mo',
-  },
-];
-
-const caseStudy = {
-  client: 'GreenLeaf Health',
-  challenge: 'Low online visibility and stagnant leads',
-  solution: 'Implemented a full-funnel digital strategy, including a new website, local SEO, and targeted ad campaigns.',
-  result: '+320% increase in qualified leads in 6 months',
-  image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=400&q=80',
-};
-
-const team = [
-  {
-    name: 'Alex Rivera',
-    role: 'Lead Strategist',
-    img: 'https://randomuser.me/api/portraits/men/45.jpg',
-    bio: '10+ years in digital marketing, Google Ads Certified, passionate about helping brands grow.'
+    title: 'Real-Time Analytics',
+    desc: 'Track every click, sale, and campaign in a beautiful dashboard.',
+    icon: '📊',
   },
   {
-    name: 'Priya Patel',
-    role: 'Creative Director',
-    img: 'https://randomuser.me/api/portraits/women/65.jpg',
-    bio: 'Branding expert and design lead. Loves turning ideas into beautiful, high-converting assets.'
+    title: 'Automated Workflows',
+    desc: 'Save time and scale faster with smart automations for your business.',
+    icon: '🤖',
   },
 ];
 
-const faqs = [
+const logos = [
+  '/partners/disney.svg',
+  '/partners/mattel.png',
+  '/partners/apple.png',
+  '/partners/qualcomm.png',
+  '/partners/energytransfer.png',
+  '/partners/kroger.png',
+  '/partners/cvs.png',
+  '/partners/Home-Depot-Logo-1989.png',
+];
+
+const testimonials = [
   {
-    q: "How long before I see results?",
-    a: "Most clients see measurable improvements within 60 days, with compounding growth over time."
+    name: 'Sarah Lee',
+    company: 'BrightPath',
+    quote: 'The Vantage team helped us double our online sales in just 3 months. Their process is seamless and results-driven.',
+    img: 'https://randomuser.me/api/portraits/women/44.jpg',
   },
   {
-    q: "Is there a long-term contract?",
-    a: "No. We work month-to-month—our results are what keep clients with us."
+    name: 'Michael Chen',
+    company: 'Urban Roots',
+    quote: 'We finally have a marketing partner who understands our business and delivers real ROI.',
+    img: 'https://randomuser.me/api/portraits/men/36.jpg',
+  },
+];
+
+const trustBadges = [
+  { label: 'Google Partner', img: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_2015_logo.svg' },
+  { label: 'Meta Business Partner', img: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png' },
+  { label: 'Shopify Expert', img: 'https://cdn.shopify.com/assets/images/logos/shopify-bag.png' },
+  { label: 'Clutch Top Agency', img: 'https://static.clutch.co/static/img/logos/clutch-logo.svg' },
+];
+
+const process = [
+  {
+    title: 'Discovery & Audit',
+    desc: 'We analyze your business, audience, and competitors to find growth opportunities.',
+    img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=facearea&w=600&q=80',
   },
   {
-    q: "What makes you different?",
-    a: "We offer full transparency, real-time reporting, and a dedicated strategist for every client."
+    title: 'Strategy & Planning',
+    desc: 'We craft a custom roadmap with clear milestones and KPIs.',
+    img: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=600&q=80',
   },
   {
-    q: "What if I'm not satisfied?",
-    a: "We offer a 30-day satisfaction guarantee. If you're not happy, you don't pay for the next month."
+    title: 'Execution & Optimization',
+    desc: 'We launch, test, and optimize campaigns for maximum ROI.',
+    img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=600&q=80',
+  },
+];
+
+const ctas = [
+  {
+    label: 'Get Your Free Audit',
+    desc: 'See how we can unlock your next stage of growth—no obligation.',
+    href: 'mailto:hello@vantagemediaus.com',
+  },
+  {
+    label: 'See Our Work',
+    desc: 'Explore real client results and case studies.',
+    href: '/portfolio',
   },
 ];
 
 const Services: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-white via-blue-50 to-white relative overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navigation />
-      <main className="flex-1 z-10 relative">
-        {/* HERO SECTION */}
-        <section className="relative py-16 px-4 bg-gradient-to-br from-blue-50 via-white to-purple-50 flex flex-col items-center text-center">
-          <div className="max-w-2xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-              Your Growth Partner—<span className="text-blue-500">Done-For-You Digital Solutions</span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8">
-              We don't just offer services—we become your digital marketing team. Tailored strategies. Transparent results. No long-term contracts.
-            </p>
-            <a href="#unique-cta" className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-full shadow-lg text-lg transition">Get a Free Marketing Audit</a>
+      {/* HERO - full width, left-aligned */}
+      <section className="w-full bg-gradient-to-r from-blue-50 via-white to-purple-50 py-20 px-6 flex flex-col md:flex-row items-center gap-12">
+        <div className="flex-1 max-w-xl">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-left leading-tight">
+            Grow Faster. Sell Smarter.<br />
+            <span className="text-blue-500">All-in-One Digital Services</span>
+          </h1>
+          <p className="text-lg text-gray-700 mb-8 text-left">
+            From strategy to execution, we help brands like yours scale with proven marketing, automation, and design—just like Shopify's top sellers.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a href={ctas[0].href} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-full shadow-lg text-lg transition w-full sm:w-auto text-center">{ctas[0].label}</a>
+            <a href={ctas[1].href} className="bg-white border border-blue-600 text-blue-600 font-bold px-8 py-4 rounded-full shadow text-lg transition w-full sm:w-auto text-center hover:bg-blue-50">{ctas[1].label}</a>
           </div>
-          <div className="mt-10 flex justify-center">
-            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=400&q=80" alt="Workspace" className="rounded-2xl shadow-xl w-64 h-48 object-cover object-top border-4 border-white" />
-          </div>
-        </section>
+        </div>
+        <div className="flex-1 flex justify-center">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=facearea&w=600&q=80" alt="Digital marketing" className="rounded-3xl shadow-2xl w-full max-w-md object-cover" />
+        </div>
+      </section>
 
-        {/* SERVICE PACKAGES */}
-        <section className="max-w-5xl mx-auto px-4 py-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 tracking-wide">
-            Our <span className="text-blue-500">Packages</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {packages.map((pkg) => (
-              <div key={pkg.name} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 flex flex-col items-center hover:scale-105 hover:shadow-2xl transition-transform duration-300">
-                <h3 className="text-xl font-bold mb-2 text-center">{pkg.name}</h3>
-                <p className="text-gray-600 text-center text-sm mb-4">{pkg.desc}</p>
-                <ul className="mb-4 text-sm text-left list-disc list-inside text-gray-700">
-                  {pkg.features.map((f, i) => <li key={i}>{f}</li>)}
-                </ul>
-                <div className="font-bold text-blue-500 text-lg mt-auto">{pkg.price}</div>
+      {/* LOGO BAR - full width */}
+      <section className="w-full bg-white py-8 px-6 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto flex flex-wrap justify-center items-center gap-10">
+          {logos.map((logo, i) => (
+            <img key={i} src={logo} alt="Client logo" className="h-10 grayscale opacity-80 hover:opacity-100 transition" />
+          ))}
+        </div>
+      </section>
+
+      {/* FEATURES - full width, cards */}
+      <section className="w-full bg-blue-50 py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-left">What You Get</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((f) => (
+              <div key={f.title} className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-start hover:scale-105 transition-transform">
+                <div className="text-4xl mb-4">{f.icon}</div>
+                <h3 className="font-bold text-lg mb-2">{f.title}</h3>
+                <p className="text-gray-600 text-sm">{f.desc}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* VALUE PROPOSITION */}
-        <section className="max-w-4xl mx-auto px-4 py-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 tracking-wide">
-            What Makes Us <span className="text-blue-500">Different?</span>
-          </h2>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <li className="flex items-start gap-3 bg-blue-50 rounded-xl p-5 border border-blue-100 shadow"><span className="text-blue-500 text-2xl mt-1">🔍</span> <span className="text-gray-700 font-medium">No cookie-cutter campaigns—every strategy is custom.</span></li>
-            <li className="flex items-start gap-3 bg-blue-50 rounded-xl p-5 border border-blue-100 shadow"><span className="text-blue-500 text-2xl mt-1">📊</span> <span className="text-gray-700 font-medium">Real-time reporting dashboard for full transparency.</span></li>
-            <li className="flex items-start gap-3 bg-blue-50 rounded-xl p-5 border border-blue-100 shadow"><span className="text-blue-500 text-2xl mt-1">🤝</span> <span className="text-gray-700 font-medium">Monthly strategy calls and unlimited support.</span></li>
-            <li className="flex items-start gap-3 bg-blue-50 rounded-xl p-5 border border-blue-100 shadow"><span className="text-blue-500 text-2xl mt-1">💡</span> <span className="text-gray-700 font-medium">We treat your business like our own—your success is our mission.</span></li>
-          </ul>
-        </section>
-
-        {/* CASE STUDY PREVIEW */}
-        <section className="max-w-4xl mx-auto px-4 py-16 flex flex-col md:flex-row items-center gap-10">
-          <img src={caseStudy.image} alt="Case study" className="rounded-2xl shadow-xl w-64 h-48 object-cover border-4 border-white" />
-          <div>
-            <h3 className="text-xl font-bold mb-2">Case Study: {caseStudy.client}</h3>
-            <p className="text-gray-700 mb-2"><span className="font-semibold">Challenge:</span> {caseStudy.challenge}</p>
-            <p className="text-gray-700 mb-2"><span className="font-semibold">Solution:</span> {caseStudy.solution}</p>
-            <p className="text-blue-500 font-bold text-lg mt-2">{caseStudy.result}</p>
+      {/* PROCESS - alternating layouts */}
+      {process.map((step, i) => (
+        <section key={step.title} className={`w-full py-20 px-6 ${i % 2 === 0 ? 'bg-white' : 'bg-blue-50'}`}>
+          <div className={`max-w-6xl mx-auto flex flex-col md:flex-row ${i % 2 === 0 ? '' : 'md:flex-row-reverse'} items-center gap-12`}>
+            <div className="flex-1">
+              <img src={step.img} alt={step.title} className="rounded-3xl shadow-2xl w-full max-w-md object-cover" />
+            </div>
+            <div className="flex-1">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-left">{step.title}</h2>
+              <p className="text-lg text-gray-700 text-left">{step.desc}</p>
+            </div>
           </div>
         </section>
+      ))}
 
-        {/* TEAM/EXPERTISE */}
-        <section className="max-w-4xl mx-auto px-4 py-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 tracking-wide">
-            Meet Your <span className="text-blue-500">Team</span>
-          </h2>
-          <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
-            {team.map((member) => (
-              <div key={member.name} className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 flex flex-col items-center w-64">
-                <img src={member.img} alt={member.name} className="w-20 h-20 rounded-full mb-4 object-cover border-2 border-blue-100" />
-                <div className="font-bold text-blue-500 mb-1">{member.name}</div>
-                <div className="text-xs text-gray-500 mb-2">{member.role}</div>
-                <p className="text-gray-700 text-center text-sm">{member.bio}</p>
+      {/* TRUST BADGES */}
+      <section className="w-full bg-white py-12 px-6 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto flex flex-wrap justify-center items-center gap-10">
+          {trustBadges.map((badge, i) => (
+            <div key={i} className="flex flex-col items-center">
+              <img src={badge.img} alt={badge.label} className="h-10 mb-2" />
+              <span className="text-xs text-gray-500 font-semibold">{badge.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* TESTIMONIALS - full width */}
+      <section className="w-full bg-blue-50 py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-left">What Our Clients Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {testimonials.map((t) => (
+              <div key={t.name} className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-start">
+                <div className="flex items-center mb-4">
+                  <img src={t.img} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-blue-100 mr-4" />
+                  <div>
+                    <div className="font-bold text-blue-500">{t.name}</div>
+                    <div className="text-xs text-gray-500">{t.company}</div>
+                  </div>
+                </div>
+                <p className="text-gray-700 italic">"{t.quote}"</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* FAQ */}
-        <section className="max-w-3xl mx-auto px-4 py-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 tracking-wide">
-            Frequently Asked <span className="text-blue-500">Questions</span>
-          </h2>
-          <div className="space-y-6">
-            {faqs.map((faq, i) => (
-              <div key={i} className="bg-blue-50 rounded-xl p-5 border border-blue-100 shadow">
-                <div className="font-semibold text-gray-800 mb-2">{faq.q}</div>
-                <div className="text-gray-700 text-sm">{faq.a}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* UNIQUE CTA */}
-        <section id="unique-cta" className="max-w-2xl mx-auto px-4 py-16 text-center">
-          <div className="bg-blue-500 rounded-2xl shadow-lg p-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to See What's Possible?</h2>
-            <p className="text-blue-100 mb-6">Request your free, no-obligation marketing audit and get a custom action plan for your business.</p>
-            <a href="mailto:hello@vantagemediaus.com" className="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-full shadow-lg text-lg transition hover:bg-blue-100">Request My Free Audit</a>
-          </div>
-        </section>
-      </main>
+      {/* FINAL CTA - full width */}
+      <section className="w-full bg-gradient-to-r from-blue-600 to-purple-500 py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">Ready to Grow?</h2>
+          <p className="text-lg text-blue-100 mb-8">Get your free, no-obligation audit and see how we can help you scale—just like the world's best brands.</p>
+          <a href="mailto:hello@vantagemediaus.com" className="bg-white text-blue-700 font-bold px-10 py-5 rounded-full shadow-lg text-xl transition hover:bg-blue-100">Get My Free Audit</a>
+        </div>
+      </section>
       <Footer />
     </div>
   );
