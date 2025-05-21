@@ -3,6 +3,8 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { useRef, useEffect } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { useGLTF, OrbitControls } from '@react-three/drei';
 
 const services = [
   {
@@ -130,75 +132,50 @@ const testimonials = [
   },
 ];
 
-const DeviceShowcaseSection = () => {
+function MacbookModel({ open }: { open: boolean }) {
+  const { scene } = useGLTF('/models/macbook.glb');
+  // Animate lid open by rotating the screen group (assuming the model is structured for this)
+  // For demo, just rotate the whole model
+  useFrame((state) => {
+    scene.rotation.x = open ? -0.5 : 1.2;
+  });
+  return <primitive object={scene} scale={2.2} position={[0, -0.5, 0]} />;
+}
+
+function IphoneModel({ spin }: { spin: boolean }) {
+  const { scene } = useGLTF('/models/iphone.glb');
+  useFrame((state) => {
+    scene.rotation.y = spin ? state.clock.getElapsedTime() * 2 : 0;
+    scene.position.x = spin ? 2.5 : 0;
+  });
+  return <primitive object={scene} scale={1.2} position={[2.5, -0.5, 0]} />;
+}
+
+const DeviceShowcase3DSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
-  const controls = useAnimation();
-
+  const [open, setOpen] = React.useState(false);
+  const [spin, setSpin] = React.useState(false);
   useEffect(() => {
     if (inView) {
-      controls.start('visible');
+      setTimeout(() => setOpen(true), 300);
+      setTimeout(() => setSpin(true), 800);
     }
-  }, [inView, controls]);
-
-  // MacBook SVG/Div
-  const Macbook = (
-    <motion.div
-      initial={{ rotateX: 80, opacity: 0 }}
-      animate={controls}
-      variants={{
-        visible: { rotateX: 0, opacity: 1, transition: { duration: 1, ease: 'easeOut' } },
-      }}
-      style={{ transformStyle: 'preserve-3d' }}
-      className="z-20"
-    >
-      <div className="relative w-[420px] h-[260px] mx-auto flex flex-col items-center">
-        {/* MacBook Screen */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[380px] h-[180px] bg-gradient-to-br from-blue-200 via-white to-purple-200 rounded-t-2xl shadow-2xl border-4 border-gray-200 flex items-center justify-center text-2xl font-bold text-gray-700 select-none">
-          <span className="opacity-80">Website Preview</span>
-        </div>
-        {/* MacBook Base */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-[170px] w-[400px] h-[40px] bg-gray-200 rounded-b-3xl shadow-inner border-t-2 border-gray-300 flex items-center justify-center">
-          <div className="w-24 h-2 bg-gray-400 rounded-full opacity-40 mt-6" />
-        </div>
-      </div>
-    </motion.div>
-  );
-
-  // iPhone SVG/Div
-  const iPhone = (
-    <motion.div
-      initial={{ x: 0, rotateY: 0, opacity: 0 }}
-      animate={controls}
-      variants={{
-        visible: { x: 220, rotateY: 360, opacity: 1, transition: { duration: 1.2, ease: 'easeOut', delay: 0.3 } },
-      }}
-      className="z-30"
-      style={{ position: 'absolute', right: '-60px', bottom: '0px' }}
-    >
-      <div className="relative w-[90px] h-[180px] flex flex-col items-center">
-        {/* iPhone Body */}
-        <div className="absolute top-0 left-0 w-[90px] h-[180px] bg-gradient-to-br from-gray-100 via-white to-gray-300 rounded-[2.2rem] border-4 border-gray-300 shadow-xl flex flex-col items-center">
-          {/* Notch */}
-          <div className="w-16 h-2 bg-gray-400 rounded-b-xl mt-2 mb-2 mx-auto" />
-          {/* Screen */}
-          <div className="w-[74px] h-[140px] bg-gradient-to-br from-purple-200 via-white to-blue-200 rounded-xl flex items-center justify-center text-base font-semibold text-gray-700 mx-auto mt-2 select-none">
-            App Preview
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-
+  }, [inView]);
   return (
     <section ref={ref} className="relative w-full flex flex-col items-center justify-center py-32 bg-gradient-to-br from-blue-100 via-white to-purple-100 overflow-hidden">
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
+      <div className="max-w-4xl mx-auto flex flex-col items-center mb-10">
         <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-center">Websites & Apps, Seamlessly Delivered</h2>
         <p className="text-lg text-gray-700 mb-12 text-center max-w-2xl">See your vision come to life on every device. Our team crafts stunning websites and powerful apps that work together beautifully.</p>
-        <div className="relative flex items-end justify-center w-full" style={{ minHeight: 400 }}>
-          {Macbook}
-          {iPhone}
-        </div>
+      </div>
+      <div className="w-full flex justify-center items-center" style={{ minHeight: 500 }}>
+        <Canvas camera={{ position: [0, 0, 7], fov: 45 }} style={{ width: '900px', height: '500px', background: 'transparent' }}>
+          <ambientLight intensity={0.7} />
+          <directionalLight position={[5, 5, 5]} intensity={0.7} />
+          <MacbookModel open={open} />
+          <IphoneModel spin={spin} />
+          <OrbitControls enableZoom={false} enablePan={false} maxPolarAngle={Math.PI / 2.2} minPolarAngle={Math.PI / 2.8} />
+        </Canvas>
       </div>
     </section>
   );
@@ -233,7 +210,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* Device Showcase Section */}
-      <DeviceShowcaseSection />
+      <DeviceShowcase3DSection />
 
       {/* 3. App Development Feature Section */}
       <section className="w-full bg-gradient-to-r from-blue-50 to-purple-50 py-20 px-6">
