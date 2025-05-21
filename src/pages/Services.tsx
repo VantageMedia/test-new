@@ -2,172 +2,129 @@ import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
-const industries = [
+const services = [
   {
-    name: 'SaaS & Tech',
-    desc: 'Accelerate user acquisition and reduce churn with our SaaS growth playbook.',
-    img: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=facearea&w=600&q=80',
-    highlights: ['Product onboarding flows', 'In-app messaging', 'Churn reduction campaigns'],
+    title: 'Custom Website Design',
+    desc: 'Bespoke, conversion-focused websites built for speed, SEO, and seamless user experience. No templates—every pixel is tailored to your brand.',
+    icon: '🌐',
+    features: ['UX/UI Strategy', 'Mobile-First', 'SEO Optimized', 'Lightning Fast', 'CMS Integration'],
+    img: '/services/web-dev.png',
   },
   {
-    name: 'E-commerce',
-    desc: 'Boost AOV and LTV with advanced e-commerce marketing and retention strategies.',
-    img: 'https://images.unsplash.com/photo-1515168833906-d2a3b82b302b?auto=format&fit=facearea&w=600&q=80',
-    highlights: ['Cart recovery automation', 'Personalized product recommendations', 'Multi-channel retargeting'],
+    title: 'App Development',
+    desc: 'End-to-end mobile and web app development for startups and enterprises. We build scalable, secure, and beautiful apps that users love.',
+    icon: '📱',
+    features: ['iOS & Android', 'Cross-Platform', 'Custom APIs', 'App Store Launch', 'Ongoing Support'],
+    img: '/services/app-dev.png',
   },
   {
-    name: 'Local & Service Businesses',
-    desc: 'Dominate your local market and fill your calendar with high-value leads.',
-    img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=facearea&w=600&q=80',
-    highlights: ['Google Maps optimization', 'Review generation', 'Hyperlocal ad targeting'],
+    title: 'E-Commerce Solutions',
+    desc: 'High-converting online stores with custom product flows, secure payments, and advanced analytics. Built for growth and retention.',
+    icon: '🛒',
+    features: ['Shopify/Custom', 'Payment Integration', 'Product Management', 'Analytics', 'Abandonment Recovery'],
+    img: '/services/ecommerce.png',
   },
   {
-    name: 'Enterprise & B2B',
-    desc: 'Shorten sales cycles and nurture high-value accounts with ABM and content.',
-    img: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=600&q=80',
-    highlights: ['Account-based marketing', 'Sales enablement', 'Thought leadership content'],
-  },
-];
-
-const timeline = [
-  {
-    step: '01',
-    title: 'Deep-Dive Discovery',
-    desc: 'We audit your industry, competitors, and customer journey to uncover hidden growth levers.',
-    icon: '🔎',
+    title: 'Branding & Creative',
+    desc: 'Logo design, brand identity, and creative assets that make your business unforgettable.',
+    icon: '🎨',
+    features: ['Logo Design', 'Brand Guidelines', 'Creative Assets', 'Messaging', 'Visual Storytelling'],
+    img: '/services/branding.png',
   },
   {
-    step: '02',
-    title: 'Custom Roadmap',
-    desc: 'You get a visual, step-by-step plan with milestones, KPIs, and quick wins.',
-    icon: '🗺️',
-  },
-  {
-    step: '03',
-    title: 'Full-Funnel Execution',
-    desc: 'Our team implements, tests, and optimizes every campaign and touchpoint.',
-    icon: '🚀',
-  },
-  {
-    step: '04',
-    title: 'Transparent Reporting',
-    desc: 'You see real-time results in your custom dashboard—no black box, ever.',
-    icon: '📊',
-  },
-];
-
-const caseStudies = [
-  {
-    client: 'BluePeak SaaS',
-    before: 'Flat user growth, high churn',
-    after: '+220% signups, -35% churn in 6 months',
-    img: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=600&q=80',
-    summary: 'Revamped onboarding, launched referral program, and automated lifecycle emails.'
-  },
-  {
-    client: 'Urban Market',
-    before: 'Low repeat purchases, abandoned carts',
-    after: '3x repeat buyers, +18% AOV',
-    img: 'https://images.unsplash.com/photo-1515168833906-d2a3b82b302b?auto=format&fit=facearea&w=600&q=80',
-    summary: 'Personalized product flows, SMS winbacks, and loyalty program.'
-  },
-  {
-    client: 'ProService B2B',
-    before: 'Long sales cycles, few inbound leads',
-    after: '2x pipeline, +40% SQLs',
-    img: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=facearea&w=600&q=80',
-    summary: 'ABM campaigns, LinkedIn outreach, and gated content.'
-  },
-];
-
-const team = [
-  {
-    name: 'Jordan Kim',
-    role: 'Head of Strategy',
-    img: 'https://randomuser.me/api/portraits/men/52.jpg',
-    badges: ['HubSpot Certified', 'Google Analytics Pro'],
-    bio: 'Jordan architects growth systems for SaaS and B2B brands.'
-  },
-  {
-    name: 'Maya Singh',
-    role: 'Lead Creative',
-    img: 'https://randomuser.me/api/portraits/women/68.jpg',
-    badges: ['Shopify Partner', 'Klaviyo Master'],
-    bio: 'Maya brings brands to life with conversion-focused design.'
-  },
-  {
-    name: 'Carlos Rivera',
-    role: 'Automation Engineer',
-    img: 'https://randomuser.me/api/portraits/men/44.jpg',
-    badges: ['Zapier Expert', 'Meta Ads Specialist'],
-    bio: 'Carlos automates workflows and scales paid campaigns.'
-  },
-];
-
-const techStack = [
-  { name: 'HubSpot', img: 'https://cdn.worldvectorlogo.com/logos/hubspot.svg' },
-  { name: 'Shopify', img: 'https://cdn.shopify.com/assets/images/logos/shopify-bag.png' },
-  { name: 'Klaviyo', img: 'https://cdn.worldvectorlogo.com/logos/klaviyo.svg' },
-  { name: 'Zapier', img: 'https://cdn.worldvectorlogo.com/logos/zapier.svg' },
-  { name: 'Meta Ads', img: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png' },
-  { name: 'Google Analytics', img: 'https://cdn.worldvectorlogo.com/logos/google-analytics-4.svg' },
-];
-
-const faqs = [
-  {
-    q: 'Do you work with my industry?',
-    a: 'We specialize in SaaS, e-commerce, local, and B2B/enterprise, but love a new challenge!'
-  },
-  {
-    q: 'How do you report results?',
-    a: 'You get a live dashboard, weekly recaps, and a dedicated Slack channel.'
-  },
-  {
-    q: "What's your minimum engagement?",
-    a: 'Most clients start with a 3-month roadmap, but we offer project-based sprints too.'
-  },
-  {
-    q: 'Can I talk to a strategist before signing?',
-    a: 'Absolutely—book a free roadmap call and get actionable insights, no strings attached.'
+    title: 'Automation & Integrations',
+    desc: 'Automate your marketing, sales, and operations with custom integrations and workflow automation.',
+    icon: '🤖',
+    features: ['CRM Integration', 'Email/SMS Automation', 'API Connections', 'Custom Workflows', 'Reporting'],
+    img: '/services/automation.png',
   },
 ];
 
 const pricing = [
   {
-    name: 'Starter Plan',
-    price: '$1399 FLAT',
-    monthly: '$45 / month',
+    name: 'Launch Website',
+    price: '$1,499 flat',
+    monthly: '$49/mo hosting & support',
     features: [
-      'Up to 5 pages (Home, About, Contact, 2 subpages)',
-      '1 integration (Shopify, Klaviyo, or Zapier)',
-      'Responsive design',
-      'Cancel any time',
+      'Up to 5 custom pages',
+      'Mobile responsive',
+      'Basic SEO',
+      '1 integration (e.g. analytics)',
+      '1 round of revisions',
+      'Go live in 2 weeks',
     ],
+    cta: 'Get Started',
+    popular: false,
   },
   {
-    name: 'Expansion Tier',
-    price: '$2999 FLAT',
-    monthly: '$75 / month',
+    name: 'Growth Platform',
+    price: '$3,200 flat',
+    monthly: '$99/mo growth suite',
     features: [
-      'Up to 15 pages (main + subpages)',
-      'Up to 3 integrations (Shopify, Klaviyo, Zapier, Google Analytics, etc.)',
-      'Advanced SEO setup',
-      'Customer retention tools',
-      'Cancel any time',
+      'Up to 15 custom pages',
+      'Advanced SEO',
+      '3 integrations (e.g. CRM, analytics, chat)',
+      'Conversion copywriting',
+      'A/B testing',
+      'Priority support',
     ],
+    cta: 'Most Popular',
+    popular: true,
   },
   {
-    name: 'Premier Business',
-    price: '$4999 FLAT',
-    monthly: '$200 / month',
+    name: 'App & Web Suite',
+    price: 'from $7,500',
+    monthly: 'Custom support',
     features: [
-      'Unlimited pages & subpages',
-      'All integrations included (Shopify, Klaviyo, Zapier, Google Analytics, Meta Ads, etc.)',
-      'Product management system',
-      'Email/SMS campaigns',
-      'Custom branding & design',
-      'Cancel any time',
+      'Web + iOS/Android app',
+      'Custom API & backend',
+      'Unlimited integrations',
+      'Product strategy workshops',
+      'Ongoing optimization',
+      'Dedicated project manager',
     ],
+    cta: 'Request Proposal',
+    popular: false,
+  },
+];
+
+const faqs = [
+  {
+    q: 'How fast can you launch my website or app?',
+    a: 'Most websites launch in 2–4 weeks. Apps depend on complexity, but we deliver MVPs in as little as 6 weeks.'
+  },
+  {
+    q: 'Do you offer post-launch support?',
+    a: 'Yes! All plans include ongoing support, updates, and growth optimization.'
+  },
+  {
+    q: 'Can you migrate my existing site or app?',
+    a: 'Absolutely. We handle migrations from any platform with zero downtime.'
+  },
+  {
+    q: 'Is my project a fit for your team?',
+    a: 'If you want a high-performing website or app that drives results, we're the right partner.'
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Ava R.',
+    company: 'Retail Startup',
+    quote: 'Our new app launched on time and doubled our user engagement in the first month. The team's process was seamless and transparent.',
+    img: '/services/users-img.png',
+  },
+  {
+    name: 'Marcus T.',
+    company: 'B2B SaaS',
+    quote: 'The website redesign not only looks amazing, but our conversion rate jumped by 38%. Highly recommend for any serious business.',
+    img: '/services/users-img.png',
+  },
+  {
+    name: 'Lila S.',
+    company: 'E-Commerce Brand',
+    quote: 'From branding to automation, they handled everything. Our store runs smoother and our sales are up 60% year-over-year.',
+    img: '/services/users-img.png',
   },
 ];
 
@@ -175,169 +132,145 @@ const Services: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Navigation />
-      {/* HERO - complex, layered */}
-      <section className="relative w-full bg-gradient-to-br from-blue-50 via-white to-purple-50 py-24 px-6 flex flex-col md:flex-row items-center gap-16 overflow-hidden">
-        <div className="flex-1 max-w-xl z-10">
-          <h1 className="text-5xl font-extrabold mb-6 text-left leading-tight drop-shadow-xl">
-            Your Industry. <span className="text-blue-500">Your Growth.</span> Our Expertise.
-          </h1>
-          <p className="text-xl text-gray-700 mb-8 text-left">
-            We build custom growth engines for SaaS, e-commerce, local, and B2B brands—no templates, no guesswork, just results.
-          </p>
-          <a href="#roadmap" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-5 rounded-full shadow-lg text-xl transition">Get My Custom Roadmap</a>
-        </div>
-        <div className="flex-1 flex flex-col gap-8 z-10">
-          <div className="flex gap-6">
-            {industries.slice(0,2).map((ind) => (
-              <div key={ind.name} className="bg-white/90 rounded-2xl shadow-xl p-6 w-64 relative overflow-hidden group hover:scale-105 transition-transform border-t-4 border-blue-400">
-                <img src={ind.img} alt={ind.name} className="w-full h-28 object-cover rounded-xl mb-3" />
-                <h3 className="font-bold text-lg mb-1">{ind.name}</h3>
-                <p className="text-gray-600 text-sm mb-2">{ind.desc}</p>
-                <ul className="text-xs text-gray-500 space-y-1">
-                  {ind.highlights.map((h, i) => <li key={i}>• {h}</li>)}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="flex gap-6">
-            {industries.slice(2).map((ind) => (
-              <div key={ind.name} className="bg-white/90 rounded-2xl shadow-xl p-6 w-64 relative overflow-hidden group hover:scale-105 transition-transform border-t-4 border-purple-400">
-                <img src={ind.img} alt={ind.name} className="w-full h-28 object-cover rounded-xl mb-3" />
-                <h3 className="font-bold text-lg mb-1">{ind.name}</h3>
-                <p className="text-gray-600 text-sm mb-2">{ind.desc}</p>
-                <ul className="text-xs text-gray-500 space-y-1">
-                  {ind.highlights.map((h, i) => <li key={i}>• {h}</li>)}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* Decorative background shapes */}
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-100 rounded-full opacity-40 blur-3xl z-0" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-200 rounded-full opacity-30 blur-3xl z-0" />
+
+      {/* 1. Services Overview */}
+      <section className="w-full bg-gradient-to-br from-gray-50 via-white to-blue-50 py-20 px-6 text-center">
+        <h1 className="text-5xl font-extrabold mb-4">Digital Solutions That Drive Growth</h1>
+        <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8">From stunning websites to powerful apps, we build what your business needs to win online. Explore our full suite of services below.</p>
       </section>
 
-      {/* TIMELINE - interactive, horizontal */}
-      <section className="w-full bg-white py-24 px-6">
+      {/* 2. Core Services Grid */}
+      <section className="w-full bg-white py-20 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {services.map((svc) => (
+            <div key={svc.title} className="bg-gradient-to-br from-blue-50 to-white rounded-3xl shadow-xl p-8 flex flex-col items-start hover:scale-105 transition-transform border-t-4 border-blue-400">
+              <div className="text-4xl mb-4">{svc.icon}</div>
+              <h2 className="font-bold text-2xl mb-2">{svc.title}</h2>
+              <p className="text-gray-600 mb-4">{svc.desc}</p>
+              <ul className="text-sm text-gray-700 mb-4 space-y-1">
+                {svc.features.map((f, i) => <li key={i}>• {f}</li>)}
+              </ul>
+              <img src={svc.img} alt={svc.title} className="w-full h-32 object-contain rounded-xl mt-auto" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. App Development Feature Section */}
+      <section className="w-full bg-gradient-to-r from-blue-50 to-purple-50 py-20 px-6">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1">
+            <h2 className="text-4xl font-bold mb-4 text-left">App Development, Evolved</h2>
+            <p className="text-lg text-gray-700 mb-6 text-left">We design and build custom mobile and web apps that scale with your business. From MVP to enterprise, our team delivers beautiful, secure, and high-performance apps—on time, every time.</p>
+            <ul className="text-base text-gray-700 mb-6 text-left space-y-2">
+              <li>• Native iOS & Android or cross-platform</li>
+              <li>• Custom backend & API integrations</li>
+              <li>• App Store/Play Store launch support</li>
+              <li>• Post-launch analytics & growth</li>
+            </ul>
+            <a href="#contact" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-full shadow-lg text-lg transition">Start Your App Project</a>
+          </div>
+          <div className="flex-1 flex justify-center">
+            <img src="/services/app-dev.png" alt="App Development" className="rounded-3xl shadow-2xl w-full max-w-md object-contain" />
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Pricing Tiers */}
+      <section className="w-full bg-white py-20 px-6" id="pricing">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-left">How We Deliver Results</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">Transparent Pricing, Real Results</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {pricing.map((tier) => (
+              <div key={tier.name} className={`rounded-3xl shadow-2xl p-8 flex flex-col items-center border-4 ${tier.popular ? 'border-blue-600 scale-105 bg-blue-50' : 'border-gray-100 bg-white'} transition-transform`}>
+                {tier.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full font-bold text-xs shadow-lg">Most Popular</div>}
+                <h3 className="font-bold text-2xl mb-2">{tier.name}</h3>
+                <div className="text-3xl font-extrabold mb-1">{tier.price}</div>
+                <div className="text-lg text-blue-600 mb-4">{tier.monthly}</div>
+                <ul className="text-sm text-gray-700 mb-6 space-y-1 text-left w-full max-w-xs mx-auto">
+                  {tier.features.map((f, i) => <li key={i}>• {f}</li>)}
+                </ul>
+                <a href="#contact" className={`mt-auto px-8 py-3 rounded-full font-bold text-lg shadow-lg transition ${tier.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-200 text-blue-700 hover:bg-blue-100'}`}>{tier.cta}</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Process Timeline */}
+      <section className="w-full bg-gradient-to-br from-purple-50 via-white to-blue-50 py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center">How We Work</h2>
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="flex-1 flex flex-row md:flex-col gap-8 md:gap-0 md:space-y-8">
-              {timeline.map((step, i) => (
-                <div key={step.step} className="flex flex-col md:flex-row items-center md:items-start group">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 border-4 border-blue-200 text-3xl font-bold mb-2 md:mb-0 md:mr-6 group-hover:bg-blue-200 transition-all">{step.icon}</div>
-                  <div>
-                    <div className="font-bold text-lg mb-1">{step.title}</div>
-                    <div className="text-gray-600 text-sm mb-2">{step.desc}</div>
-                  </div>
+            <div className="flex-1 flex flex-col gap-8">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-2xl font-bold">1</div>
+                <div>
+                  <div className="font-bold text-lg">Discovery & Strategy</div>
+                  <div className="text-gray-600 text-sm">We learn your goals, audience, and vision to craft a custom plan.</div>
                 </div>
-              ))}
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-2xl font-bold">2</div>
+                <div>
+                  <div className="font-bold text-lg">Design & Build</div>
+                  <div className="text-gray-600 text-sm">Our team designs, develops, and iterates with your feedback.</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-2xl font-bold">3</div>
+                <div>
+                  <div className="font-bold text-lg">Launch & Grow</div>
+                  <div className="text-gray-600 text-sm">We launch, optimize, and support your site or app for ongoing success.</div>
+                </div>
+              </div>
             </div>
             <div className="flex-1 flex justify-center">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=facearea&w=600&q=80" alt="Process" className="rounded-3xl shadow-2xl w-full max-w-md object-cover" />
+              <img src="/services/plan-img-1.png" alt="Process" className="rounded-3xl shadow-2xl w-full max-w-md object-contain" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* CASE STUDIES - carousel style */}
-      <section className="w-full bg-gradient-to-r from-blue-50 to-purple-50 py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-left">Success Stories</h2>
+      {/* 6. Testimonials */}
+      <section className="w-full bg-white py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {caseStudies.map((cs) => (
-              <div key={cs.client} className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-start relative overflow-hidden group hover:scale-105 transition-transform border-l-4 border-blue-400">
-                <img src={cs.img} alt={cs.client} className="w-full h-32 object-cover rounded-xl mb-4" />
-                <div className="font-bold text-blue-500 mb-1">{cs.client}</div>
-                <div className="text-xs text-gray-500 mb-2">Before: {cs.before}</div>
-                <div className="text-xs text-green-600 mb-2">After: {cs.after}</div>
-                <div className="text-gray-700 text-sm mb-2">{cs.summary}</div>
+            {testimonials.map((t) => (
+              <div key={t.name} className="bg-gradient-to-br from-blue-50 to-white rounded-3xl shadow-xl p-8 flex flex-col items-center">
+                <img src={t.img} alt={t.name} className="w-16 h-16 rounded-full mb-4 object-cover" />
+                <div className="font-bold text-lg mb-1">{t.name}</div>
+                <div className="text-blue-600 text-sm mb-2">{t.company}</div>
+                <div className="text-gray-700 text-base mb-2 italic">“{t.quote}”</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TEAM - grid with badges */}
-      <section className="w-full bg-white py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-left">Meet the Experts</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {team.map((member) => (
-              <div key={member.name} className="bg-blue-50 rounded-2xl shadow-lg p-8 flex flex-col items-center relative overflow-hidden group hover:scale-105 transition-transform border-b-4 border-blue-400">
-                <img src={member.img} alt={member.name} className="w-20 h-20 rounded-full mb-4 object-cover border-2 border-blue-100" />
-                <div className="font-bold text-blue-500 mb-1">{member.name}</div>
-                <div className="text-xs text-gray-500 mb-2">{member.role}</div>
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {member.badges.map((b, i) => <span key={i} className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full font-semibold">{b}</span>)}
-                </div>
-                <p className="text-gray-700 text-center text-sm">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TECH STACK - logos and blurbs */}
-      <section className="w-full bg-gradient-to-r from-blue-50 to-white py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-left">Our Tech & Integrations</h2>
-          <div className="flex flex-wrap gap-8 items-center justify-center">
-            {techStack.map((t) => (
-              <div key={t.name} className="flex flex-col items-center gap-2 bg-white rounded-xl shadow p-4 w-32 h-32 justify-center hover:scale-105 transition-transform">
-                <img src={t.img} alt={t.name} className="h-10 mb-2" />
-                <span className="text-xs text-gray-700 font-semibold text-center">{t.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ - advanced, accordion style */}
-      <section className="w-full bg-white py-24 px-6">
+      {/* 7. FAQ */}
+      <section className="w-full bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-left">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {faqs.map((faq, i) => (
-              <details key={i} className="bg-blue-50 rounded-xl p-6 border border-blue-100 shadow group">
-                <summary className="font-semibold text-gray-800 cursor-pointer mb-2 group-open:text-blue-600 transition-all">{faq.q}</summary>
-                <div className="text-gray-700 text-sm mt-2">{faq.a}</div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PRICING & PACKAGING SECTION */}
-      <section className="w-full bg-gray-100 py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-left">Pricing & Packaging</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {pricing.map((plan) => (
-              <div key={plan.name} className="bg-green-50 rounded-2xl shadow-xl p-10 flex flex-col items-center border border-gray-300 hover:scale-105 transition-transform">
-                <h3 className="text-3xl font-bold mb-4 text-center">{plan.name}</h3>
-                <div className="text-2xl font-extrabold mb-2">{plan.price}</div>
-                <div className="text-xl font-bold mb-4">+<br />{plan.monthly}</div>
-                <ul className="mb-6 text-gray-700 text-center space-y-2">
-                  {plan.features.map((f, i) => <li key={i}>{f}</li>)}
-                </ul>
-                <a href="#roadmap" className="mt-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-full shadow text-lg transition">Get Started</a>
+              <div key={i} className="bg-white rounded-2xl shadow-md p-6">
+                <div className="font-bold text-lg mb-2">{faq.q}</div>
+                <div className="text-gray-700 text-base">{faq.a}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA - complex, layered */}
-      <section id="roadmap" className="relative w-full bg-gradient-to-r from-blue-600 to-purple-500 py-24 px-6 overflow-hidden">
-        <div className="max-w-3xl mx-auto text-center z-10 relative">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 drop-shadow-xl">Get Your Custom Roadmap</h2>
-          <p className="text-lg text-blue-100 mb-8">Book a free, no-pressure call with a strategist. Get a tailored action plan—no sales pitch, just value.</p>
-          <a href="mailto:hello@vantagemediaus.com" className="bg-white text-blue-700 font-bold px-10 py-5 rounded-full shadow-lg text-xl transition hover:bg-blue-100">Book My Free Call</a>
-        </div>
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-400 rounded-full opacity-30 blur-3xl z-0" />
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-300 rounded-full opacity-20 blur-3xl z-0" />
+      {/* 8. Final CTA */}
+      <section className="w-full bg-blue-600 py-20 px-6 text-center text-white">
+        <h2 className="text-4xl font-extrabold mb-4">Let's Build Something Amazing</h2>
+        <p className="text-xl mb-8">Ready to launch your next website or app? Get in touch for a free, no-pressure consultation.</p>
+        <a href="#contact" className="inline-block bg-white text-blue-700 font-bold px-10 py-5 rounded-full shadow-lg text-xl transition hover:bg-blue-100">Book My Free Consultation</a>
       </section>
+
       <Footer />
     </div>
   );
