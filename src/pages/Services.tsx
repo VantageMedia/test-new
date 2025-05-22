@@ -189,56 +189,59 @@ const Services: React.FC = () => {
         <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8">From stunning websites to powerful apps, we build what your business needs to win online. Explore our full suite of services below.</p>
       </section>
 
-      {/* 2. Core Services Grid - Enterprise Redesign */}
+      {/* 2. Core Services Grid - World-Class Redesign */}
       <section className="w-full py-28 px-4 bg-gradient-to-br from-[#181c22] via-[#23272f] to-[#181c22] relative overflow-hidden">
-        {/* Animated background gradient blob */}
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-transparent rounded-full blur-3xl animate-pulse z-0" />
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
-          {/* Card 1 */}
-          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[320px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
-            {/* Custom SVG Illustration */}
-            <div className="mb-8 flex items-center justify-center h-24">
-              <svg width="90" height="60" viewBox="0 0 90 60" fill="none"><rect x="5" y="10" width="80" height="40" rx="12" fill="#2dd4bf"/><rect x="15" y="20" width="60" height="20" rx="6" fill="#fff"/><rect x="25" y="25" width="40" height="10" rx="4" fill="#a5b4fc"/></svg>
+          {/* Card 1: Website Design */}
+          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[340px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
+            <div className="mb-8 flex items-center justify-center h-28">
+              {/* Custom SVG: Modern website window with layered tabs */}
+              <svg width="110" height="70" viewBox="0 0 110 70" fill="none"><rect x="8" y="18" width="94" height="44" rx="10" fill="#fff"/><rect x="8" y="8" width="70" height="16" rx="6" fill="#6366f1"/><rect x="20" y="30" width="70" height="18" rx="4" fill="#a5b4fc"/><rect x="30" y="52" width="50" height="6" rx="3" fill="#e0e7ef"/></svg>
             </div>
             <div>
               <h2 className="font-extrabold text-2xl mb-3 text-white tracking-tight">Custom Website Design</h2>
               <p className="text-gray-300 text-lg leading-relaxed font-normal">Bespoke, conversion-focused websites built for speed, SEO, and seamless user experience. Every pixel is tailored to your brand.</p>
             </div>
           </div>
-          {/* Card 2 */}
-          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[320px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
-            <div className="mb-8 flex items-center justify-center h-24">
-              <svg width="60" height="90" viewBox="0 0 60 90" fill="none"><rect x="10" y="10" width="40" height="70" rx="12" fill="#6366f1"/><rect x="18" y="22" width="24" height="46" rx="6" fill="#fff"/><rect x="25" y="70" width="10" height="6" rx="3" fill="#a5b4fc"/></svg>
+          {/* Card 2: App Development */}
+          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[340px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
+            <div className="mb-8 flex items-center justify-center h-28">
+              {/* Custom SVG: Mobile app with layered screens */}
+              <svg width="70" height="110" viewBox="0 0 70 110" fill="none"><rect x="10" y="10" width="50" height="90" rx="14" fill="#6366f1"/><rect x="18" y="22" width="34" height="66" rx="8" fill="#fff"/><rect x="28" y="80" width="14" height="8" rx="4" fill="#a5b4fc"/></svg>
             </div>
             <div>
               <h2 className="font-extrabold text-2xl mb-3 text-white tracking-tight">App Development</h2>
               <p className="text-gray-300 text-lg leading-relaxed font-normal">End-to-end mobile and web app development for startups and enterprises. Beautiful, scalable, and secure apps users love.</p>
             </div>
           </div>
-          {/* Card 3 */}
-          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[320px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
-            <div className="mb-8 flex items-center justify-center h-24">
-              <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="10" y="15" width="60" height="30" rx="8" fill="#facc15"/><rect x="20" y="25" width="40" height="10" rx="4" fill="#fff"/></svg>
+          {/* Card 3: E-Commerce Solutions */}
+          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[340px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
+            <div className="mb-8 flex items-center justify-center h-28">
+              {/* Custom SVG: Shopping bag with credit card */}
+              <svg width="90" height="70" viewBox="0 0 90 70" fill="none"><rect x="20" y="20" width="50" height="40" rx="10" fill="#facc15"/><rect x="30" y="30" width="30" height="16" rx="4" fill="#fff"/><rect x="40" y="50" width="10" height="6" rx="3" fill="#a5b4fc"/><rect x="60" y="10" width="18" height="12" rx="3" fill="#6366f1"/></svg>
             </div>
             <div>
               <h2 className="font-extrabold text-2xl mb-3 text-white tracking-tight">E-Commerce Solutions</h2>
               <p className="text-gray-300 text-lg leading-relaxed font-normal">High-converting online stores with custom product flows, secure payments, and advanced analytics. Built for growth and retention.</p>
             </div>
           </div>
-          {/* Card 4 */}
-          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[320px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
-            <div className="mb-8 flex items-center justify-center h-24">
-              <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="24" fill="#f472b6"/><rect x="18" y="18" width="24" height="24" rx="6" fill="#fff"/></svg>
+          {/* Card 4: Branding & Creative */}
+          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[340px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
+            <div className="mb-8 flex items-center justify-center h-28">
+              {/* Custom SVG: Paint palette and pen */}
+              <svg width="80" height="70" viewBox="0 0 80 70" fill="none"><ellipse cx="40" cy="40" rx="30" ry="20" fill="#f472b6"/><circle cx="30" cy="40" r="4" fill="#fff"/><circle cx="40" cy="50" r="3" fill="#fff"/><circle cx="50" cy="38" r="3" fill="#fff"/><rect x="60" y="20" width="8" height="28" rx="4" fill="#6366f1"/></svg>
             </div>
             <div>
               <h2 className="font-extrabold text-2xl mb-3 text-white tracking-tight">Branding & Creative</h2>
               <p className="text-gray-300 text-lg leading-relaxed font-normal">Logo design, brand identity, and creative assets that make your business unforgettable. Elevate your brand presence.</p>
             </div>
           </div>
-          {/* Card 5 */}
-          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[320px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group md:col-span-2">
-            <div className="mb-8 flex items-center justify-center h-24">
-              <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="15" y="25" width="50" height="10" rx="5" fill="#22d3ee"/><rect x="35" y="10" width="10" height="40" rx="5" fill="#22d3ee"/></svg>
+          {/* Card 5: Automation & Integrations */}
+          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[340px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group md:col-span-2">
+            <div className="mb-8 flex items-center justify-center h-28">
+              {/* Custom SVG: Gears and connection lines */}
+              <svg width="110" height="60" viewBox="0 0 110 60" fill="none"><circle cx="35" cy="30" r="12" fill="#22d3ee"/><circle cx="75" cy="30" r="10" fill="#6366f1"/><rect x="50" y="28" width="20" height="4" rx="2" fill="#a5b4fc"/><rect x="60" y="40" width="30" height="6" rx="3" fill="#e0e7ef"/></svg>
             </div>
             <div>
               <h2 className="font-extrabold text-2xl mb-3 text-white tracking-tight">Automation & Integrations</h2>
@@ -420,6 +423,35 @@ const Services: React.FC = () => {
                 <div className="text-gray-700 text-base">{faq.a}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* E-Commerce Integration Section */}
+      <section className="w-full py-24 px-4 bg-gradient-to-br from-[#f8fafc] via-[#f1f5f9] to-[#f8fafc]">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
+          {/* Illustration */}
+          <div className="flex-1 flex justify-center">
+            <svg width="220" height="180" viewBox="0 0 220 180" fill="none">
+              <rect x="30" y="40" width="160" height="100" rx="18" fill="#6366f1"/>
+              <rect x="50" y="60" width="120" height="60" rx="10" fill="#fff"/>
+              <rect x="90" y="130" width="40" height="10" rx="5" fill="#a5b4fc"/>
+              <rect x="60" y="80" width="100" height="20" rx="6" fill="#e0e7ef"/>
+              <rect x="80" y="100" width="60" height="10" rx="5" fill="#c7d2fe"/>
+            </svg>
+          </div>
+          {/* Content */}
+          <div className="flex-1 flex flex-col items-center md:items-start">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900">Seamless E-Commerce Integration</h2>
+            <p className="text-lg text-gray-700 mb-6 max-w-md">We build websites and apps that connect effortlessly with the world's leading e-commerce and payment platforms—so you can sell, scale, and get paid anywhere.</p>
+            <div className="flex flex-wrap gap-6 items-center mb-4">
+              <img src="/shopify-logo.svg" alt="Shopify" className="h-10" />
+              <img src="/stripe-logo.svg" alt="Stripe" className="h-10" />
+              <img src="/squarespace-logo.svg" alt="Squarespace" className="h-10" />
+              <img src="/paypal.svg" alt="PayPal" className="h-10" />
+              <img src="/amazon.svg" alt="Amazon" className="h-10" />
+            </div>
+            <div className="text-sm text-gray-500">Shopify, Stripe, Squarespace, PayPal, Amazon & more</div>
           </div>
         </div>
       </section>
