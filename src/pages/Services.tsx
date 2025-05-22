@@ -189,18 +189,37 @@ const Services: React.FC = () => {
         <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8">From stunning websites to powerful apps, we build what your business needs to win online. Explore our full suite of services below.</p>
       </section>
 
-      {/* 2. Core Services Grid */}
+      {/* 2. Core Services Grid - Redesigned */}
       <section className="w-full bg-white py-20 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {services.map((svc) => (
-            <div key={svc.title} className="bg-gradient-to-br from-blue-50 to-white rounded-3xl shadow-xl p-8 flex flex-col items-start hover:scale-105 transition-transform border-t-4 border-blue-400">
-              <div className="text-4xl mb-4">{svc.icon}</div>
-              <h2 className="font-bold text-2xl mb-2">{svc.title}</h2>
-              <p className="text-gray-600 mb-4">{svc.desc}</p>
-              <ul className="text-sm text-gray-700 mb-4 space-y-1">
-                {svc.features.map((f, i) => <li key={i}>• {f}</li>)}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((svc, idx) => (
+            <div
+              key={svc.title}
+              className="group bg-white rounded-2xl shadow-lg border border-gray-100 p-8 flex flex-col items-start transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl"
+            >
+              <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100 mb-6">
+                {/* Modern SVG icon for each service */}
+                {idx === 0 && (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="16" rx="4" fill="#6366f1"/><rect x="8" y="12" width="16" height="8" rx="2" fill="#fff"/></svg>
+                )}
+                {idx === 1 && (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect x="8" y="4" width="16" height="24" rx="4" fill="#6366f1"/><rect x="12" y="8" width="8" height="16" rx="2" fill="#fff"/></svg>
+                )}
+                {idx === 2 && (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect x="6" y="10" width="20" height="12" rx="3" fill="#6366f1"/><rect x="10" y="14" width="12" height="4" rx="1.5" fill="#fff"/></svg>
+                )}
+                {idx === 3 && (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="#6366f1"/><rect x="10" y="10" width="12" height="12" rx="3" fill="#fff"/></svg>
+                )}
+                {idx === 4 && (
+                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect x="6" y="14" width="20" height="4" rx="2" fill="#6366f1"/><rect x="14" y="6" width="4" height="20" rx="2" fill="#6366f1"/></svg>
+                )}
+              </div>
+              <h2 className="font-bold text-xl mb-2 text-gray-900">{svc.title}</h2>
+              <p className="text-gray-600 mb-4 leading-relaxed">{svc.desc}</p>
+              <ul className="text-sm text-gray-700 mb-4 space-y-1 pl-2">
+                {svc.features.map((f, i) => <li key={i} className="list-disc">{f}</li>)}
               </ul>
-              <img src={svc.img} alt={svc.title} className="w-full h-32 object-contain rounded-xl mt-auto" />
             </div>
           ))}
         </div>
