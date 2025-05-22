@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Component, useRef, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, OrbitControls } from '@react-three/drei';
 
