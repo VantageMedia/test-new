@@ -7,5 +7,4 @@ if ! command -v git-lfs >/dev/null 2>&1; then
 fi
 git lfs install
 git lfs pull
-npm install
 npm run build 
