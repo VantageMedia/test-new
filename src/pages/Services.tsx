@@ -206,8 +206,73 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Device Showcase Section */}
-      <DeviceShowcase3DSection />
+      {/* Device Showcase Section Replacement */}
+      <section className="relative w-full flex flex-col items-center justify-center py-32 bg-gradient-to-br from-blue-100 via-white to-purple-100 overflow-hidden">
+        <div className="max-w-4xl mx-auto flex flex-col items-center mb-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-center">Websites & Apps, Seamlessly Delivered</h2>
+          <p className="text-lg text-gray-700 mb-12 text-center max-w-2xl">See your vision come to life on every device. Our team crafts stunning websites and powerful apps that work together beautifully.</p>
+        </div>
+        <div className="w-full flex justify-center items-center" style={{ minHeight: 400 }}>
+          {/* Animated SVG Illustration */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative flex flex-col md:flex-row items-center gap-12"
+          >
+            {/* MacBook SVG */}
+            <motion.div
+              animate={{ y: [0, -20, 0] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              className="shadow-2xl rounded-3xl bg-white p-6"
+            >
+              <svg width="260" height="160" viewBox="0 0 260 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="20" width="240" height="120" rx="16" fill="#e0e7ef" />
+                <rect x="30" y="40" width="200" height="80" rx="8" fill="#fff" />
+                <rect x="40" y="50" width="180" height="60" rx="6" fill="#c7d2fe" />
+                <rect x="120" y="130" width="20" height="6" rx="3" fill="#a5b4fc" />
+              </svg>
+              <div className="text-center mt-2 font-semibold text-blue-700">Your Website</div>
+            </motion.div>
+            {/* Animated Arrow */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="hidden md:block"
+            >
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <motion.path
+                  d="M10 40 Q40 10 70 40 Q40 70 10 40 Z"
+                  fill="#a5b4fc"
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
+                />
+                <motion.polygon
+                  points="60,40 70,35 70,45"
+                  fill="#6366f1"
+                  animate={{ x: [0, 10, 0] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                />
+              </svg>
+            </motion.div>
+            {/* iPhone SVG */}
+            <motion.div
+              animate={{ y: [0, 20, 0] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", delay: 1.5 }}
+              className="shadow-2xl rounded-3xl bg-white p-6"
+            >
+              <svg width="90" height="180" viewBox="0 0 90 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="10" width="70" height="160" rx="18" fill="#e0e7ef" />
+                <rect x="20" y="30" width="50" height="120" rx="10" fill="#fff" />
+                <rect x="25" y="40" width="40" height="100" rx="8" fill="#c7d2fe" />
+                <rect x="40" y="150" width="10" height="6" rx="3" fill="#a5b4fc" />
+              </svg>
+              <div className="text-center mt-2 font-semibold text-purple-700">Your App</div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* 3. App Development Feature Section */}
       <section className="w-full bg-gradient-to-r from-blue-50 to-purple-50 py-20 px-6">
