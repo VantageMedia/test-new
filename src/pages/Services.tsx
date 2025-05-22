@@ -189,41 +189,62 @@ const Services: React.FC = () => {
         <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8">From stunning websites to powerful apps, we build what your business needs to win online. Explore our full suite of services below.</p>
       </section>
 
-      {/* 2. Core Services Grid - Shopify-Inspired Redesign */}
-      <section className="w-full py-24 px-4 bg-gradient-to-br from-[#1a232e] via-[#23272f] to-[#1a232e]">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-          {services.map((svc, idx) => (
-            <div
-              key={svc.title}
-              className="group bg-[#23272f] rounded-2xl shadow-2xl border border-[#23272f] p-10 flex flex-col justify-between min-h-[340px] transition-transform duration-200 hover:-translate-y-2 hover:shadow-3xl"
-            >
-              {/* Modern SVG or illustration for each card */}
-              <div className="mb-8 flex items-center justify-center h-28">
-                {idx === 0 && (
-                  <svg width="90" height="60" viewBox="0 0 90 60" fill="none"><rect x="5" y="10" width="80" height="40" rx="10" fill="#2dd4bf"/><rect x="15" y="20" width="60" height="20" rx="6" fill="#fff"/><rect x="25" y="25" width="40" height="10" rx="4" fill="#a5b4fc"/></svg>
-                )}
-                {idx === 1 && (
-                  <svg width="60" height="90" viewBox="0 0 60 90" fill="none"><rect x="10" y="10" width="40" height="70" rx="12" fill="#6366f1"/><rect x="18" y="22" width="24" height="46" rx="6" fill="#fff"/><rect x="25" y="70" width="10" height="6" rx="3" fill="#a5b4fc"/></svg>
-                )}
-                {idx === 2 && (
-                  <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="10" y="15" width="60" height="30" rx="8" fill="#facc15"/><rect x="20" y="25" width="40" height="10" rx="4" fill="#fff"/></svg>
-                )}
-                {idx === 3 && (
-                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="24" fill="#f472b6"/><rect x="18" y="18" width="24" height="24" rx="6" fill="#fff"/></svg>
-                )}
-                {idx === 4 && (
-                  <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="15" y="25" width="50" height="10" rx="5" fill="#22d3ee"/><rect x="35" y="10" width="10" height="40" rx="5" fill="#22d3ee"/></svg>
-                )}
-              </div>
-              <div>
-                <h2 className="font-bold text-2xl mb-3 text-white">{svc.title}</h2>
-                <p className="text-gray-300 mb-5 leading-relaxed">{svc.desc}</p>
-                <ul className="text-sm text-gray-400 space-y-1 pl-2">
-                  {svc.features.map((f, i) => <li key={i} className="list-disc">{f}</li>)}
-                </ul>
-              </div>
+      {/* 2. Core Services Grid - Enterprise Redesign */}
+      <section className="w-full py-28 px-4 bg-gradient-to-br from-[#181c22] via-[#23272f] to-[#181c22] relative overflow-hidden">
+        {/* Animated background gradient blob */}
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-transparent rounded-full blur-3xl animate-pulse z-0" />
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
+          {/* Card 1 */}
+          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[320px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
+            {/* Custom SVG Illustration */}
+            <div className="mb-8 flex items-center justify-center h-24">
+              <svg width="90" height="60" viewBox="0 0 90 60" fill="none"><rect x="5" y="10" width="80" height="40" rx="12" fill="#2dd4bf"/><rect x="15" y="20" width="60" height="20" rx="6" fill="#fff"/><rect x="25" y="25" width="40" height="10" rx="4" fill="#a5b4fc"/></svg>
             </div>
-          ))}
+            <div>
+              <h2 className="font-extrabold text-2xl mb-3 text-white tracking-tight">Custom Website Design</h2>
+              <p className="text-gray-300 text-lg leading-relaxed font-normal">Bespoke, conversion-focused websites built for speed, SEO, and seamless user experience. Every pixel is tailored to your brand.</p>
+            </div>
+          </div>
+          {/* Card 2 */}
+          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[320px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
+            <div className="mb-8 flex items-center justify-center h-24">
+              <svg width="60" height="90" viewBox="0 0 60 90" fill="none"><rect x="10" y="10" width="40" height="70" rx="12" fill="#6366f1"/><rect x="18" y="22" width="24" height="46" rx="6" fill="#fff"/><rect x="25" y="70" width="10" height="6" rx="3" fill="#a5b4fc"/></svg>
+            </div>
+            <div>
+              <h2 className="font-extrabold text-2xl mb-3 text-white tracking-tight">App Development</h2>
+              <p className="text-gray-300 text-lg leading-relaxed font-normal">End-to-end mobile and web app development for startups and enterprises. Beautiful, scalable, and secure apps users love.</p>
+            </div>
+          </div>
+          {/* Card 3 */}
+          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[320px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
+            <div className="mb-8 flex items-center justify-center h-24">
+              <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="10" y="15" width="60" height="30" rx="8" fill="#facc15"/><rect x="20" y="25" width="40" height="10" rx="4" fill="#fff"/></svg>
+            </div>
+            <div>
+              <h2 className="font-extrabold text-2xl mb-3 text-white tracking-tight">E-Commerce Solutions</h2>
+              <p className="text-gray-300 text-lg leading-relaxed font-normal">High-converting online stores with custom product flows, secure payments, and advanced analytics. Built for growth and retention.</p>
+            </div>
+          </div>
+          {/* Card 4 */}
+          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[320px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group">
+            <div className="mb-8 flex items-center justify-center h-24">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="24" fill="#f472b6"/><rect x="18" y="18" width="24" height="24" rx="6" fill="#fff"/></svg>
+            </div>
+            <div>
+              <h2 className="font-extrabold text-2xl mb-3 text-white tracking-tight">Branding & Creative</h2>
+              <p className="text-gray-300 text-lg leading-relaxed font-normal">Logo design, brand identity, and creative assets that make your business unforgettable. Elevate your brand presence.</p>
+            </div>
+          </div>
+          {/* Card 5 */}
+          <div className="bg-[#20242b] rounded-3xl shadow-xl p-12 flex flex-col justify-between min-h-[320px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-2xl group md:col-span-2">
+            <div className="mb-8 flex items-center justify-center h-24">
+              <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="15" y="25" width="50" height="10" rx="5" fill="#22d3ee"/><rect x="35" y="10" width="10" height="40" rx="5" fill="#22d3ee"/></svg>
+            </div>
+            <div>
+              <h2 className="font-extrabold text-2xl mb-3 text-white tracking-tight">Automation & Integrations</h2>
+              <p className="text-gray-300 text-lg leading-relaxed font-normal">Automate your marketing, sales, and operations with custom integrations and workflow automation. Work smarter, not harder.</p>
+            </div>
+          </div>
         </div>
       </section>
 
