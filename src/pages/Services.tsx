@@ -189,37 +189,39 @@ const Services: React.FC = () => {
         <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8">From stunning websites to powerful apps, we build what your business needs to win online. Explore our full suite of services below.</p>
       </section>
 
-      {/* 2. Core Services Grid - Redesigned */}
-      <section className="w-full bg-white py-20 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* 2. Core Services Grid - Shopify-Inspired Redesign */}
+      <section className="w-full py-24 px-4 bg-gradient-to-br from-[#1a232e] via-[#23272f] to-[#1a232e]">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           {services.map((svc, idx) => (
             <div
               key={svc.title}
-              className="group bg-white rounded-2xl shadow-lg border border-gray-100 p-8 flex flex-col items-start transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl"
+              className="group bg-[#23272f] rounded-2xl shadow-2xl border border-[#23272f] p-10 flex flex-col justify-between min-h-[340px] transition-transform duration-200 hover:-translate-y-2 hover:shadow-3xl"
             >
-              <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100 mb-6">
-                {/* Modern SVG icon for each service */}
+              {/* Modern SVG or illustration for each card */}
+              <div className="mb-8 flex items-center justify-center h-28">
                 {idx === 0 && (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="16" rx="4" fill="#6366f1"/><rect x="8" y="12" width="16" height="8" rx="2" fill="#fff"/></svg>
+                  <svg width="90" height="60" viewBox="0 0 90 60" fill="none"><rect x="5" y="10" width="80" height="40" rx="10" fill="#2dd4bf"/><rect x="15" y="20" width="60" height="20" rx="6" fill="#fff"/><rect x="25" y="25" width="40" height="10" rx="4" fill="#a5b4fc"/></svg>
                 )}
                 {idx === 1 && (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect x="8" y="4" width="16" height="24" rx="4" fill="#6366f1"/><rect x="12" y="8" width="8" height="16" rx="2" fill="#fff"/></svg>
+                  <svg width="60" height="90" viewBox="0 0 60 90" fill="none"><rect x="10" y="10" width="40" height="70" rx="12" fill="#6366f1"/><rect x="18" y="22" width="24" height="46" rx="6" fill="#fff"/><rect x="25" y="70" width="10" height="6" rx="3" fill="#a5b4fc"/></svg>
                 )}
                 {idx === 2 && (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect x="6" y="10" width="20" height="12" rx="3" fill="#6366f1"/><rect x="10" y="14" width="12" height="4" rx="1.5" fill="#fff"/></svg>
+                  <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="10" y="15" width="60" height="30" rx="8" fill="#facc15"/><rect x="20" y="25" width="40" height="10" rx="4" fill="#fff"/></svg>
                 )}
                 {idx === 3 && (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="#6366f1"/><rect x="10" y="10" width="12" height="12" rx="3" fill="#fff"/></svg>
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="24" fill="#f472b6"/><rect x="18" y="18" width="24" height="24" rx="6" fill="#fff"/></svg>
                 )}
                 {idx === 4 && (
-                  <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect x="6" y="14" width="20" height="4" rx="2" fill="#6366f1"/><rect x="14" y="6" width="4" height="20" rx="2" fill="#6366f1"/></svg>
+                  <svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="15" y="25" width="50" height="10" rx="5" fill="#22d3ee"/><rect x="35" y="10" width="10" height="40" rx="5" fill="#22d3ee"/></svg>
                 )}
               </div>
-              <h2 className="font-bold text-xl mb-2 text-gray-900">{svc.title}</h2>
-              <p className="text-gray-600 mb-4 leading-relaxed">{svc.desc}</p>
-              <ul className="text-sm text-gray-700 mb-4 space-y-1 pl-2">
-                {svc.features.map((f, i) => <li key={i} className="list-disc">{f}</li>)}
-              </ul>
+              <div>
+                <h2 className="font-bold text-2xl mb-3 text-white">{svc.title}</h2>
+                <p className="text-gray-300 mb-5 leading-relaxed">{svc.desc}</p>
+                <ul className="text-sm text-gray-400 space-y-1 pl-2">
+                  {svc.features.map((f, i) => <li key={i} className="list-disc">{f}</li>)}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
