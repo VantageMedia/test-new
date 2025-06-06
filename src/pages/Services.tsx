@@ -456,6 +456,81 @@ const Services: React.FC = () => {
         </div>
       </section>
 
+      {/* Trusted by Fortune 500 Companies (Partners) Section */}
+      <section className="relative py-20 px-4 bg-gradient-to-b from-blue-50 to-white border-t border-b border-gray-100 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none opacity-30" style={{background: 'radial-gradient(circle at 60% 40%, #60a5fa33 0%, transparent 70%)'}} />
+        <div className="container mx-auto max-w-5xl text-center relative z-10">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 text-gray-900">
+            Trusted by <span className="text-blue-500">Fortune 500</span> Companies
+          </h2>
+          <p className="text-gray-600 mb-10 max-w-2xl mx-auto text-lg">
+            We build high-converting, visually stunning websites for the world's most recognized brands—and we can do the same for you.
+          </p>
+          {/* Seamless Animated Marquee of Logos */}
+          <div className="overflow-x-hidden w-full py-6 relative">
+            <div className="marquee-track flex items-center gap-16 whitespace-nowrap" style={{ animation: 'marquee 30s linear infinite' }}>
+              {/* ...partner logos here... */}
+            </div>
+            <style>{`
+              @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+              .marquee-track {
+                width: max-content;
+              }
+            `}</style>
+          </div>
+        </div>
+      </section>
+
+      {/* Integrations/Platforms Section (Shopify-style) */}
+      <section className="w-full py-24 px-4 bg-white">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
+          {/* Mockup Illustration */}
+          <div className="flex-1 flex flex-col items-center md:items-start">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 text-left">Here, there, and everywhere</h2>
+            <p className="text-lg text-gray-700 mb-8 max-w-lg text-left">Expand your reach with targeted marketing and seamless integrations across major platforms.</p>
+            <div className="grid grid-cols-2 gap-6 mb-4">
+              <div className="flex items-center justify-center bg-gray-50 rounded-xl shadow p-4">
+                <img src="/shopify-logo.svg" alt="Shopify" className="h-10" />
+              </div>
+              <div className="flex items-center justify-center bg-gray-50 rounded-xl shadow p-4">
+                <img src="/squarespace-logo.svg" alt="Squarespace" className="h-10" />
+              </div>
+              <div className="flex items-center justify-center bg-gray-50 rounded-xl shadow p-4">
+                <img src="/stripe-logo.svg" alt="Stripe" className="h-10" />
+              </div>
+              <div className="flex items-center justify-center bg-gray-50 rounded-xl shadow p-4">
+                <img src="/paypal.svg" alt="PayPal" className="h-10" />
+              </div>
+            </div>
+            <div className="text-sm text-gray-500 text-left">Shopify, Stripe, Squarespace, PayPal & more</div>
+          </div>
+          {/* Browser/App Mockup */}
+          <div className="flex-1 flex justify-center">
+            <div className="relative w-full max-w-md">
+              <div className="rounded-2xl shadow-2xl bg-white p-6">
+                <svg width="320" height="180" viewBox="0 0 320 180" fill="none">
+                  <rect x="20" y="30" width="280" height="120" rx="18" fill="#f1f5f9"/>
+                  <rect x="40" y="50" width="240" height="80" rx="10" fill="#fff"/>
+                  <rect x="100" y="140" width="120" height="12" rx="6" fill="#a5b4fc"/>
+                  <rect x="60" y="80" width="200" height="20" rx="6" fill="#e0e7ef"/>
+                  <rect x="120" y="110" width="80" height="10" rx="5" fill="#c7d2fe"/>
+                </svg>
+              </div>
+              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-40 bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center">
+                <svg width="80" height="40" viewBox="0 0 80 40" fill="none">
+                  <rect x="10" y="5" width="60" height="30" rx="10" fill="#6366f1"/>
+                  <rect x="20" y="15" width="40" height="10" rx="5" fill="#fff"/>
+                </svg>
+                <div className="text-xs text-gray-500 mt-2">Mobile App</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 8. Final CTA */}
       <section className="w-full bg-blue-600 py-20 px-6 text-center text-white">
         <h2 className="text-4xl font-extrabold mb-4">Let's Build Something Amazing</h2>
