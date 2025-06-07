@@ -35,29 +35,33 @@ const Index: React.FC = () => {
           <FreeOffer />
           <Partners />
 
-          {/* Modern, Professional Integrations Section */}
-          <section className="w-full py-24 px-4 bg-white">
-            <div className="max-w-5xl mx-auto flex flex-col items-center gap-10">
-              <h2 className="text-5xl font-extrabold mb-3 text-gray-900 text-center tracking-tight">Here, there, and everywhere</h2>
-              <p className="text-xl text-gray-700 mb-10 max-w-2xl text-center">Expand your reach with targeted marketing and seamless integrations across major platforms.</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+          {/* Premium, On-Brand Integrations Section */}
+          <section className="relative w-full py-28 px-4 bg-gradient-to-br from-[#f5f7fa] via-[#eef2ff] to-[#e0e7ff] overflow-hidden">
+            {/* Floating SVG shape for depth */}
+            <svg className="absolute -top-24 -left-24 w-[480px] h-[480px] opacity-30 blur-2xl z-0" viewBox="0 0 480 480" fill="none"><circle cx="240" cy="240" r="200" fill="#6366f1" /></svg>
+            <div className="max-w-5xl mx-auto flex flex-col items-center gap-12 relative z-10">
+              <h2 className="text-6xl font-black mb-3 text-gray-900 text-center tracking-tight leading-tight">
+                Here, there, and <span className="text-[#6366f1]">everywhere</span>
+              </h2>
+              <p className="text-2xl text-gray-700 mb-12 max-w-2xl text-center font-medium">Expand your reach with targeted marketing and seamless integrations across major platforms.</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
                 {/* Invoice and payment system card */}
-                <div className="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-center min-h-[260px] transition-transform duration-200 hover:scale-[1.025] hover:shadow-2xl">
-                  {/* Simple icon */}
-                  <svg width="48" height="48" fill="none" viewBox="0 0 48 48" className="mb-4"><rect x="8" y="12" width="32" height="24" rx="4" fill="#6366f1"/><rect x="14" y="18" width="20" height="12" rx="2" fill="#fff"/></svg>
-                  <h3 className="text-2xl font-bold mb-2 text-gray-900 text-center">Invoice and payment system</h3>
-                  <p className="text-base text-gray-500 text-center">Seamless invoicing and payments, fully integrated with your business workflow.</p>
+                <div className="bg-white/90 border-2 border-[#6366f1]/10 rounded-3xl shadow-2xl p-12 flex flex-col items-center min-h-[280px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-3xl animate-fade-in">
+                  {/* Large accent icon */}
+                  <svg width="56" height="56" fill="none" viewBox="0 0 56 56" className="mb-5"><rect x="8" y="14" width="40" height="28" rx="6" fill="#6366f1"/><rect x="16" y="22" width="24" height="12" rx="3" fill="#fff"/></svg>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900 text-center">Invoice and payment system</h3>
+                  <p className="text-lg text-gray-500 text-center">Seamless invoicing and payments, fully integrated with your business workflow.</p>
                 </div>
                 {/* Integrate with leading platforms card */}
-                <div className="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-center min-h-[260px] transition-transform duration-200 hover:scale-[1.025] hover:shadow-2xl">
+                <div className="bg-white/90 border-2 border-[#6366f1]/10 rounded-3xl shadow-2xl p-12 flex flex-col items-center min-h-[280px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-3xl animate-fade-in">
                   <h3 className="text-2xl font-bold mb-6 text-gray-900 text-center">Integrate with leading platforms</h3>
-                  <div className="grid grid-cols-2 gap-6 mb-4">
-                    <div className="bg-white rounded-2xl shadow flex items-center justify-center p-4 transition-transform duration-200 hover:scale-105"><img src="/shopify-logo.png" alt="Shopify logo" className="h-10 w-10 object-contain" /></div>
-                    <div className="bg-white rounded-2xl shadow flex items-center justify-center p-4 transition-transform duration-200 hover:scale-105"><img src="/squarespace-logo.png" alt="Squarespace logo" className="h-10 w-10 object-contain" /></div>
-                    <div className="bg-white rounded-2xl shadow flex items-center justify-center p-4 transition-transform duration-200 hover:scale-105"><img src="/stripe-logo.jpeg" alt="Stripe logo" className="h-10 w-10 object-contain" /></div>
-                    <div className="bg-white rounded-2xl shadow flex items-center justify-center p-4 transition-transform duration-200 hover:scale-105"><img src="/paypal-logo.png" alt="PayPal logo" className="h-10 w-10 object-contain" /></div>
+                  <div className="grid grid-cols-2 gap-7 mb-5">
+                    <div className="bg-white rounded-2xl shadow flex items-center justify-center p-5 transition-transform duration-200 hover:scale-110"><img src="/shopify-logo.png" alt="Shopify logo" className="h-12 w-12 object-contain" /></div>
+                    <div className="bg-white rounded-2xl shadow flex items-center justify-center p-5 transition-transform duration-200 hover:scale-110"><img src="/squarespace-logo.png" alt="Squarespace logo" className="h-12 w-12 object-contain" /></div>
+                    <div className="bg-white rounded-2xl shadow flex items-center justify-center p-5 transition-transform duration-200 hover:scale-110"><img src="/stripe-logo.jpeg" alt="Stripe logo" className="h-12 w-12 object-contain" /></div>
+                    <div className="bg-white rounded-2xl shadow flex items-center justify-center p-5 transition-transform duration-200 hover:scale-110"><img src="/paypal-logo.png" alt="PayPal logo" className="h-12 w-12 object-contain" /></div>
                   </div>
-                  <div className="text-base text-gray-500 text-center">Shopify, Stripe, Squarespace, PayPal & more</div>
+                  <div className="text-lg text-gray-500 text-center">Shopify, Stripe, Squarespace, PayPal & more</div>
                 </div>
               </div>
             </div>
