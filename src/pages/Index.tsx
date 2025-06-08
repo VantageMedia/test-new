@@ -104,13 +104,43 @@ const Index: React.FC = () => {
                 {/* Integrate with leading platforms card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
-                  <div className="grid grid-cols-3 gap-4 mb-4">
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[0] ? 'animate-rotate-swing-once' : ''}`}><img src="/shopify-logo.png" alt="Shopify logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[1] ? 'animate-rotate-swing-once' : ''}`}><img src="/squarespace-logo.png" alt="Squarespace logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[2] ? 'animate-rotate-swing-once' : ''}`}><img src="/stripe-logo.jpeg" alt="Stripe logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[3] ? 'animate-rotate-swing-once' : ''}`}><img src="/paypal-logo.png" alt="PayPal logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[4] ? 'animate-rotate-swing-once' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[5] ? 'animate-rotate-swing-once' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                  <div className="relative">
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 360 160">
+                      {/* Example: Connect logos in a 3x2 grid with lines */}
+                      <line x1="60" y1="40" x2="180" y2="40" stroke="#a78bfa" strokeWidth="3" />
+                      <line x1="180" y1="40" x2="300" y2="40" stroke="#a78bfa" strokeWidth="3" />
+                      <line x1="60" y1="120" x2="180" y2="120" stroke="#a78bfa" strokeWidth="3" />
+                      <line x1="180" y1="120" x2="300" y2="120" stroke="#a78bfa" strokeWidth="3" />
+                      <line x1="60" y1="40" x2="60" y2="120" stroke="#a78bfa" strokeWidth="3" />
+                      <line x1="180" y1="40" x2="180" y2="120" stroke="#a78bfa" strokeWidth="3" />
+                      <line x1="300" y1="40" x2="300" y2="120" stroke="#a78bfa" strokeWidth="3" />
+                      {/* Animated purple light (circle) traveling the top path */}
+                      <circle>
+                        <animateMotion dur="3s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1">
+                          <mpath xlinkHref="#top-path" />
+                        </animateMotion>
+                      </circle>
+                      <path id="top-path" d="M60 40 L180 40 L300 40" fill="none" />
+                      <circle r="8" fill="url(#purple-glow)" >
+                        <animateMotion dur="3s" repeatCount="indefinite">
+                          <mpath xlinkHref="#top-path" />
+                        </animateMotion>
+                      </circle>
+                      <defs>
+                        <radialGradient id="purple-glow" cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stopColor="#a78bfa" stopOpacity="1" />
+                          <stop offset="100%" stopColor="#a78bfa" stopOpacity="0" />
+                        </radialGradient>
+                      </defs>
+                    </svg>
+                    <div className="grid grid-cols-3 gap-4 mb-4 z-20 relative">
+                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[0] ? 'animate-rotate-swing-once' : ''}`}><img src="/shopify-logo.png" alt="Shopify logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[1] ? 'animate-rotate-swing-once' : ''}`}><img src="/squarespace-logo.png" alt="Squarespace logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[2] ? 'animate-rotate-swing-once' : ''}`}><img src="/stripe-logo.jpeg" alt="Stripe logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[3] ? 'animate-rotate-swing-once' : ''}`}><img src="/paypal-logo.png" alt="PayPal logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[4] ? 'animate-rotate-swing-once' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[5] ? 'animate-rotate-swing-once' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    </div>
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
