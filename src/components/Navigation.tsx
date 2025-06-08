@@ -15,11 +15,7 @@ const Navigation: React.FC = () => {
   
   React.useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -38,10 +34,10 @@ const Navigation: React.FC = () => {
     <>
       <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md py-2' : 'bg-white/60 backdrop-blur-md py-4'}`} style={{boxShadow: isScrolled ? '0 2px 24px 0 rgba(100,100,255,0.10)' : '0 2px 24px 0 rgba(100,100,255,0.08)'}}>
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <a href="/" className="font-bold text-xl">Vantage Media</a>
-            </div>
+          <div className="flex justify-between items-center">
+            <Link to="/" className="flex items-center">
+              <span className="text-2xl font-bold text-[#6366f1]">Vantage Media</span>
+            </Link>
             
             <nav className="hidden md:flex items-center space-x-8">
               {navItems.map((item, index) => (
@@ -53,9 +49,6 @@ const Navigation: React.FC = () => {
                   {item.title}
                 </a>
               ))}
-              <Button className="bg-blue-500 hover:bg-blue-600 text-white" asChild>
-                <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
-              </Button>
               <Link
                 to="/services"
                 className="text-gray-700 hover:text-[#6366f1] transition-colors"
@@ -66,14 +59,14 @@ const Navigation: React.FC = () => {
                 onClick={() => setIsBookingOpen(true)}
                 className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#6366f1] hover:bg-[#4f46e5] transition-colors shadow-sm hover:shadow-md"
               >
-                Book Consultation
+                FREE CONSULTATION
               </Button>
             </nav>
             
             <div className="md:hidden">
               <Sheet>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
+                  <Button variant="ghost" size="icon" className="md:hidden">
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
@@ -88,8 +81,17 @@ const Navigation: React.FC = () => {
                         {item.title}
                       </a>
                     ))}
-                    <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full" asChild>
-                      <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
+                    <Link
+                      to="/services"
+                      className="text-gray-700 hover:text-[#6366f1] transition-colors"
+                    >
+                      Services
+                    </Link>
+                    <Button
+                      onClick={() => setIsBookingOpen(true)}
+                      className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#6366f1] hover:bg-[#4f46e5] transition-colors shadow-sm hover:shadow-md"
+                    >
+                      FREE CONSULTATION
                     </Button>
                   </nav>
                 </SheetContent>
