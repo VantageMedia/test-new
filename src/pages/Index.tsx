@@ -140,7 +140,7 @@ const Index: React.FC = () => {
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
                   <div className="flex justify-center w-full">
-                    <div className={`grid grid-cols-3 gap-8 mb-4 w-full max-w-md ${isShuffling ? 'card-shuffle' : ''}`}>
+                    <div className={`grid grid-cols-3 gap-8 mb-4 ${isShuffling ? 'card-shuffle' : ''}`}>
                       {shuffledLogos.map((src) => (
                         <div key={src} className="bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md">
                           <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
@@ -169,18 +169,18 @@ const Index: React.FC = () => {
       <style>{`
       @keyframes card-shuffle {
         0% { transform: translateX(0); }
-        10% { transform: translateX(-10px) rotate(-2deg); }
-        20% { transform: translateX(10px) rotate(2deg); }
-        30% { transform: translateX(-8px) rotate(-1deg); }
-        40% { transform: translateX(8px) rotate(1deg); }
-        50% { transform: translateX(-4px); }
-        60% { transform: translateX(4px); }
-        70% { transform: translateX(-2px); }
-        80% { transform: translateX(2px); }
+        10% { transform: translateX(-6px) rotate(-1deg); }
+        20% { transform: translateX(6px) rotate(1deg); }
+        30% { transform: translateX(-4px) rotate(-0.5deg); }
+        40% { transform: translateX(4px) rotate(0.5deg); }
+        50% { transform: translateX(-2px); }
+        60% { transform: translateX(2px); }
+        70% { transform: translateX(-1px); }
+        80% { transform: translateX(1px); }
         100% { transform: translateX(0); }
       }
       .card-shuffle {
-        animation: card-shuffle 0.6s cubic-bezier(0.4,0.2,0.2,1);
+        animation: card-shuffle 1.2s cubic-bezier(0.45,0.05,0.55,0.95);
       }
       `}</style>
     </>
