@@ -102,11 +102,11 @@ const Index: React.FC = () => {
                   <p className="text-base text-gray-500 text-center">Seamless invoicing and payments, fully integrated with your business workflow.</p>
                 </div>
                 {/* Integrate with leading platforms card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
-                  <div className="grid grid-cols-3 gap-10 mb-4 px-4">
+                  <div className="grid grid-cols-3 gap-8 mb-4 px-4 w-full max-w-md justify-center">
                     {Array.from({length: 6}).map((_, i) => (
-                      <div key={i} className="bg-white rounded-xl flex items-center justify-center w-32 h-32 shadow-md">
+                      <div key={i} className="bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md">
                         <img src={[
                           '/shopify-logo.png',
                           '/squarespace-logo.png',
