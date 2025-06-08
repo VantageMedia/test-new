@@ -24,10 +24,8 @@ const Navigation: React.FC = () => {
   
   const navItems = [
     { title: "HOME", href: "/" },
-    { title: "PORTFOLIO", href: "/portfolio" },
     { title: "SERVICES", href: "/services" },
-    { title: "CASE STUDIES", href: "/case-studies" },
-    { title: "CONTACT US", href: "/contact" },
+    { title: "BLOG", href: "/blog" },
   ];
   
   return (
@@ -49,12 +47,6 @@ const Navigation: React.FC = () => {
                   {item.title}
                 </a>
               ))}
-              <Link
-                to="/services"
-                className="text-gray-700 hover:text-[#6366f1] transition-colors"
-              >
-                Services
-              </Link>
               <Button
                 asChild
                 className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#6366f1] hover:bg-[#4f46e5] transition-colors shadow-sm hover:shadow-md"
@@ -81,12 +73,6 @@ const Navigation: React.FC = () => {
                         {item.title}
                       </a>
                     ))}
-                    <Link
-                      to="/services"
-                      className="text-gray-700 hover:text-[#6366f1] transition-colors"
-                    >
-                      Services
-                    </Link>
                     <Button
                       asChild
                       className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#6366f1] hover:bg-[#4f46e5] transition-colors shadow-sm hover:shadow-md"
