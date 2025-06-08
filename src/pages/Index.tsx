@@ -109,8 +109,8 @@ const Index: React.FC = () => {
                     <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[1] ? 'animate-rotate-swing-once' : ''}`}><img src="/squarespace-logo.png" alt="Squarespace logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
                     <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[2] ? 'animate-rotate-swing-once' : ''}`}><img src="/stripe-logo.jpeg" alt="Stripe logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
                     <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[3] ? 'animate-rotate-swing-once' : ''}`}><img src="/paypal-logo.png" alt="PayPal logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[4] ? 'animate-rotate-swing-once' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[5] ? 'animate-rotate-swing-once' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[4] ? 'animate-rotate-swing-once' : ''}`}><img src="/google logo.png" alt="Google logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[5] ? 'animate-rotate-swing-once' : ''}`}><img src="/wave logo.png" alt="Wave logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
