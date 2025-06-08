@@ -127,10 +127,9 @@ export default {
 						boxShadow: '0 10px 30px rgba(99, 102, 241, 0.2)'
 					},
 				},
-				'shake': {
+				'bounce-horizontal': {
 					'0%, 100%': { transform: 'translateX(0)' },
-					'10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-5px)' },
-					'20%, 40%, 60%, 80%': { transform: 'translateX(5px)' },
+					'50%': { transform: 'translateX(20px)' },
 				},
 			},
 			animation: {
@@ -139,7 +138,7 @@ export default {
 				'fade-in': 'fade-in 0.3s ease-out',
 				'fade-out': 'fade-out 0.3s ease-out',
 				'bounce-slow': 'bounce-slow 3s ease-in-out infinite',
-				'shake-slow': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+				'bounce-horizontal-slow': 'bounce-horizontal 5s ease-in-out infinite',
 			}
 		}
 	},
