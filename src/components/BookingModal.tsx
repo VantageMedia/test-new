@@ -12,7 +12,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
       <DialogContent className="max-w-4xl h-[80vh] p-0">
         <div className="w-full h-full">
           <iframe
-            src="https://koalendar.com/e/meet-with-a-design-expert"
+            src="https://cal.com/vantagemedia/30min"
             style={{ width: '100%', height: '100%', border: 'none' }}
             title="Schedule a consultation"
           />
