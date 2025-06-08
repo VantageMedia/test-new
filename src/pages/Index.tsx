@@ -106,7 +106,7 @@ const Index: React.FC = () => {
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
                   <div className="grid grid-cols-3 gap-4 mb-4">
                     {Array.from({length: 6}).map((_, i) => (
-                      <div key={i} className={`bg-white rounded-xl flex items-center justify-center w-24 h-24 ${swing[i] ? 'animate-rotate-swing-once' : ''}`}>
+                      <div key={i} className={`bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md p-2`}>
                         <img src={[
                           '/shopify-logo.png',
                           '/squarespace-logo.png',
@@ -114,7 +114,7 @@ const Index: React.FC = () => {
                           '/paypal-logo.png',
                           '/google-logo.png',
                           '/wave-logo.png',
-                        ][i]} alt="Platform logo" className="w-full h-full object-contain" loading="lazy" />
+                        ][i]} alt="Platform logo" className="max-w-[60%] max-h-[60%] object-contain mx-auto my-auto" loading="lazy" />
                       </div>
                     ))}
                   </div>
