@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
@@ -10,6 +10,24 @@ import Partners from '@/components/Partners';
 import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
+  const [shake, setShake] = React.useState([false, false, false, false, false, false]);
+  const shakeTimeouts = useRef([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShake([true, true, true, true, true, true]);
+      shakeTimeouts.current = [0,1,2,3,4,5].map((i) => setTimeout(() => setShake((prev) => {
+        const next = [...prev];
+        next[i] = false;
+        return next;
+      }), 500));
+    }, 15000);
+    return () => {
+      clearInterval(interval);
+      shakeTimeouts.current.forEach(clearTimeout);
+    };
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -70,12 +88,12 @@ const Index: React.FC = () => {
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
                   <div className="grid grid-cols-3 gap-4 mb-4">
-                    <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/shopify-logo.png" alt="Shopify logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
-                    <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/squarespace-logo.png" alt="Squarespace logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
-                    <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/stripe-logo.jpeg" alt="Stripe logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
-                    <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/paypal-logo.png" alt="PayPal logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
-                    <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/placeholder.svg" alt="Platform logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
-                    <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/placeholder.svg" alt="Platform logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${shake[0] ? 'animate-shake-slow' : ''}`}><img src="/shopify-logo.png" alt="Shopify logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${shake[1] ? 'animate-shake-slow' : ''}`}><img src="/squarespace-logo.png" alt="Squarespace logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${shake[2] ? 'animate-shake-slow' : ''}`}><img src="/stripe-logo.jpeg" alt="Stripe logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${shake[3] ? 'animate-shake-slow' : ''}`}><img src="/paypal-logo.png" alt="PayPal logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${shake[4] ? 'animate-shake-slow' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${shake[5] ? 'animate-shake-slow' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
