@@ -139,22 +139,21 @@ const Index: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {/* Invoice and payment system card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
-                  {/* Animated POS/Invoice image */}
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Invoice and payment system</h3>
                   <div className="relative w-20 h-20 mb-4 flex items-center justify-center">
                     <img
                       src="/pos.png"
-                      alt="POS"
+                      alt=""
                       className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${showInvoice ? 'opacity-0' : 'opacity-100'}`}
                       style={{ zIndex: 2 }}
                     />
                     <img
                       src="/invoice.png"
-                      alt="Invoice"
+                      alt=""
                       className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${showInvoice ? 'opacity-100' : 'opacity-0'}`}
                       style={{ zIndex: 1 }}
                     />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 text-center">Invoice and payment system</h3>
                   <p className="text-base text-gray-500 text-center">Seamless invoicing and payments, fully integrated with your business workflow.</p>
                 </div>
                 {/* Integrate with leading platforms card */}
