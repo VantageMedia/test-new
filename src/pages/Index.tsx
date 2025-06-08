@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
@@ -9,11 +9,30 @@ import FreeOffer from '@/components/FreeOffer';
 import Partners from '@/components/Partners';
 import Footer from '@/components/Footer';
 
+const platformLogos = [
+  '/shopify-logo.png',
+  '/squarespace-logo.png',
+  '/stripe-new-logo.png',
+  '/paypal-logo.png',
+  '/google-logo.png',
+  '/wave-logo.png',
+];
+
+function shuffleArray(array) {
+  const arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 const Index: React.FC = () => {
   const [shake, setShake] = React.useState([false, false, false, false, false, false]);
   const shakeTimeouts = useRef([]);
   const [swing, setSwing] = React.useState([false, false, false, false, false, false]);
   const swingTimeouts = useRef([]);
+  const [shuffledLogos, setShuffledLogos] = useState(platformLogos);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,6 +62,13 @@ const Index: React.FC = () => {
       clearInterval(interval);
       swingTimeouts.current.forEach(clearTimeout);
     };
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShuffledLogos((prev) => shuffleArray(prev));
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -104,17 +130,10 @@ const Index: React.FC = () => {
                 {/* Integrate with leading platforms card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
-                  <div className="grid grid-cols-3 gap-8 mb-4 px-4 w-full max-w-md justify-center">
-                    {Array.from({length: 6}).map((_, i) => (
-                      <div key={i} className="bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md">
-                        <img src={[
-                          '/shopify-logo.png',
-                          '/squarespace-logo.png',
-                          '/stripe-new-logo.png',
-                          '/paypal-logo.png',
-                          '/google-logo.png',
-                          '/wave-logo.png',
-                        ][i]} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
+                  <div className="grid grid-cols-3 gap-8 mb-4 px-4 w-full max-w-md justify-center mx-auto">
+                    {shuffledLogos.map((src, i) => (
+                      <div key={src} className="bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md transition-all duration-700">
+                        <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
                       </div>
                     ))}
                   </div>
