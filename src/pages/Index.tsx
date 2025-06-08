@@ -33,6 +33,7 @@ const Index: React.FC = () => {
   const [swing, setSwing] = React.useState([false, false, false, false, false, false]);
   const swingTimeouts = useRef([]);
   const [shuffledLogos, setShuffledLogos] = useState(platformLogos);
+  const [isShuffling, setIsShuffling] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -62,6 +63,14 @@ const Index: React.FC = () => {
       clearInterval(interval);
       swingTimeouts.current.forEach(clearTimeout);
     };
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsShuffling(true);
+      setTimeout(() => setIsShuffling(false), 600);
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -130,12 +139,14 @@ const Index: React.FC = () => {
                 {/* Integrate with leading platforms card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
-                  <div className="grid grid-cols-3 gap-8 mb-4 px-4 w-full max-w-md justify-center mx-auto">
-                    {shuffledLogos.map((src, i) => (
-                      <div key={src} className="bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md transition-all duration-700">
-                        <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
-                      </div>
-                    ))}
+                  <div className="flex justify-center w-full">
+                    <div className={`grid grid-cols-3 gap-8 mb-4 w-full max-w-md ${isShuffling ? 'card-shuffle' : ''}`}>
+                      {shuffledLogos.map((src) => (
+                        <div key={src} className="bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md">
+                          <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
@@ -155,6 +166,23 @@ const Index: React.FC = () => {
         
         <Footer />
       </div>
+      <style>{`
+      @keyframes card-shuffle {
+        0% { transform: translateX(0); }
+        10% { transform: translateX(-10px) rotate(-2deg); }
+        20% { transform: translateX(10px) rotate(2deg); }
+        30% { transform: translateX(-8px) rotate(-1deg); }
+        40% { transform: translateX(8px) rotate(1deg); }
+        50% { transform: translateX(-4px); }
+        60% { transform: translateX(4px); }
+        70% { transform: translateX(-2px); }
+        80% { transform: translateX(2px); }
+        100% { transform: translateX(0); }
+      }
+      .card-shuffle {
+        animation: card-shuffle 0.6s cubic-bezier(0.4,0.2,0.2,1);
+      }
+      `}</style>
     </>
   );
 };
