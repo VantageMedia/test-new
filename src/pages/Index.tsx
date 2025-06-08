@@ -14,6 +14,8 @@ const Index: React.FC = () => {
   const shakeTimeouts = useRef([]);
   const [swing, setSwing] = React.useState([false, false, false, false, false, false]);
   const swingTimeouts = useRef([]);
+  const mainDuration = 800; // ms for main vertical line
+  const branchDuration = 400; // ms for each branch
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,13 +34,26 @@ const Index: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSwing([true, true, true, true, true, true]);
-      swingTimeouts.current = [0,1,2,3,4,5].map((i) => setTimeout(() => setSwing((prev) => {
-        const next = [...prev];
-        next[i] = false;
-        return next;
-      }), 600));
-    }, 5000);
+      // Animate main line first
+      setSwing([false, false, false, false, false, false]);
+      setTimeout(() => {
+        // Animate each branch and logo in sequence
+        [0,1,2,3,4,5].forEach((i) => {
+          setTimeout(() => {
+            setSwing((prev) => {
+              const next = [...prev];
+              next[i] = true;
+              return next;
+            });
+            swingTimeouts.current[i] = setTimeout(() => setSwing((prev) => {
+              const next = [...prev];
+              next[i] = false;
+              return next;
+            }), 1200);
+          }, i * branchDuration);
+        });
+      }, mainDuration);
+    }, mainDuration + branchDuration * 6 + 2000);
     return () => {
       clearInterval(interval);
       swingTimeouts.current.forEach(clearTimeout);
@@ -104,28 +119,67 @@ const Index: React.FC = () => {
                 {/* Integrate with leading platforms card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
-                  <div className="relative">
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 360 160">
-                      {/* Example: Connect logos in a 3x2 grid with lines */}
-                      <line x1="60" y1="40" x2="180" y2="40" stroke="#a78bfa" strokeWidth="3" />
-                      <line x1="180" y1="40" x2="300" y2="40" stroke="#a78bfa" strokeWidth="3" />
-                      <line x1="60" y1="120" x2="180" y2="120" stroke="#a78bfa" strokeWidth="3" />
-                      <line x1="180" y1="120" x2="300" y2="120" stroke="#a78bfa" strokeWidth="3" />
-                      <line x1="60" y1="40" x2="60" y2="120" stroke="#a78bfa" strokeWidth="3" />
-                      <line x1="180" y1="40" x2="180" y2="120" stroke="#a78bfa" strokeWidth="3" />
-                      <line x1="300" y1="40" x2="300" y2="120" stroke="#a78bfa" strokeWidth="3" />
-                      {/* Animated purple light (circle) traveling the top path */}
-                      <circle>
-                        <animateMotion dur="3s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1">
-                          <mpath xlinkHref="#top-path" />
-                        </animateMotion>
-                      </circle>
-                      <path id="top-path" d="M60 40 L180 40 L300 40" fill="none" />
+                  <div className="relative flex flex-col items-center">
+                    {/* Main logo at the top (placeholder for now) */}
+                    <div className="mb-2 z-20">
+                      <div className="bg-white rounded-full flex items-center justify-center w-24 h-24 shadow-lg">
+                        <img src="/shopify-logo.png" alt="Main Platform" className="max-w-full max-h-full object-contain" />
+                      </div>
+                    </div>
+                    <svg className="absolute left-0 right-0 top-0 bottom-0 w-full h-full pointer-events-none z-10" viewBox="0 0 360 220">
+                      {/* Main vertical line */}
+                      <line x1="180" y1="48" x2="180" y2="120" stroke="#a78bfa" strokeWidth="3" />
+                      {/* Branches to each logo */}
+                      <path d="M180 120 Q120 140 60 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                      <path d="M180 120 Q140 140 100 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                      <path d="M180 120 Q160 150 140 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                      <path d="M180 120 Q200 150 220 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                      <path d="M180 120 Q220 140 260 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                      <path d="M180 120 Q240 140 300 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                      {/* Animated purple light on main line */}
                       <circle r="8" fill="url(#purple-glow)" >
-                        <animateMotion dur="3s" repeatCount="indefinite">
-                          <mpath xlinkHref="#top-path" />
+                        <animateMotion dur="0.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="0s">
+                          <mpath xlinkHref="#main-line" />
                         </animateMotion>
                       </circle>
+                      <path id="main-line" d="M180 48 L180 120" fill="none" />
+                      {/* Animated purple lights on each branch, staggered */}
+                      <circle r="8" fill="url(#purple-glow)">
+                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="0.8s">
+                          <mpath xlinkHref="#branch0" />
+                        </animateMotion>
+                      </circle>
+                      <path id="branch0" d="M180 120 Q120 140 60 200" fill="none" />
+                      <circle r="8" fill="url(#purple-glow)">
+                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="1.2s">
+                          <mpath xlinkHref="#branch1" />
+                        </animateMotion>
+                      </circle>
+                      <path id="branch1" d="M180 120 Q140 140 100 200" fill="none" />
+                      <circle r="8" fill="url(#purple-glow)">
+                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="1.6s">
+                          <mpath xlinkHref="#branch2" />
+                        </animateMotion>
+                      </circle>
+                      <path id="branch2" d="M180 120 Q160 150 140 200" fill="none" />
+                      <circle r="8" fill="url(#purple-glow)">
+                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="2.0s">
+                          <mpath xlinkHref="#branch3" />
+                        </animateMotion>
+                      </circle>
+                      <path id="branch3" d="M180 120 Q200 150 220 200" fill="none" />
+                      <circle r="8" fill="url(#purple-glow)">
+                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="2.4s">
+                          <mpath xlinkHref="#branch4" />
+                        </animateMotion>
+                      </circle>
+                      <path id="branch4" d="M180 120 Q220 140 260 200" fill="none" />
+                      <circle r="8" fill="url(#purple-glow)">
+                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="2.8s">
+                          <mpath xlinkHref="#branch5" />
+                        </animateMotion>
+                      </circle>
+                      <path id="branch5" d="M180 120 Q240 140 300 200" fill="none" />
                       <defs>
                         <radialGradient id="purple-glow" cx="50%" cy="50%" r="50%">
                           <stop offset="0%" stopColor="#a78bfa" stopOpacity="1" />
@@ -133,13 +187,18 @@ const Index: React.FC = () => {
                         </radialGradient>
                       </defs>
                     </svg>
-                    <div className="grid grid-cols-3 gap-4 mb-4 z-20 relative">
-                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[0] ? 'animate-rotate-swing-once' : ''}`}><img src="/shopify-logo.png" alt="Shopify logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[1] ? 'animate-rotate-swing-once' : ''}`}><img src="/squarespace-logo.png" alt="Squarespace logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[2] ? 'animate-rotate-swing-once' : ''}`}><img src="/stripe-logo.jpeg" alt="Stripe logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[3] ? 'animate-rotate-swing-once' : ''}`}><img src="/paypal-logo.png" alt="PayPal logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[4] ? 'animate-rotate-swing-once' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                      <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[5] ? 'animate-rotate-swing-once' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    <div className="grid grid-cols-6 gap-4 mt-24 z-20 relative w-full justify-items-center">
+                      {/* ...logo divs as before, but 6 columns, no swing for main logo... */}
+                      {Array.from({length: 6}).map((_, i) => (
+                        <div key={i} className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[i] ? 'animate-rotate-swing-once' : ''}`}><img src={[
+                          '/shopify-logo.png',
+                          '/squarespace-logo.png',
+                          '/stripe-logo.jpeg',
+                          '/paypal-logo.png',
+                          '/placeholder.svg',
+                          '/placeholder.svg',
+                        ][i]} alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                      ))}
                     </div>
                   </div>
                 </div>
