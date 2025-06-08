@@ -28,63 +28,38 @@ function shuffleArray(array) {
 }
 
 const Index: React.FC = () => {
-  const [shake, setShake] = React.useState([false, false, false, false, false, false]);
-  const shakeTimeouts = useRef([]);
-  const [swing, setSwing] = React.useState([false, false, false, false, false, false]);
-  const swingTimeouts = useRef([]);
   const [shuffledLogos, setShuffledLogos] = useState(platformLogos);
   const [isShuffling, setIsShuffling] = useState(false);
   const [showInvoice, setShowInvoice] = useState(false);
+  const [shake, setShake] = React.useState([false, false, false, false, false, false]);
+  const [swing, setSwing] = React.useState([false, false, false, false, false, false]);
+  const animTimeouts = useRef([]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setShake([true, true, true, true, true, true]);
-      shakeTimeouts.current = [0,1,2,3,4,5].map((i) => setTimeout(() => setShake((prev) => {
-        const next = [...prev];
-        next[i] = false;
-        return next;
-      }), 500));
-    }, 15000);
-    return () => {
-      clearInterval(interval);
-      shakeTimeouts.current.forEach(clearTimeout);
-    };
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSwing([true, true, true, true, true, true]);
-      swingTimeouts.current = [0,1,2,3,4,5].map((i) => setTimeout(() => setSwing((prev) => {
-        const next = [...prev];
-        next[i] = false;
-        return next;
-      }), 600));
-    }, 5000);
-    return () => {
-      clearInterval(interval);
-      swingTimeouts.current.forEach(clearTimeout);
-    };
-  }, []);
-
-  useEffect(() => {
+    let tick = 0;
     const interval = setInterval(() => {
       setIsShuffling(true);
-      setTimeout(() => setIsShuffling(false), 600);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
       setShuffledLogos((prev) => shuffleArray(prev));
+      setSwing([true, true, true, true, true, true]);
+      setShake([true, true, true, true, true, true]);
+      animTimeouts.current.forEach(clearTimeout);
+      animTimeouts.current = [0,1,2,3,4,5].map((i) => setTimeout(() => {
+        setSwing((prev) => { const next = [...prev]; next[i] = false; return next; });
+        setShake((prev) => { const next = [...prev]; next[i] = false; return next; });
+      }, 600 + i * 50));
+      setTimeout(() => setIsShuffling(false), 600);
+      tick++;
     }, 3000);
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      animTimeouts.current.forEach(clearTimeout);
+    };
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setShowInvoice((prev) => !prev);
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
