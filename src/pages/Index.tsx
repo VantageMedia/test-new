@@ -30,7 +30,6 @@ function shuffleArray(array) {
 const Index: React.FC = () => {
   const [shuffledLogos, setShuffledLogos] = useState(platformLogos);
   const [isShuffling, setIsShuffling] = useState(false);
-  const [showInvoice, setShowInvoice] = useState(false);
   const [shake, setShake] = React.useState([false, false, false, false, false, false]);
   const [swing, setSwing] = React.useState([false, false, false, false, false, false]);
   const animTimeouts = useRef([]);
@@ -54,13 +53,6 @@ const Index: React.FC = () => {
       clearInterval(interval);
       animTimeouts.current.forEach(clearTimeout);
     };
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowInvoice((prev) => !prev);
-    }, 3000);
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -115,18 +107,11 @@ const Index: React.FC = () => {
                 {/* Invoice and payment system card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Invoice and payment system</h3>
-                  <div className="relative w-52 h-52 flex items-center justify-center mt-6">
+                  <div className="flex items-center justify-center w-52 h-52 mt-6">
                     <img
-                      src="/pos.png"
+                      src="/wow.png"
                       alt=""
-                      className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${showInvoice ? 'opacity-0' : 'opacity-100'}`}
-                      style={{ zIndex: 2 }}
-                    />
-                    <img
-                      src="/invoice.png"
-                      alt=""
-                      className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${showInvoice ? 'opacity-100' : 'opacity-0'}`}
-                      style={{ zIndex: 1 }}
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 </div>
