@@ -105,12 +105,12 @@ const Index: React.FC = () => {
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
                   <div className="grid grid-cols-3 gap-4 mb-4">
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${swing[0] ? 'animate-rotate-swing-once' : ''}`}><img src="/shopify-logo.png" alt="Shopify logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${swing[1] ? 'animate-rotate-swing-once' : ''}`}><img src="/squarespace-logo.png" alt="Squarespace logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${swing[2] ? 'animate-rotate-swing-once' : ''}`}><img src="/stripe-logo.jpeg" alt="Stripe logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${swing[3] ? 'animate-rotate-swing-once' : ''}`}><img src="/paypal-logo.png" alt="PayPal logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${swing[4] ? 'animate-rotate-swing-once' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 ${swing[5] ? 'animate-rotate-swing-once' : ''}`}><img src="/placeholder.svg" alt="Platform logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-16 h-16`}><img src="/shopify-logo.png" alt="Shopify logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-16 h-16`}><img src="/squarespace-logo.png" alt="Squarespace logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-16 h-16`}><img src="/stripe-logo.jpeg" alt="Stripe logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-16 h-16`}><img src="/paypal-logo.png" alt="PayPal logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-16 h-16`}><img src="/placeholder.svg" alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-16 h-16`}><img src="/placeholder.svg" alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
