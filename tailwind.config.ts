@@ -131,6 +131,12 @@ export default {
 					'0%, 100%': { transform: 'translateX(0)' },
 					'50%': { transform: 'translateX(20px)' },
 				},
+				'rotate-swing': {
+					'0%, 100%': { transform: 'rotate(0deg)' },
+					'20%': { transform: 'rotate(-15deg)' },
+					'50%': { transform: 'rotate(15deg)' },
+					'80%': { transform: 'rotate(-10deg)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -139,6 +145,7 @@ export default {
 				'fade-out': 'fade-out 0.3s ease-out',
 				'bounce-slow': 'bounce-slow 3s ease-in-out infinite',
 				'bounce-horizontal-slow': 'bounce-horizontal 5s ease-in-out infinite',
+				'rotate-swing-once': 'rotate-swing 0.6s cubic-bezier(.36,.07,.19,.97) both',
 			}
 		}
 	},
