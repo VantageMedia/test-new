@@ -34,6 +34,7 @@ const Index: React.FC = () => {
   const swingTimeouts = useRef([]);
   const [shuffledLogos, setShuffledLogos] = useState(platformLogos);
   const [isShuffling, setIsShuffling] = useState(false);
+  const [showInvoice, setShowInvoice] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -77,6 +78,13 @@ const Index: React.FC = () => {
     const interval = setInterval(() => {
       setShuffledLogos((prev) => shuffleArray(prev));
     }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowInvoice((prev) => !prev);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -131,8 +139,21 @@ const Index: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {/* Invoice and payment system card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
-                  {/* Large accent icon */}
-                  <svg width="48" height="48" fill="none" viewBox="0 0 56 56" className="mb-4"><rect x="8" y="14" width="40" height="28" rx="6" fill="#6366f1"/><rect x="16" y="22" width="24" height="12" rx="3" fill="#fff"/></svg>
+                  {/* Animated POS/Invoice image */}
+                  <div className="relative w-20 h-20 mb-4 flex items-center justify-center">
+                    <img
+                      src="/pos.png"
+                      alt="POS"
+                      className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${showInvoice ? 'opacity-0' : 'opacity-100'}`}
+                      style={{ zIndex: 2 }}
+                    />
+                    <img
+                      src="/invoice.png"
+                      alt="Invoice"
+                      className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${showInvoice ? 'opacity-100' : 'opacity-0'}`}
+                      style={{ zIndex: 1 }}
+                    />
+                  </div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900 text-center">Invoice and payment system</h3>
                   <p className="text-base text-gray-500 text-center">Seamless invoicing and payments, fully integrated with your business workflow.</p>
                 </div>
