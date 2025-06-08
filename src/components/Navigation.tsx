@@ -6,9 +6,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import BookingModal from './BookingModal';
 
 const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   
   React.useEffect(() => {
     const handleScroll = () => {
@@ -32,56 +35,76 @@ const Navigation: React.FC = () => {
   ];
   
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md py-2' : 'bg-white/60 backdrop-blur-md py-4'}`} style={{boxShadow: isScrolled ? '0 2px 24px 0 rgba(100,100,255,0.10)' : '0 2px 24px 0 rgba(100,100,255,0.08)'}}>
-      <div className="container mx-auto max-w-7xl px-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <a href="/" className="font-bold text-xl">Vantage Media</a>
-          </div>
-          
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <a 
-                key={index} 
-                href={item.href} 
-                className="text-sm font-medium hover:text-blue-500 transition-colors"
+    <>
+      <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md py-2' : 'bg-white/60 backdrop-blur-md py-4'}`} style={{boxShadow: isScrolled ? '0 2px 24px 0 rgba(100,100,255,0.10)' : '0 2px 24px 0 rgba(100,100,255,0.08)'}}>
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <a href="/" className="font-bold text-xl">Vantage Media</a>
+            </div>
+            
+            <nav className="hidden md:flex items-center space-x-8">
+              {navItems.map((item, index) => (
+                <a 
+                  key={index} 
+                  href={item.href} 
+                  className="text-sm font-medium hover:text-blue-500 transition-colors"
+                >
+                  {item.title}
+                </a>
+              ))}
+              <Button className="bg-blue-500 hover:bg-blue-600 text-white" asChild>
+                <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
+              </Button>
+              <Link
+                to="/services"
+                className="text-gray-700 hover:text-[#6366f1] transition-colors"
               >
-                {item.title}
-              </a>
-            ))}
-            <Button className="bg-blue-500 hover:bg-blue-600 text-white" asChild>
-              <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
-            </Button>
-          </nav>
-          
-          <div className="md:hidden">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent>
-                <nav className="flex flex-col space-y-4 mt-8">
-                  {navItems.map((item, index) => (
-                    <a 
-                      key={index} 
-                      href={item.href} 
-                      className="text-lg font-medium hover:text-blue-500 transition-colors"
-                    >
-                      {item.title}
-                    </a>
-                  ))}
-                  <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full" asChild>
-                    <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
+                Services
+              </Link>
+              <Button
+                onClick={() => setIsBookingOpen(true)}
+                className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#6366f1] hover:bg-[#4f46e5] transition-colors shadow-sm hover:shadow-md"
+              >
+                Book Consultation
+              </Button>
+            </nav>
+            
+            <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Menu className="h-6 w-6" />
                   </Button>
-                </nav>
-              </SheetContent>
-            </Sheet>
+                </SheetTrigger>
+                <SheetContent>
+                  <nav className="flex flex-col space-y-4 mt-8">
+                    {navItems.map((item, index) => (
+                      <a 
+                        key={index} 
+                        href={item.href} 
+                        className="text-lg font-medium hover:text-blue-500 transition-colors"
+                      >
+                        {item.title}
+                      </a>
+                    ))}
+                    <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full" asChild>
+                      <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
+                    </Button>
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Booking Modal */}
+      <BookingModal 
+        isOpen={isBookingOpen} 
+        onClose={() => setIsBookingOpen(false)} 
+      />
+    </>
   );
 };
 
