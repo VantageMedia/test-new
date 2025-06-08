@@ -118,88 +118,60 @@ const Index: React.FC = () => {
                 </div>
                 {/* Integrate with leading platforms card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
-                  <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
-                  <div className="relative flex flex-col items-center">
-                    {/* Main logo at the top (placeholder for now) */}
-                    <div className="mb-2 z-20">
-                      <div className="bg-white rounded-full flex items-center justify-center w-24 h-24 shadow-lg">
-                        <img src="/shopify-logo.png" alt="Main Platform" className="max-w-full max-h-full object-contain" />
-                      </div>
-                    </div>
-                    <svg className="absolute left-0 right-0 top-0 bottom-0 w-full h-full pointer-events-none z-10" viewBox="0 0 360 220">
-                      {/* Main vertical line */}
-                      <line x1="180" y1="48" x2="180" y2="120" stroke="#a78bfa" strokeWidth="3" />
-                      {/* Branches to each logo */}
-                      <path d="M180 120 Q120 140 60 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      <path d="M180 120 Q140 140 100 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      <path d="M180 120 Q160 150 140 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      <path d="M180 120 Q200 150 220 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      <path d="M180 120 Q220 140 260 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      <path d="M180 120 Q240 140 300 200" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      {/* Animated purple light on main line */}
-                      <circle r="8" fill="url(#purple-glow)" >
-                        <animateMotion dur="0.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="0s">
-                          <mpath xlinkHref="#main-line" />
-                        </animateMotion>
-                      </circle>
-                      <path id="main-line" d="M180 48 L180 120" fill="none" />
-                      {/* Animated purple lights on each branch, staggered */}
-                      <circle r="8" fill="url(#purple-glow)">
-                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="0.8s">
-                          <mpath xlinkHref="#branch0" />
-                        </animateMotion>
-                      </circle>
-                      <path id="branch0" d="M180 120 Q120 140 60 200" fill="none" />
-                      <circle r="8" fill="url(#purple-glow)">
-                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="1.2s">
-                          <mpath xlinkHref="#branch1" />
-                        </animateMotion>
-                      </circle>
-                      <path id="branch1" d="M180 120 Q140 140 100 200" fill="none" />
-                      <circle r="8" fill="url(#purple-glow)">
-                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="1.6s">
-                          <mpath xlinkHref="#branch2" />
-                        </animateMotion>
-                      </circle>
-                      <path id="branch2" d="M180 120 Q160 150 140 200" fill="none" />
-                      <circle r="8" fill="url(#purple-glow)">
-                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="2.0s">
-                          <mpath xlinkHref="#branch3" />
-                        </animateMotion>
-                      </circle>
-                      <path id="branch3" d="M180 120 Q200 150 220 200" fill="none" />
-                      <circle r="8" fill="url(#purple-glow)">
-                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="2.4s">
-                          <mpath xlinkHref="#branch4" />
-                        </animateMotion>
-                      </circle>
-                      <path id="branch4" d="M180 120 Q220 140 260 200" fill="none" />
-                      <circle r="8" fill="url(#purple-glow)">
-                        <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="2.8s">
-                          <mpath xlinkHref="#branch5" />
-                        </animateMotion>
-                      </circle>
-                      <path id="branch5" d="M180 120 Q240 140 300 200" fill="none" />
-                      <defs>
-                        <radialGradient id="purple-glow" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stopColor="#a78bfa" stopOpacity="1" />
-                          <stop offset="100%" stopColor="#a78bfa" stopOpacity="0" />
-                        </radialGradient>
-                      </defs>
-                    </svg>
-                    <div className="grid grid-cols-6 gap-4 mt-24 z-20 relative w-full justify-items-center">
-                      {/* ...logo divs as before, but 6 columns, no swing for main logo... */}
-                      {Array.from({length: 6}).map((_, i) => (
-                        <div key={i} className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[i] ? 'animate-rotate-swing-once' : ''}`}><img src={[
-                          '/shopify-logo.png',
-                          '/squarespace-logo.png',
-                          '/stripe-logo.jpeg',
-                          '/paypal-logo.png',
-                          '/placeholder.svg',
-                          '/placeholder.svg',
-                        ][i]} alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                      ))}
-                    </div>
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 text-center z-20">Integrate with leading platforms</h3>
+                  <svg className="absolute left-0 right-0 top-0 bottom-0 w-full h-full pointer-events-none z-10" viewBox="0 0 360 220">
+                    {/* Main vertical line from title to grid center */}
+                    <line x1="180" y1="32" x2="180" y2="100" stroke="#a78bfa" strokeWidth="3" />
+                    {/* Branches to each logo in 3x2 grid */}
+                    <path d="M180 100 Q100 120 60 180" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                    <path d="M180 100 Q140 120 120 180" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                    <path d="M180 100 Q180 130 180 180" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                    <path d="M180 100 Q220 120 240 180" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                    <path d="M180 100 Q260 120 300 180" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                    <path d="M180 100 Q80 120 120 180" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                    {/* Animated purple light on main line */}
+                    <circle r="8" fill="url(#purple-glow)" >
+                      <animateMotion dur="0.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="0s">
+                        <mpath xlinkHref="#main-line" />
+                      </animateMotion>
+                    </circle>
+                    <path id="main-line" d="M180 32 L180 100" fill="none" />
+                    {/* Animated purple lights on each branch, staggered */}
+                    {Array.from({length: 6}).map((_, i) => (
+                      <g key={i}>
+                        <circle r="8" fill="url(#purple-glow)">
+                          <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin={`${0.8 + i * 0.4}s`}>
+                            <mpath xlinkHref={`#branch${i}`} />
+                          </animateMotion>
+                        </circle>
+                        <path id={`branch${i}`} d={[
+                          'M180 100 Q100 120 60 180',
+                          'M180 100 Q140 120 120 180',
+                          'M180 100 Q180 130 180 180',
+                          'M180 100 Q220 120 240 180',
+                          'M180 100 Q260 120 300 180',
+                          'M180 100 Q80 120 120 180',
+                        ][i]} fill="none" />
+                      </g>
+                    ))}
+                    <defs>
+                      <radialGradient id="purple-glow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stopColor="#a78bfa" stopOpacity="1" />
+                        <stop offset="100%" stopColor="#a78bfa" stopOpacity="0" />
+                      </radialGradient>
+                    </defs>
+                  </svg>
+                  <div className="grid grid-cols-3 grid-rows-2 gap-4 mt-20 z-20 relative w-full justify-items-center">
+                    {Array.from({length: 6}).map((_, i) => (
+                      <div key={i} className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[i] ? 'animate-rotate-swing-once' : ''}`}><img src={[
+                        '/shopify-logo.png',
+                        '/squarespace-logo.png',
+                        '/stripe-logo.jpeg',
+                        '/paypal-logo.png',
+                        '/placeholder.svg',
+                        '/placeholder.svg',
+                      ][i]} alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    ))}
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
