@@ -105,12 +105,18 @@ const Index: React.FC = () => {
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
                   <div className="grid grid-cols-3 gap-4 mb-4">
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[0] ? 'animate-rotate-swing-once' : ''}`}><img src="/shopify-logo.png" alt="Shopify logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[1] ? 'animate-rotate-swing-once' : ''}`}><img src="/squarespace-logo.png" alt="Squarespace logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[2] ? 'animate-rotate-swing-once' : ''}`}><img src="/stripe-new-logo.png" alt="Stripe logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[3] ? 'animate-rotate-swing-once' : ''}`}><img src="/paypal-logo.png" alt="PayPal logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[4] ? 'animate-rotate-swing-once' : ''}`}><img src="/google-logo.png" alt="Google logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
-                    <div className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[5] ? 'animate-rotate-swing-once' : ''}`}><img src="/wave-logo.png" alt="Wave logo" className="max-w-full max-h-full object-contain" loading="lazy" /></div>
+                    {Array.from({length: 6}).map((_, i) => (
+                      <div key={i} className={`bg-white rounded-xl flex items-center justify-center w-24 h-24 ${swing[i] ? 'animate-rotate-swing-once' : ''}`}>
+                        <img src={[
+                          '/shopify-logo.png',
+                          '/squarespace-logo.png',
+                          '/stripe-new-logo.png',
+                          '/paypal-logo.png',
+                          '/google-logo.png',
+                          '/wave-logo.png',
+                        ][i]} alt="Platform logo" className="w-full h-full object-contain" loading="lazy" />
+                      </div>
+                    ))}
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
