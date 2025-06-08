@@ -132,10 +132,11 @@ export default {
 					'50%': { transform: 'translateX(20px)' },
 				},
 				'rotate-swing': {
-					'0%, 100%': { transform: 'rotate(0deg)' },
+					'0%': { transform: 'rotate(0deg)' },
 					'20%': { transform: 'rotate(-15deg)' },
 					'50%': { transform: 'rotate(15deg)' },
 					'80%': { transform: 'rotate(-10deg)' },
+					'100%': { transform: 'rotate(0deg)', transition: 'transform 0.4s ease-in-out' },
 				},
 			},
 			animation: {
@@ -145,7 +146,7 @@ export default {
 				'fade-out': 'fade-out 0.3s ease-out',
 				'bounce-slow': 'bounce-slow 3s ease-in-out infinite',
 				'bounce-horizontal-slow': 'bounce-horizontal 5s ease-in-out infinite',
-				'rotate-swing-once': 'rotate-swing 1.2s cubic-bezier(.36,.07,.19,.97) both',
+				'rotate-swing-once': 'rotate-swing 1.2s ease-in-out both',
 			}
 		}
 	},
