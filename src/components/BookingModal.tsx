@@ -9,13 +9,14 @@ interface BookingModalProps {
 const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl h-[80vh] p-0">
-        <div className="w-full h-full">
+      <DialogContent className="max-w-4xl h-[80vh] p-0 relative">
+        <div className="w-full h-full relative">
           <iframe
             src="https://koalendar.com/e/meet-with-a-design-expert"
             style={{ width: '100%', height: '100%', border: 'none' }}
             title="Schedule a consultation"
           />
+          <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: '48px', background: 'white', zIndex: 10}} />
         </div>
       </DialogContent>
     </Dialog>
