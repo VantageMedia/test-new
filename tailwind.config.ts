@@ -120,9 +120,11 @@ export default {
 				'bounce-slow': {
 					'0%, 100%': {
 						transform: 'translateY(0)',
+						boxShadow: '0 0 0 rgba(99, 102, 241, 0)'
 					},
 					'50%': {
 						transform: 'translateY(-10px)',
+						boxShadow: '0 10px 30px rgba(99, 102, 241, 0.2)'
 					},
 				}
 			},
