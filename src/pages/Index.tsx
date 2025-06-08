@@ -105,7 +105,7 @@ const Index: React.FC = () => {
               {/* Below: Three cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {/* Invoice and payment system card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] flex-1 will-change-transform animate-bounce-slow backdrop-blur-sm">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Invoice and payment system</h3>
                   <div className="flex items-center justify-center w-96 h-96">
                     <img
