@@ -60,25 +60,26 @@ const Index: React.FC = () => {
               {/* Below: Three cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {/* Invoice and payment system card */}
-                <div className="bg-white/90 border border-[#6366f1]/10 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform">
+                <div className="bg-white/90 border border-[#6366f1]/10 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow">
                   {/* Large accent icon */}
                   <svg width="48" height="48" fill="none" viewBox="0 0 56 56" className="mb-4"><rect x="8" y="14" width="40" height="28" rx="6" fill="#6366f1"/><rect x="16" y="22" width="24" height="12" rx="3" fill="#fff"/></svg>
                   <h3 className="text-xl font-bold mb-2 text-gray-900 text-center">Invoice and payment system</h3>
                   <p className="text-base text-gray-500 text-center">Seamless invoicing and payments, fully integrated with your business workflow.</p>
                 </div>
                 {/* Integrate with leading platforms card */}
-                <div className="bg-white/90 border border-[#6366f1]/10 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform">
+                <div className="bg-white/90 border border-[#6366f1]/10 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
-                  <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div className="grid grid-cols-3 gap-4 mb-4">
                     <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/shopify-logo.png" alt="Shopify logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
                     <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/squarespace-logo.png" alt="Squarespace logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
                     <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/stripe-logo.jpeg" alt="Stripe logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
                     <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/paypal-logo.png" alt="PayPal logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
+                    <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/placeholder.svg" alt="Platform logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
+                    <div className="bg-white rounded-xl flex items-center justify-center p-4"><img src="/placeholder.svg" alt="Platform logo" className="h-10 w-10 object-contain" loading="lazy" /></div>
                   </div>
-                  <div className="text-base text-gray-500 text-center">Shopify, Stripe, Squarespace, PayPal & more</div>
                 </div>
                 {/* Analytics and Insights card */}
-                <div className="bg-white/90 border border-[#6366f1]/10 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform">
+                <div className="bg-white/90 border border-[#6366f1]/10 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow">
                   {/* Large accent icon */}
                   <svg width="48" height="48" fill="none" viewBox="0 0 56 56" className="mb-4">
                     <path d="M28 8C16.954 8 8 16.954 8 28s8.954 20 20 20 20-8.954 20-20S39.046 8 28 8zm0 36c-8.837 0-16-7.163-16-16S19.163 12 28 12s16 7.163 16 16-7.163 16-16 16z" fill="#6366f1"/>
