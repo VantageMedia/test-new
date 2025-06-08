@@ -56,10 +56,10 @@ const Navigation: React.FC = () => {
                 Services
               </Link>
               <Button
-                onClick={() => setIsBookingOpen(true)}
+                asChild
                 className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#6366f1] hover:bg-[#4f46e5] transition-colors shadow-sm hover:shadow-md"
               >
-                FREE CONSULTATION
+                <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
               </Button>
             </nav>
             
@@ -88,10 +88,10 @@ const Navigation: React.FC = () => {
                       Services
                     </Link>
                     <Button
-                      onClick={() => setIsBookingOpen(true)}
+                      asChild
                       className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#6366f1] hover:bg-[#4f46e5] transition-colors shadow-sm hover:shadow-md"
                     >
-                      FREE CONSULTATION
+                      <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
                     </Button>
                   </nav>
                 </SheetContent>

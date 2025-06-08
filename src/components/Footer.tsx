@@ -1,9 +1,10 @@
-
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { BookingModalContext } from "@/App";
 
 const Footer: React.FC = () => {
+  const { open } = useContext(BookingModalContext);
   return (
     <footer className="bg-blue-50 py-16 px-4">
       <div className="container mx-auto max-w-7xl">
@@ -45,7 +46,7 @@ const Footer: React.FC = () => {
               <li><a href="#" className="text-gray-600 hover:text-blue-500">Portfolio</a></li>
               <li><a href="#" className="text-gray-600 hover:text-blue-500">Services</a></li>
               <li><a href="#" className="text-gray-600 hover:text-blue-500">Case Studies</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-blue-500">Free Consultation</a></li>
+              <li><button onClick={open} className="text-gray-600 hover:text-blue-500 bg-transparent border-none p-0 m-0 cursor-pointer">Free Consultation</button></li>
             </ul>
           </div>
           

@@ -1,9 +1,10 @@
-import React, { Component, useRef, useEffect } from 'react';
+import React, { Component, useRef, useEffect, useContext } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, OrbitControls } from '@react-three/drei';
+import { BookingModalContext } from '@/App';
 
 const services = [
   {
@@ -179,6 +180,8 @@ const DeviceShowcase3DSection = () => {
 };
 
 const Services: React.FC = () => {
+  const { open } = useContext(BookingModalContext);
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Navigation />
@@ -331,7 +334,7 @@ const Services: React.FC = () => {
               <li>• App Store/Play Store launch support</li>
               <li>• Post-launch analytics & growth</li>
             </ul>
-            <a href="#contact" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-full shadow-lg text-lg transition">Start Your App Project</a>
+            <button onClick={open} className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-full shadow-lg text-lg transition">Start Your App Project</button>
           </div>
           <div className="flex-1 flex justify-center">
             <img src="/services/app-dev.png" alt="App Development" className="rounded-3xl shadow-2xl w-full max-w-md object-contain" />
@@ -353,7 +356,7 @@ const Services: React.FC = () => {
                 <ul className="text-sm text-gray-700 mb-6 space-y-1 text-left w-full max-w-xs mx-auto">
                   {tier.features.map((f, i) => <li key={i}>• {f}</li>)}
                 </ul>
-                <a href="#contact" className={`mt-auto px-8 py-3 rounded-full font-bold text-lg shadow-lg transition ${tier.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-200 text-blue-700 hover:bg-blue-100'}`}>{tier.cta}</a>
+                <button onClick={open} className={`mt-auto px-8 py-3 rounded-full font-bold text-lg shadow-lg transition ${tier.popular ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-200 text-blue-700 hover:bg-blue-100'}`}>{tier.cta}</button>
               </div>
             ))}
           </div>
@@ -535,7 +538,7 @@ const Services: React.FC = () => {
       <section className="w-full bg-blue-600 py-20 px-6 text-center text-white">
         <h2 className="text-4xl font-extrabold mb-4">Let's Build Something Amazing</h2>
         <p className="text-xl mb-8">Ready to launch your next website or app? Get in touch for a free, no-pressure consultation.</p>
-        <a href="#contact" className="inline-block bg-white text-blue-700 font-bold px-10 py-5 rounded-full shadow-lg text-xl transition hover:bg-blue-100">Book My Free Consultation</a>
+        <button onClick={open} className="inline-block bg-white text-blue-700 font-bold px-10 py-5 rounded-full shadow-lg text-xl transition hover:bg-blue-100">Book My Free Consultation</button>
       </section>
 
       <Footer />
