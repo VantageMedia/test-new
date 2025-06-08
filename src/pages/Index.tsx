@@ -120,49 +120,51 @@ const Index: React.FC = () => {
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <div className="relative flex flex-col items-center">
                     <h3 className="text-xl font-bold mb-8 text-gray-900 text-center z-20">Integrate with leading platforms</h3>
-                    <svg className="absolute left-0 right-0 top-0 pointer-events-none z-10" style={{height: '220px', width: '100%'}} viewBox="0 0 360 220">
-                      {/* Main vertical line from title to grid center */}
-                      <line x1="180" y1="40" x2="180" y2="110" stroke="#a78bfa" strokeWidth="3" />
-                      {/* Branches to each logo in 3x2 grid, connecting to center-top of each logo box */}
-                      <path d="M180 110 Q120 130 60 170" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      <path d="M180 110 Q150 130 120 170" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      <path d="M180 110 Q180 140 180 170" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      <path d="M180 110 Q210 130 240 170" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      <path d="M180 110 Q240 130 300 170" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      <path d="M180 110 Q80 130 120 170" stroke="#a78bfa" strokeWidth="3" fill="none" />
-                      {/* Animated purple light on main line */}
-                      <circle r="8" fill="url(#purple-glow)" >
-                        <animateMotion dur="0.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="0s">
-                          <mpath xlinkHref="#main-line" />
-                        </animateMotion>
-                      </circle>
-                      <path id="main-line" d="M180 40 L180 110" fill="none" />
-                      {/* Animated purple lights on each branch, staggered */}
-                      {Array.from({length: 6}).map((_, i) => (
-                        <g key={i}>
-                          <circle r="8" fill="url(#purple-glow)">
-                            <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin={`${0.8 + i * 0.4}s`}>
-                              <mpath xlinkHref={`#branch${i}`} />
-                            </animateMotion>
-                          </circle>
-                          <path id={`branch${i}`} d={[
-                            'M180 110 Q120 130 60 170',
-                            'M180 110 Q150 130 120 170',
-                            'M180 110 Q180 140 180 170',
-                            'M180 110 Q210 130 240 170',
-                            'M180 110 Q240 130 300 170',
-                            'M180 110 Q80 130 120 170',
-                          ][i]} fill="none" />
-                        </g>
-                      ))}
-                      <defs>
-                        <radialGradient id="purple-glow" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stopColor="#a78bfa" stopOpacity="1" />
-                          <stop offset="100%" stopColor="#a78bfa" stopOpacity="0" />
-                        </radialGradient>
-                      </defs>
-                    </svg>
-                    <div className="grid grid-cols-3 grid-rows-2 gap-x-12 gap-y-8 mt-[140px] z-20 relative w-full justify-items-center">
+                    <div className="relative w-full" style={{height: '120px'}}>
+                      <svg className="absolute left-0 right-0 top-0 pointer-events-none z-10" style={{height: '120px', width: '100%'}} viewBox="0 0 360 120">
+                        {/* Main vertical line from title to grid center */}
+                        <line x1="180" y1="20" x2="180" y2="70" stroke="#a78bfa" strokeWidth="3" />
+                        {/* Branches to each logo in 3x2 grid, connecting to center-top of each logo box */}
+                        <path d="M180 70 Q120 90 60 110" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                        <path d="M180 70 Q150 90 120 110" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                        <path d="M180 70 Q180 100 180 110" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                        <path d="M180 70 Q210 90 240 110" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                        <path d="M180 70 Q240 90 300 110" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                        <path d="M180 70 Q80 90 120 110" stroke="#a78bfa" strokeWidth="3" fill="none" />
+                        {/* Animated purple light on main line */}
+                        <circle r="8" fill="url(#purple-glow)" >
+                          <animateMotion dur="0.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin="0s">
+                            <mpath xlinkHref="#main-line" />
+                          </animateMotion>
+                        </circle>
+                        <path id="main-line" d="M180 20 L180 70" fill="none" />
+                        {/* Animated purple lights on each branch, staggered */}
+                        {Array.from({length: 6}).map((_, i) => (
+                          <g key={i}>
+                            <circle r="8" fill="url(#purple-glow)">
+                              <animateMotion dur="0.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" begin={`${0.8 + i * 0.4}s`}>
+                                <mpath xlinkHref={`#branch${i}`} />
+                              </animateMotion>
+                            </circle>
+                            <path id={`branch${i}`} d={[
+                              'M180 70 Q120 90 60 110',
+                              'M180 70 Q150 90 120 110',
+                              'M180 70 Q180 100 180 110',
+                              'M180 70 Q210 90 240 110',
+                              'M180 70 Q240 90 300 110',
+                              'M180 70 Q80 90 120 110',
+                            ][i]} fill="none" />
+                          </g>
+                        ))}
+                        <defs>
+                          <radialGradient id="purple-glow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stopColor="#a78bfa" stopOpacity="1" />
+                            <stop offset="100%" stopColor="#a78bfa" stopOpacity="0" />
+                          </radialGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div className="grid grid-cols-3 grid-rows-2 gap-x-12 gap-y-8 mt-0 z-20 relative w-full justify-items-center">
                       {Array.from({length: 6}).map((_, i) => (
                         <div key={i} className={`bg-white rounded-xl flex items-center justify-center p-4 w-24 h-24 ${swing[i] ? 'animate-rotate-swing-once' : ''}`}><img src={[
                           '/shopify-logo.png',
