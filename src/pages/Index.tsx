@@ -28,8 +28,33 @@ function shuffleArray(array) {
 }
 
 const Index: React.FC = () => {
-  // No animation state
-  // ... existing code ...
+  const [shuffledLogos, setShuffledLogos] = useState(platformLogos);
+  const [isShuffling, setIsShuffling] = useState(false);
+  const [shake, setShake] = React.useState([false, false, false, false, false, false]);
+  const [swing, setSwing] = React.useState([false, false, false, false, false, false]);
+  const animTimeouts = useRef([]);
+
+  useEffect(() => {
+    let tick = 0;
+    const interval = setInterval(() => {
+      setIsShuffling(true);
+      setShuffledLogos((prev) => shuffleArray(prev));
+      setSwing([true, true, true, true, true, true]);
+      setShake([true, true, true, true, true, true]);
+      animTimeouts.current.forEach(clearTimeout);
+      animTimeouts.current = [0,1,2,3,4,5].map((i) => setTimeout(() => {
+        setSwing((prev) => { const next = [...prev]; next[i] = false; return next; });
+        setShake((prev) => { const next = [...prev]; next[i] = false; return next; });
+      }, 600 + i * 50));
+      setTimeout(() => setIsShuffling(false), 600);
+      tick++;
+    }, 3000);
+    return () => {
+      clearInterval(interval);
+      animTimeouts.current.forEach(clearTimeout);
+    };
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -65,7 +90,7 @@ const Index: React.FC = () => {
               </h2>
               <p className="text-2xl text-gray-700 mb-12 max-w-2xl text-center font-medium">Expand your reach with targeted marketing and seamless integrations across major platforms.</p>
               {/* Top: Large, immersive block */}
-              <div className="w-full mb-8">
+              <div className="w-full mb-8 animate-fade-in">
                 <div className="bg-gradient-to-r from-[#6366f1]/90 to-[#818cf8]/90 rounded-3xl shadow-2xl p-14 flex flex-col md:flex-row items-center justify-between gap-8">
                   {/* Icon/illustration */}
                   <div className="flex-shrink-0 mb-6 md:mb-0">
@@ -80,7 +105,7 @@ const Index: React.FC = () => {
               {/* Below: Three cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {/* Invoice and payment system card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] backdrop-blur-sm">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Invoice and payment system</h3>
                   <div className="flex items-center justify-center w-52 h-52 mt-6">
                     <img
@@ -91,11 +116,11 @@ const Index: React.FC = () => {
                   </div>
                 </div>
                 {/* Integrate with leading platforms card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] backdrop-blur-sm overflow-hidden">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
                   <div className="flex justify-center">
-                    <div className="grid grid-cols-3 w-full gap-x-8 gap-y-6 justify-items-center items-center mb-4">
-                      {platformLogos.map((src) => (
+                    <div className={`grid grid-cols-3 w-full gap-x-8 gap-y-6 justify-items-center items-center mb-4 ${isShuffling ? 'card-shuffle' : ''}`}>
+                      {shuffledLogos.map((src) => (
                         <div key={src} className="bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md">
                           <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
                         </div>
@@ -104,7 +129,7 @@ const Index: React.FC = () => {
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] backdrop-blur-sm">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   {/* Large accent icon */}
                   <svg width="48" height="48" fill="none" viewBox="0 0 56 56" className="mb-4">
                     <path d="M28 8C16.954 8 8 16.954 8 28s8.954 20 20 20 20-8.954 20-20S39.046 8 28 8zm0 36c-8.837 0-16-7.163-16-16S19.163 12 28 12s16 7.163 16 16-7.163 16-16 16z" fill="#6366f1"/>
@@ -120,6 +145,23 @@ const Index: React.FC = () => {
         
         <Footer />
       </div>
+      <style>{`
+      @keyframes card-shuffle {
+        0% { transform: translateX(0); }
+        10% { transform: translateX(-6px) rotate(-1deg); }
+        20% { transform: translateX(6px) rotate(1deg); }
+        30% { transform: translateX(-4px) rotate(-0.5deg); }
+        40% { transform: translateX(4px) rotate(0.5deg); }
+        50% { transform: translateX(-2px); }
+        60% { transform: translateX(2px); }
+        70% { transform: translateX(-1px); }
+        80% { transform: translateX(1px); }
+        100% { transform: translateX(0); }
+      }
+      .card-shuffle {
+        animation: card-shuffle 1.2s cubic-bezier(0.45,0.05,0.55,0.95);
+      }
+      `}</style>
     </>
   );
 };
