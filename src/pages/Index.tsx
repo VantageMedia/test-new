@@ -58,7 +58,7 @@ const Index: React.FC = () => {
                 </div>
               </div>
               {/* Below: Two cards side-by-side */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full">
                 {/* Invoice and payment system card */}
                 <div className="bg-white/90 border-2 border-[#6366f1]/10 rounded-3xl shadow-2xl p-12 flex flex-col items-center min-h-[260px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-3xl animate-fade-in">
                   {/* Large accent icon */}
@@ -76,6 +76,16 @@ const Index: React.FC = () => {
                     <div className="bg-white rounded-2xl shadow flex items-center justify-center p-5 transition-transform duration-200 hover:scale-110"><img src="/paypal-logo.png" alt="PayPal logo" className="h-12 w-12 object-contain" /></div>
                   </div>
                   <div className="text-lg text-gray-500 text-center">Shopify, Stripe, Squarespace, PayPal & more</div>
+                </div>
+                {/* Analytics and Insights card */}
+                <div className="bg-white/90 border-2 border-[#6366f1]/10 rounded-3xl shadow-2xl p-12 flex flex-col items-center min-h-[260px] transition-transform duration-200 hover:scale-[1.03] hover:shadow-3xl animate-fade-in">
+                  {/* Large accent icon */}
+                  <svg width="56" height="56" fill="none" viewBox="0 0 56 56" className="mb-5">
+                    <path d="M28 8C16.954 8 8 16.954 8 28s8.954 20 20 20 20-8.954 20-20S39.046 8 28 8zm0 36c-8.837 0-16-7.163-16-16S19.163 12 28 12s16 7.163 16 16-7.163 16-16 16z" fill="#6366f1"/>
+                    <path d="M28 16v12l8 8" stroke="#6366f1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900 text-center">Analytics and Insights</h3>
+                  <p className="text-lg text-gray-500 text-center">Real-time analytics and actionable insights to drive your business growth.</p>
                 </div>
               </div>
             </div>
