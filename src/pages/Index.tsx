@@ -107,7 +107,7 @@ const Index: React.FC = () => {
                 {/* Invoice and payment system card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Invoice and payment system</h3>
-                  <div className="flex items-center justify-center w-52 h-52 mt-6">
+                  <div className="flex items-center justify-center w-72 h-72 mt-6">
                     <img
                       src="/fixedpos.png"
                       alt=""
