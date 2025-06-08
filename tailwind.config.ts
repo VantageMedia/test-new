@@ -145,7 +145,7 @@ export default {
 				'fade-out': 'fade-out 0.3s ease-out',
 				'bounce-slow': 'bounce-slow 3s ease-in-out infinite',
 				'bounce-horizontal-slow': 'bounce-horizontal 5s ease-in-out infinite',
-				'rotate-swing-once': 'rotate-swing 0.6s cubic-bezier(.36,.07,.19,.97) both',
+				'rotate-swing-once': 'rotate-swing 1.2s cubic-bezier(.36,.07,.19,.97) both',
 			}
 		}
 	},
