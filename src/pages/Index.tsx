@@ -109,7 +109,7 @@ const Index: React.FC = () => {
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Invoice and payment system</h3>
                   <div className="flex items-center justify-center w-52 h-52 mt-6">
                     <img
-                      src="/shoppos.png"
+                      src="/squarepos.png"
                       alt=""
                       className="w-full h-full object-contain"
                     />
