@@ -16,7 +16,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
             style={{ width: '100%', height: '100%', border: 'none' }}
             title="Schedule a consultation"
           />
-          <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: '48px', background: 'white', zIndex: 10}} />
+          <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: '48px', background: 'white', zIndex: 10, pointerEvents: 'none'}} />
         </div>
       </DialogContent>
     </Dialog>
