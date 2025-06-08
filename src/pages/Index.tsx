@@ -114,7 +114,7 @@ const Index: React.FC = () => {
                           '/paypal-logo.png',
                           '/google-logo.png',
                           '/wave-logo.png',
-                        ][i]} alt="Platform logo" className="max-w-[60%] max-h-[60%] object-contain mx-auto my-auto" loading="lazy" />
+                        ][i]} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
                       </div>
                     ))}
                   </div>
