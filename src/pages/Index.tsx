@@ -132,25 +132,13 @@ const Index: React.FC = () => {
                 </div>
                 {/* Integrate with leading platforms card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden">
-                  <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
-                  <div className="flex justify-center">
-                    <div className={`grid grid-cols-3 w-full justify-items-center items-center mb-4 ${isShuffling ? 'card-shuffle' : ''}`}> 
-                      {/* First row */}
-                      {shuffledLogos.slice(0, 3).map((src, i) => (
-                        <div key={src} className={`bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md z-20${i !== 0 ? ' -ml-4' : ''}`}>
+                  <h3 className="text-xl font-bold mb-6 text-gray-900 text-center leading-tight">Integrate with leading<br/>platforms</h3>
+                  <div className="flex flex-1 items-center justify-center w-full">
+                    <div className={`grid grid-cols-3 grid-rows-2 gap-x-8 gap-y-4 justify-items-center items-center ${isShuffling ? 'card-shuffle' : ''}`}
+                      style={{minHeight: '220px'}}>
+                      {shuffledLogos.slice(0, 6).map((src, i) => (
+                        <div key={src} className={`bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md z-10${i % 3 !== 0 ? ' -ml-4' : ''}${i > 2 ? ' -mt-4' : ''}`}>
                           <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
-                        </div>
-                      ))}
-                      {/* Second row, overlap left and up */}
-                      {shuffledLogos.slice(3, 6).map((src, i) => (
-                        <div key={src} className={`bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md z-10${i !== 0 ? ' -ml-4' : ''} -mt-4`}>
-                          <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
-                        </div>
-                      ))}
-                      {/* Third row, placeholders, overlap left and up */}
-                      {[1,2,3].map((n, i) => (
-                        <div key={`placeholder-${n}`} className={`bg-gray-200 rounded-xl flex items-center justify-center w-24 h-24 shadow-md opacity-60 z-0${i !== 0 ? ' -ml-4' : ''} -mt-4`}>
-                          <span className="text-gray-400">Placeholder</span>
                         </div>
                       ))}
                     </div>
