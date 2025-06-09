@@ -108,23 +108,33 @@ const Index: React.FC = () => {
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Invoice and payment system</h3>
                   <div className="flex items-center justify-center space-x-4">
+                    {/* iPhone with keypad overlay */}
                     <div className="relative w-36 h-36 flex items-center justify-center">
                       <img
                         src="/iphone.avif"
                         alt="iPhone"
                         className="w-full h-full object-contain"
+                        style={{ zIndex: 1 }}
+                        onError={e => { (e.target as HTMLImageElement).style.border = '2px solid red'; }}
                       />
                       <img
                         src="/keypad.jpg"
                         alt="Keypad"
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className="absolute"
+                        style={{
+                          left: '22%', top: '32%', width: '56%', height: '36%', zIndex: 2,
+                          objectFit: 'contain', pointerEvents: 'none', position: 'absolute'
+                        }}
+                        onError={e => { (e.target as HTMLImageElement).style.border = '2px solid red'; }}
                       />
                     </div>
+                    {/* POS system */}
                     <div className="relative w-36 h-36 flex items-center justify-center">
                       <img
                         src="/fixedpos.png"
                         alt="POS System"
                         className="w-full h-full object-contain"
+                        onError={e => { (e.target as HTMLImageElement).style.border = '2px solid red'; }}
                       />
                     </div>
                   </div>
