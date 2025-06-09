@@ -141,7 +141,9 @@ const Index: React.FC = () => {
                       style={{minHeight: '320px'}}>
                       {shuffledLogos.slice(0, 9).map((src, i) => (
                         <div key={src} className={`bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md z-10${i % 3 !== 0 ? ' -ml-4' : ''}${i > 2 ? ' -mt-4' : ''}`}>
-                          <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
+                          <div className="flex items-center justify-center w-14 h-14">
+                            <img src={src} alt="Platform logo" className="max-w-full max-h-full object-contain" loading="lazy" />
+                          </div>
                         </div>
                       ))}
                     </div>
