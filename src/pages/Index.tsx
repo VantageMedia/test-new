@@ -103,9 +103,9 @@ const Index: React.FC = () => {
                 </div>
               </div>
               {/* Below: Three cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full max-w-7xl mx-auto">
                 {/* Invoice and payment system card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm md:col-span-2 md:mr-0 md:ml-[-2rem]" style={{ marginLeft: '-2rem' }}>
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm md:col-span-2">
                   <h3 className="text-xl font-bold mb-8 text-gray-900 text-center">Invoice and payment system</h3>
                   <div className="flex flex-row items-center justify-between w-full h-72 relative overflow-visible">
                     {/* iPhone - large, left, cut off by border */}
@@ -130,7 +130,7 @@ const Index: React.FC = () => {
                   </div>
                 </div>
                 {/* Integrate with leading platforms card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden md:col-span-1">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
                   <div className="flex justify-center">
                     <div className={`grid grid-cols-3 w-full gap-x-8 gap-y-6 justify-items-center items-center mb-4 ${isShuffling ? 'card-shuffle' : ''}`}>
@@ -143,7 +143,7 @@ const Index: React.FC = () => {
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm md:col-span-1">
                   {/* Large accent icon */}
                   <svg width="48" height="48" fill="none" viewBox="0 0 56 56" className="mb-4">
                     <path d="M28 8C16.954 8 8 16.954 8 28s8.954 20 20 20 20-8.954 20-20S39.046 8 28 8zm0 36c-8.837 0-16-7.163-16-16S19.163 12 28 12s16 7.163 16 16-7.163 16-16 16z" fill="#6366f1"/>
