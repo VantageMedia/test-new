@@ -107,12 +107,26 @@ const Index: React.FC = () => {
                 {/* Invoice and payment system card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Invoice and payment system</h3>
-                  <div className="relative w-36 h-36 flex items-center justify-center">
-                    <img
-                      src="/fixedpos.png"
-                      alt=""
-                      className="w-full h-full object-contain"
-                    />
+                  <div className="flex items-center justify-center space-x-4">
+                    <div className="relative w-36 h-36 flex items-center justify-center">
+                      <img
+                        src="/iphone.avif"
+                        alt="iPhone"
+                        className="w-full h-full object-contain"
+                      />
+                      <img
+                        src="/keypad.jpg"
+                        alt="Keypad"
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="relative w-36 h-36 flex items-center justify-center">
+                      <img
+                        src="/fixedpos.png"
+                        alt="POS System"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </div>
                 </div>
                 {/* Integrate with leading platforms card */}
