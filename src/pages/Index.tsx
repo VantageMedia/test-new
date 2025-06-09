@@ -16,6 +16,9 @@ const platformLogos = [
   '/paypal-logo.png',
   '/google-logo.png',
   '/wave-logo.png',
+  '/pintrist.png',
+  '/instalogo.webp',
+  '/tiktok.webp',
 ];
 
 function shuffleArray(array) {
@@ -134,9 +137,9 @@ const Index: React.FC = () => {
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden">
                   <h3 className="text-xl font-bold mb-6 text-gray-900 text-center leading-tight">Integrate with leading<br/>platforms</h3>
                   <div className="flex flex-1 items-center justify-center w-full">
-                    <div className={`grid grid-cols-3 grid-rows-2 gap-x-8 gap-y-4 justify-items-center items-center ${isShuffling ? 'card-shuffle' : ''}`}
-                      style={{minHeight: '220px'}}>
-                      {shuffledLogos.slice(0, 6).map((src, i) => (
+                    <div className={`grid grid-cols-3 grid-rows-3 gap-x-8 gap-y-4 justify-items-center items-center ${isShuffling ? 'card-shuffle' : ''}`}
+                      style={{minHeight: '320px'}}>
+                      {shuffledLogos.slice(0, 9).map((src, i) => (
                         <div key={src} className={`bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md z-10${i % 3 !== 0 ? ' -ml-4' : ''}${i > 2 ? ' -mt-4' : ''}`}>
                           <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
                         </div>
