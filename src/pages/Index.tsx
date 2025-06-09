@@ -106,35 +106,26 @@ const Index: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {/* Invoice and payment system card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
-                  <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Invoice and payment system</h3>
-                  <div className="flex items-center justify-center space-x-4">
-                    {/* iPhone with keypad overlay */}
-                    <div className="relative w-36 h-36 flex items-center justify-center">
+                  <h3 className="text-xl font-bold mb-8 text-gray-900 text-center">Invoice and payment system</h3>
+                  <div className="flex flex-row items-center justify-between w-full h-72 relative overflow-visible">
+                    {/* iPhone - large, left, cut off by border */}
+                    <div className="flex-shrink-0 -ml-20 z-10">
                       <img
                         src="/iphone.avif"
                         alt="iPhone"
-                        className="w-full h-full object-contain"
-                        style={{ zIndex: 1 }}
-                        onError={e => { (e.target as HTMLImageElement).style.border = '2px solid red'; }}
-                      />
-                      <img
-                        src="/keypad.jpg"
-                        alt="Keypad"
-                        className="absolute"
-                        style={{
-                          left: '22%', top: '32%', width: '56%', height: '36%', zIndex: 2,
-                          objectFit: 'contain', pointerEvents: 'none', position: 'absolute'
-                        }}
-                        onError={e => { (e.target as HTMLImageElement).style.border = '2px solid red'; }}
+                        className="h-72 w-auto object-contain drop-shadow-xl"
+                        style={{ borderRadius: '2rem 0 0 2rem' }}
                       />
                     </div>
-                    {/* POS system */}
-                    <div className="relative w-36 h-36 flex items-center justify-center">
+                    {/* Spacer for balance */}
+                    <div className="flex-1" />
+                    {/* POS system - large, right */}
+                    <div className="flex-shrink-0 -mr-20 z-10">
                       <img
                         src="/fixedpos.png"
                         alt="POS System"
-                        className="w-full h-full object-contain"
-                        onError={e => { (e.target as HTMLImageElement).style.border = '2px solid red'; }}
+                        className="h-60 w-auto object-contain drop-shadow-xl"
+                        style={{ borderRadius: '0 2rem 2rem 0' }}
                       />
                     </div>
                   </div>
