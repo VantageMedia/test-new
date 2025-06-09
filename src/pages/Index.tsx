@@ -103,9 +103,9 @@ const Index: React.FC = () => {
                 </div>
               </div>
               {/* Below: Three cards */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
                 {/* Invoice and payment system card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm md:col-span-2">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-8 text-gray-900 text-center">Invoice and payment system</h3>
                   <div className="flex flex-row items-center justify-between w-full h-72 relative overflow-visible">
                     {/* iPhone - large, left, cut off by border */}
@@ -117,6 +117,7 @@ const Index: React.FC = () => {
                         style={{ borderRadius: '2rem 0 0 2rem' }}
                       />
                     </div>
+                    {/* Spacer for balance */}
                     <div className="flex-1" />
                     {/* POS system - large, right */}
                     <div className="flex-shrink-0 -mr-20 z-10">
@@ -130,10 +131,10 @@ const Index: React.FC = () => {
                   </div>
                 </div>
                 {/* Integrate with leading platforms card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden md:col-span-1">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden">
                   <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
                   <div className="flex justify-center">
-                    <div className={`grid grid-cols-3 w-full gap-x-8 gap-y-6 justify-items-center items-center mb-4 ${isShuffling ? 'card-shuffle' : ''}`}>
+                    <div className={`grid grid-cols-3 w-full gap-x-8 gap-y-6 justify-items-center items-center mb-4 ${isShuffling ? 'card-shuffle' : ''}`}> 
                       {shuffledLogos.map((src) => (
                         <div key={src} className="bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md">
                           <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
@@ -143,7 +144,7 @@ const Index: React.FC = () => {
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm md:col-span-1">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   {/* Large accent icon */}
                   <svg width="48" height="48" fill="none" viewBox="0 0 56 56" className="mb-4">
                     <path d="M28 8C16.954 8 8 16.954 8 28s8.954 20 20 20 20-8.954 20-20S39.046 8 28 8zm0 36c-8.837 0-16-7.163-16-16S19.163 12 28 12s16 7.163 16 16-7.163 16-16 16z" fill="#6366f1"/>
