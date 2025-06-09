@@ -103,55 +103,63 @@ const Index: React.FC = () => {
                 </div>
               </div>
               {/* Below: Three cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-[1800px] mx-auto">
                 {/* Invoice and payment system card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
-                  <h3 className="text-xl font-bold mb-8 text-gray-900 text-center">Invoice and payment system</h3>
-                  <div className="flex flex-row items-center justify-between w-full h-72 relative overflow-visible">
-                    {/* iPhone - large, left, cut off by border */}
-                    <div className="flex-shrink-0 -ml-20 z-10">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-12 flex flex-col items-center min-h-[420px] col-span-1 md:col-span-1" style={{ minWidth: '480px', maxWidth: '700px' }}>
+                  <h3 className="text-2xl font-bold mb-10 text-gray-900 text-center">Invoice and payment system</h3>
+                  <div className="flex flex-row items-center justify-center w-full h-96 relative overflow-visible">
+                    {/* iPhone - large, left, centered in new box */}
+                    <div className="flex-shrink-0 flex items-center justify-center" style={{ width: '50%' }}>
                       <img
                         src="/iphone.avif"
                         alt="iPhone"
-                        className="h-72 w-auto object-contain drop-shadow-xl"
-                        style={{ borderRadius: '2rem 0 0 2rem' }}
+                        className="h-80 w-auto object-contain drop-shadow-xl"
+                        style={{ borderRadius: '2rem' }}
                       />
                     </div>
-                    {/* Spacer for balance */}
-                    <div className="flex-1" />
-                    {/* POS system - large, right */}
-                    <div className="flex-shrink-0 -mr-20 z-10">
+                    {/* POS system - right, centered in new box */}
+                    <div className="flex-shrink-0 flex items-center justify-center" style={{ width: '50%' }}>
                       <img
                         src="/fixedpos.png"
                         alt="POS System"
-                        className="h-60 w-auto object-contain drop-shadow-xl"
-                        style={{ borderRadius: '0 2rem 2rem 0' }}
+                        className="h-72 w-auto object-contain drop-shadow-xl"
+                        style={{ borderRadius: '2rem' }}
                       />
                     </div>
                   </div>
                 </div>
                 {/* Integrate with leading platforms card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm overflow-hidden">
-                  <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Integrate with leading platforms</h3>
-                  <div className="flex justify-center">
-                    <div className={`grid grid-cols-3 w-full gap-x-8 gap-y-6 justify-items-center items-center mb-4 ${isShuffling ? 'card-shuffle' : ''}`}>
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-12 flex flex-col items-center min-h-[420px] col-span-1 md:col-span-1 backdrop-blur-sm overflow-hidden" style={{ minWidth: '380px', maxWidth: '480px' }}>
+                  <h3 className="text-2xl font-bold mb-10 text-gray-900 text-center">Integrate with leading platforms</h3>
+                  <div className="flex justify-center w-full">
+                    <div className={`grid grid-cols-3 w-full gap-x-8 gap-y-6 justify-items-center items-center mb-4 ${isShuffling ? 'card-shuffle' : ''}`} style={{minHeight: '320px'}}>
                       {shuffledLogos.map((src) => (
                         <div key={src} className="bg-white rounded-xl flex items-center justify-center w-24 h-24 shadow-md">
-                          <img src={src} alt="Platform logo" className="max-w-[48%] max-h-[48%] object-contain mx-auto my-auto" loading="lazy" />
+                          <img src={src} alt="Platform logo" className="max-w-[60%] max-h-[60%] object-contain mx-auto my-auto" loading="lazy" />
                         </div>
                       ))}
+                      {/* Placeholder row */}
+                      <div className="bg-gray-200 rounded-xl flex items-center justify-center w-24 h-24 shadow-md opacity-60">
+                        <span className="text-gray-400">Placeholder</span>
+                      </div>
+                      <div className="bg-gray-200 rounded-xl flex items-center justify-center w-24 h-24 shadow-md opacity-60">
+                        <span className="text-gray-400">Placeholder</span>
+                      </div>
+                      <div className="bg-gray-200 rounded-xl flex items-center justify-center w-24 h-24 shadow-md opacity-60">
+                        <span className="text-gray-400">Placeholder</span>
+                      </div>
                     </div>
                   </div>
                 </div>
                 {/* Analytics and Insights card */}
-                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
+                <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-12 flex flex-col items-center min-h-[420px] col-span-1 md:col-span-1" style={{ minWidth: '480px', maxWidth: '700px' }}>
                   {/* Large accent icon */}
-                  <svg width="48" height="48" fill="none" viewBox="0 0 56 56" className="mb-4">
+                  <svg width="64" height="64" fill="none" viewBox="0 0 56 56" className="mb-6">
                     <path d="M28 8C16.954 8 8 16.954 8 28s8.954 20 20 20 20-8.954 20-20S39.046 8 28 8zm0 36c-8.837 0-16-7.163-16-16S19.163 12 28 12s16 7.163 16 16-7.163 16-16 16z" fill="#6366f1"/>
                     <path d="M28 16v12l8 8" stroke="#6366f1" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 text-center">Analytics and Insights</h3>
-                  <p className="text-base text-gray-500 text-center">Real-time analytics and actionable insights to drive your business growth.</p>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-900 text-center">Analytics and Insights</h3>
+                  <p className="text-lg text-gray-500 text-center">Real-time analytics and actionable insights to drive your business growth.</p>
                 </div>
               </div>
             </div>
