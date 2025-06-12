@@ -33,19 +33,20 @@ function shuffleArray(array) {
 const Index: React.FC = () => {
   const [shuffledLogos, setShuffledLogos] = useState(platformLogos);
   const [isShuffling, setIsShuffling] = useState(false);
-  const [shake, setShake] = React.useState([false, false, false, false, false, false]);
-  const [swing, setSwing] = React.useState([false, false, false, false, false, false]);
+  const [shake, setShake] = React.useState([false, false, false, false, false, false, false, false, false]);
+  const [swing, setSwing] = React.useState([false, false, false, false, false, false, false, false, false]);
   const animTimeouts = useRef([]);
+  const [showIphone, setShowIphone] = useState(true);
 
   useEffect(() => {
     let tick = 0;
     const interval = setInterval(() => {
       setIsShuffling(true);
       setShuffledLogos((prev) => shuffleArray(prev));
-      setSwing([true, true, true, true, true, true]);
-      setShake([true, true, true, true, true, true]);
+      setSwing([true, true, true, true, true, true, true, true, true]);
+      setShake([true, true, true, true, true, true, true, true, true]);
       animTimeouts.current.forEach(clearTimeout);
-      animTimeouts.current = [0,1,2,3,4,5].map((i) => setTimeout(() => {
+      animTimeouts.current = [0,1,2,3,4,5,6,7,8].map((i) => setTimeout(() => {
         setSwing((prev) => { const next = [...prev]; next[i] = false; return next; });
         setShake((prev) => { const next = [...prev]; next[i] = false; return next; });
       }, 600 + i * 50));
@@ -56,6 +57,14 @@ const Index: React.FC = () => {
       clearInterval(interval);
       animTimeouts.current.forEach(clearTimeout);
     };
+  }, []);
+
+  // Swap iPhone/POS every 7.5 seconds
+  useEffect(() => {
+    const swapInterval = setInterval(() => {
+      setShowIphone((prev) => !prev);
+    }, 7500);
+    return () => clearInterval(swapInterval);
   }, []);
 
   return (
@@ -110,25 +119,21 @@ const Index: React.FC = () => {
                 {/* Invoice and payment system card */}
                 <div className="bg-white/95 border border-[#6366f1]/20 rounded-2xl p-8 flex flex-col items-center min-h-[260px] will-change-transform animate-bounce-slow backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-8 text-gray-900 text-center">Invoice and payment system</h3>
-                  <div className="flex flex-row items-center justify-between w-full h-72 relative overflow-visible">
-                    {/* iPhone - large, left, cut off by border */}
-                    <div className="flex-shrink-0 -ml-20 z-10">
+                  <div className="flex items-center justify-center w-full h-72 relative overflow-visible">
+                    <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-700" style={{ opacity: showIphone ? 1 : 0, zIndex: showIphone ? 2 : 1 }}>
                       <img
                         src="/iphone.avif"
                         alt="iPhone"
                         className="h-72 w-auto object-contain drop-shadow-xl"
-                        style={{ borderRadius: '2rem 0 0 2rem' }}
+                        style={{ borderRadius: '2rem' }}
                       />
                     </div>
-                    {/* Spacer for balance */}
-                    <div className="flex-1" />
-                    {/* POS system - large, right */}
-                    <div className="flex-shrink-0 -mr-20 z-10">
+                    <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-700" style={{ opacity: showIphone ? 0 : 1, zIndex: showIphone ? 1 : 2 }}>
                       <img
                         src="/fixedpos.png"
                         alt="POS System"
                         className="h-60 w-auto object-contain drop-shadow-xl"
-                        style={{ borderRadius: '0 2rem 2rem 0' }}
+                        style={{ borderRadius: '2rem' }}
                       />
                     </div>
                   </div>
