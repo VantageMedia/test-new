@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useMemo } from 'react';
 import { Button } from "@/components/ui/button";
 import Globe from 'react-globe.gl';
+import type { GlobeMethods } from 'react-globe.gl';
 
 // Helper to generate random lat/lon
 function randomLatLon() {
@@ -29,7 +30,7 @@ interface PointDatum {
 }
 
 const GlobalBusiness: React.FC = () => {
-  const globeEl = useRef<any>();
+  const globeEl = useRef<GlobeMethods>();
 
   // Generate fake arcs and points only once
   const arcsData: ArcDatum[] = useMemo(() =>

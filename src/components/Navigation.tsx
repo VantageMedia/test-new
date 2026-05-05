@@ -1,98 +1,137 @@
-import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Menu, Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { Menu } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import BookingModal from './BookingModal';
+} from '@/components/ui/sheet';
+import { BookingModalContext } from '@/App';
 
-const Navigation: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  const navItems = [
-    { title: "HOME", href: "/" },
-    { title: "SERVICES", href: "/services" },
-    { title: "BLOG", href: "/blog" },
-  ];
-  
+const navItems = [
+  { title: 'Services', id: 'services' },
+  { title: 'Process', id: 'process' },
+  { title: 'Work', id: 'work' },
+  { title: 'Results', id: 'results' },
+];
+
+interface NavigationProps {
+  isScrolled?: boolean;
+  onNavigate?: (sectionId: string) => void;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ isScrolled = false, onNavigate }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { open } = useContext(BookingModalContext);
+
+  const openBooking = () => {
+    setIsMenuOpen(false);
+    open();
+  };
+
   return (
-    <>
-      <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md py-2' : 'bg-white/60 backdrop-blur-md py-4'}`} style={{boxShadow: isScrolled ? '0 2px 24px 0 rgba(100,100,255,0.10)' : '0 2px 24px 0 rgba(100,100,255,0.08)'}}>
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="flex justify-between items-center">
-            <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-[#6366f1]">Vantage Media</span>
-            </Link>
-            
-            <nav className="hidden md:flex items-center space-x-8">
-              {navItems.map((item, index) => (
-                <a 
-                  key={index} 
-                  href={item.href} 
-                  className="text-sm font-medium hover:text-blue-500 transition-colors"
-                >
-                  {item.title}
-                </a>
-              ))}
-              <Button
-                asChild
-                className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#6366f1] hover:bg-[#4f46e5] transition-colors shadow-sm hover:shadow-md"
-              >
-                <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
-              </Button>
-            </nav>
-            
-            <div className="md:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className="md:hidden">
-                    <Menu className="h-6 w-6" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent>
-                  <nav className="flex flex-col space-y-4 mt-8">
-                    {navItems.map((item, index) => (
-                      <a 
-                        key={index} 
-                        href={item.href} 
-                        className="text-lg font-medium hover:text-blue-500 transition-colors"
-                      >
-                        {item.title}
-                      </a>
-                    ))}
-                    <Button
-                      asChild
-                      className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-full text-white bg-[#6366f1] hover:bg-[#4f46e5] transition-colors shadow-sm hover:shadow-md"
-                    >
-                      <a href="mailto:hello@vantagemediaus.com">FREE CONSULTATION</a>
-                    </Button>
-                  </nav>
-                </SheetContent>
-              </Sheet>
-            </div>
-          </div>
-        </div>
-      </header>
+    <header className="fixed left-0 right-0 top-0 z-50 px-3 py-4 lg:px-6">
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between border px-3 py-2 transition-all duration-300 ${
+          isScrolled
+            ? 'border-[#10131f]/14 bg-[#fffdf4]/45 shadow-[0_18px_55px_rgba(16,19,31,.1)] backdrop-blur-xl'
+            : 'border-transparent bg-transparent'
+        }`}
+      >
+        <Link
+          to="/"
+          onClick={(event) => {
+            if (onNavigate) {
+              event.preventDefault();
+              onNavigate('home');
+            }
+          }}
+          className="flex min-w-0 items-center gap-3"
+          aria-label="Vantage Media home"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-[#10131f] text-[#d4ff43]">
+            <Sparkles className="h-5 w-5" />
+          </span>
+          <span className="min-w-0">
+            <span className="block text-lg font-black leading-none text-[#10131f]">Vantage</span>
+            <span className="block text-[10px] font-black uppercase text-[#174cff]">Media</span>
+          </span>
+        </Link>
 
-      {/* Booking Modal */}
-      <BookingModal 
-        isOpen={isBookingOpen} 
-        onClose={() => setIsBookingOpen(false)} 
-      />
-    </>
+        <nav className="hidden items-center gap-1 md:flex">
+          {navItems.map((item) => (
+            <a
+              key={item.title}
+              href={`#${item.id}`}
+              onClick={(event) => {
+                if (onNavigate) {
+                  event.preventDefault();
+                  onNavigate(item.id);
+                }
+              }}
+              className="px-4 py-3 text-sm font-black text-[#10131f]/78 transition hover:bg-[#10131f] hover:text-white"
+            >
+              {item.title}
+            </a>
+          ))}
+        </nav>
+
+        <div className="hidden items-center gap-3 md:flex">
+          <a
+            href="mailto:hello@vantagemediaus.com"
+            className="text-sm font-black text-[#10131f]/70 transition hover:text-[#174cff]"
+          >
+            hello@vantagemediaus.com
+          </a>
+          <Button
+            onClick={openBooking}
+            className="h-11 rounded-full bg-[#10131f] px-5 font-black text-white hover:bg-[#174cff]"
+          >
+            Start
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+
+        <div className="md:hidden">
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="h-11 w-11 rounded-none border border-[#10131f]/12 bg-[#fffdf4]/55 backdrop-blur">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Open navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="bg-[#fff8e7]">
+              <nav className="mt-12 flex flex-col gap-3">
+                {navItems.map((item) => (
+                  <a
+                    key={item.title}
+                    href={`#${item.id}`}
+                    onClick={(event) => {
+                      if (onNavigate) {
+                        event.preventDefault();
+                        onNavigate(item.id);
+                      }
+                      setIsMenuOpen(false);
+                    }}
+                    className="border-b border-[#10131f]/12 py-5 text-3xl font-black text-[#10131f]"
+                  >
+                    {item.title}
+                  </a>
+                ))}
+                <Button
+                  onClick={openBooking}
+                  className="mt-5 h-14 rounded-full bg-[#174cff] px-6 text-base font-black text-white hover:bg-[#10131f]"
+                >
+                  Start a build
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </header>
   );
 };
 

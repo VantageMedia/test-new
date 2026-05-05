@@ -1,8 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import Globe from 'react-globe.gl';
+import type { GlobeMethods } from 'react-globe.gl';
 
 const GlobeSection: React.FC = () => {
-  const globeEl = useRef<any>();
+  const globeEl = useRef<GlobeMethods>();
 
   useEffect(() => {
     if (globeEl.current) {
